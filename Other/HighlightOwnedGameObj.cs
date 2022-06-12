@@ -2,11 +2,9 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000042 RID: 66
 [RequireComponent(typeof(PhotonView))]
 public class HighlightOwnedGameObj : MonoBehaviourPunCallbacks
 {
-	// Token: 0x06000173 RID: 371 RVA: 0x0000A77C File Offset: 0x0000897C
 	private void Update()
 	{
 		if (base.photonView.IsMine)
@@ -29,12 +27,10 @@ public class HighlightOwnedGameObj : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x040001B2 RID: 434
 	public GameObject PointerPrefab;
 
-	// Token: 0x040001B3 RID: 435
 	public float Offset = 0.5f;
 
-	// Token: 0x040001B4 RID: 436
 	private Transform markerTransform;
 }
+

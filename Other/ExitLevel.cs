@@ -5,16 +5,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 using Photon.Pun;
 
-// Token: 0x0200017B RID: 379
 public class ExitLevel : MonoBehaviour
 {
-	// Token: 0x06000AC9 RID: 2761 RVA: 0x000439D2 File Offset: 0x00041BD2
 	private void Awake()
 	{
 		this.view = base.GetComponent<PhotonView>();
 	}
 
-	// Token: 0x06000ACA RID: 2762 RVA: 0x000439E0 File Offset: 0x00041BE0
 	public void StartAttemptExitLevel()
 	{
 		base.StopAllCoroutines();
@@ -24,7 +21,6 @@ public class ExitLevel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000ACB RID: 2763 RVA: 0x00043A00 File Offset: 0x00041C00
 	public bool ThereAreAlivePlayersOutsideTheTruck()
 	{
 		bool result = false;
@@ -38,7 +34,6 @@ public class ExitLevel : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06000ACC RID: 2764 RVA: 0x00043AA1 File Offset: 0x00041CA1
 	[PunRPC]
 	private void PlayTruckStartUpSound()
 	{
@@ -46,7 +41,6 @@ public class ExitLevel : MonoBehaviour
 		this.source.Play();
 	}
 
-	// Token: 0x06000ACD RID: 2765 RVA: 0x00043ABF File Offset: 0x00041CBF
 	[PunRPC]
 	private void PlayTruckStopSound()
 	{
@@ -54,7 +48,6 @@ public class ExitLevel : MonoBehaviour
 		this.source.Play();
 	}
 
-	// Token: 0x06000ACE RID: 2766 RVA: 0x00043ADD File Offset: 0x00041CDD
 	private IEnumerator AttemptExitLevel()
 	{
 		this.view.RPC("PlayTruckStartUpSound", RpcTarget.All, Array.Empty<object>());
@@ -83,7 +76,6 @@ public class ExitLevel : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000ACF RID: 2767 RVA: 0x00043AEC File Offset: 0x00041CEC
 	[PunRPC]
 	private void Exit()
 	{
@@ -125,7 +117,6 @@ public class ExitLevel : MonoBehaviour
 		base.StartCoroutine(this.LoadLevelAfterDelay());
 	}
 
-	// Token: 0x06000AD0 RID: 2768 RVA: 0x00043BFD File Offset: 0x00041DFD
 	private IEnumerator LoadLevelAfterDelay()
 	{
 		yield return new WaitForSeconds(2f);
@@ -144,7 +135,6 @@ public class ExitLevel : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000AD1 RID: 2769 RVA: 0x00043C08 File Offset: 0x00041E08
 	private void CheckMissions()
 	{
 		if (MissionGhostType.instance)
@@ -186,7 +176,6 @@ public class ExitLevel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AD2 RID: 2770 RVA: 0x00043D74 File Offset: 0x00041F74
 	private void CheckExp()
 	{
 		int num = 0;
@@ -219,7 +208,6 @@ public class ExitLevel : MonoBehaviour
 		PlayerPrefs.SetInt("myTotalExp", @int + num);
 	}
 
-	// Token: 0x06000AD3 RID: 2771 RVA: 0x00043E80 File Offset: 0x00042080
 	private void CheckChallenges(bool isDead)
 	{
 		DailyChallengesController.Instance.ChangeChallengeProgression(ChallengeType.playContracts, 1);
@@ -248,7 +236,6 @@ public class ExitLevel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AD4 RID: 2772 RVA: 0x00043F5C File Offset: 0x0004215C
 	[PunRPC]
 	private void SyncPhotoValue(int value)
 	{
@@ -259,30 +246,24 @@ public class ExitLevel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000B2D RID: 2861
 	private PhotonView view;
 
-	// Token: 0x04000B2E RID: 2862
 	[HideInInspector]
 	public bool isExiting;
 
-	// Token: 0x04000B2F RID: 2863
 	[SerializeField]
 	private ExitLevelTrigger trigger;
 
-	// Token: 0x04000B30 RID: 2864
 	[SerializeField]
 	private AudioSource source;
 
-	// Token: 0x04000B31 RID: 2865
 	[SerializeField]
 	private AudioClip startExitSound;
 
-	// Token: 0x04000B32 RID: 2866
 	[SerializeField]
 	private AudioClip stopExitSound;
 
-	// Token: 0x04000B33 RID: 2867
 	[SerializeField]
 	private ItemSpawner itemSpawner;
 }
+

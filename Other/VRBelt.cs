@@ -2,10 +2,8 @@ using System;
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x02000184 RID: 388
 public class VRBelt : MonoBehaviour
 {
-	// Token: 0x06000B0A RID: 2826 RVA: 0x00045D60 File Offset: 0x00043F60
 	private void Start()
 	{
 		if (!PhotonNetwork.InRoom)
@@ -14,7 +12,6 @@ public class VRBelt : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000B0B RID: 2827 RVA: 0x00045D78 File Offset: 0x00043F78
 	public void Update()
 	{
 		if (this.view.IsMine)
@@ -33,24 +30,19 @@ public class VRBelt : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000B92 RID: 2962
 	[SerializeField]
 	private Transform playerCam;
 
-	// Token: 0x04000B93 RID: 2963
 	[SerializeField]
 	private LayerMask mask;
 
-	// Token: 0x04000B94 RID: 2964
 	[SerializeField]
 	private PhotonView view;
 
-	// Token: 0x04000B95 RID: 2965
 	private Quaternion myQuat;
 
-	// Token: 0x04000B96 RID: 2966
 	private Vector3 myEul;
 
-	// Token: 0x04000B97 RID: 2967
 	private Vector3 newPos;
 }
+

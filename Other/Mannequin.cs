@@ -2,17 +2,14 @@ using System;
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x02000102 RID: 258
 [RequireComponent(typeof(PhotonView))]
 public class Mannequin : MonoBehaviour
 {
-	// Token: 0x0600071B RID: 1819 RVA: 0x0002A8C7 File Offset: 0x00028AC7
 	private void Awake()
 	{
 		this.view = base.GetComponent<PhotonView>();
 	}
 
-	// Token: 0x0600071C RID: 1820 RVA: 0x0002A8D8 File Offset: 0x00028AD8
 	public void Teleport()
 	{
 		int num = UnityEngine.Random.Range(0, LevelController.instance.MannequinTeleportSpots.Length);
@@ -44,7 +41,6 @@ public class Mannequin : MonoBehaviour
 		this.Rotate();
 	}
 
-	// Token: 0x0600071D RID: 1821 RVA: 0x0002AA44 File Offset: 0x00028C44
 	public void Rotate()
 	{
 		this.view.RPC("RotateNetworked", RpcTarget.All, new object[]
@@ -53,7 +49,6 @@ public class Mannequin : MonoBehaviour
 		});
 	}
 
-	// Token: 0x0600071E RID: 1822 RVA: 0x0002AA86 File Offset: 0x00028C86
 	[PunRPC]
 	private void TeleportNetworked(int id)
 	{
@@ -61,17 +56,15 @@ public class Mannequin : MonoBehaviour
 		base.transform.SetParent(LevelController.instance.MannequinTeleportSpots[id]);
 	}
 
-	// Token: 0x0600071F RID: 1823 RVA: 0x0002AABB File Offset: 0x00028CBB
 	[PunRPC]
 	private void RotateNetworked(Vector3 rot)
 	{
 		base.transform.Rotate(rot);
 	}
 
-	// Token: 0x04000739 RID: 1849
 	private PhotonView view;
 
-	// Token: 0x0400073A RID: 1850
 	[SerializeField]
 	private LayerMask mask;
 }
+

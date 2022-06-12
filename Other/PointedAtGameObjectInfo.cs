@@ -2,11 +2,9 @@ using System;
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x02000093 RID: 147
 [RequireComponent(typeof(InputToEvent))]
 public class PointedAtGameObjectInfo : MonoBehaviour
 {
-	// Token: 0x06000475 RID: 1141 RVA: 0x00019458 File Offset: 0x00017658
 	private void OnGUI()
 	{
 		if (InputToEvent.goPointedAt != null)
@@ -19,3 +17,4 @@ public class PointedAtGameObjectInfo : MonoBehaviour
 		}
 	}
 }
+

@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
 
-// Token: 0x02000004 RID: 4
 public class VisualizeMesh : MonoBehaviour
 {
-	// Token: 0x06000014 RID: 20 RVA: 0x000023EC File Offset: 0x000005EC
 	private void OnDrawGizmosSelected()
 	{
 		if (!this.mf)
@@ -40,12 +38,10 @@ public class VisualizeMesh : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000018 RID: 24
 	public float sphereRadius = 0.05f;
 
-	// Token: 0x04000019 RID: 25
 	private MeshFilter mf;
 
-	// Token: 0x0400001A RID: 26
 	private Mesh m;
 }
+

@@ -5,10 +5,8 @@ using UnityEngine.Events;
 using UnityEngine.XR;
 using Photon.Pun;
 
-// Token: 0x02000114 RID: 276
 public class IRLightSensor : MonoBehaviour
 {
-	// Token: 0x060007B3 RID: 1971 RVA: 0x0002E13B File Offset: 0x0002C33B
 	private void Awake()
 	{
 		this.photonInteract = base.GetComponent<PhotonObjectInteract>();
@@ -16,7 +14,6 @@ public class IRLightSensor : MonoBehaviour
 		this.view = base.GetComponent<PhotonView>();
 	}
 
-	// Token: 0x060007B4 RID: 1972 RVA: 0x0002E164 File Offset: 0x0002C364
 	private void Start()
 	{
 		if (XRDevice.isPresent)
@@ -32,7 +29,6 @@ public class IRLightSensor : MonoBehaviour
 		this.rend.material.DisableKeyword("_EMISSION");
 	}
 
-	// Token: 0x060007B5 RID: 1973 RVA: 0x0002E1EC File Offset: 0x0002C3EC
 	private void Update()
 	{
 		if (!this.isPlaced && this.view.IsMine)
@@ -92,7 +88,6 @@ public class IRLightSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007B6 RID: 1974 RVA: 0x0002E444 File Offset: 0x0002C644
 	private void SecondaryUse()
 	{
 		Camera playerCam = GameObject.Find("PCPlayerHead").GetComponent<Camera>();
@@ -116,7 +111,6 @@ public class IRLightSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007B7 RID: 1975 RVA: 0x0002E502 File Offset: 0x0002C702
 	public void Detection()
 	{
 		if (!this.detected)
@@ -130,7 +124,6 @@ public class IRLightSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007B8 RID: 1976 RVA: 0x0002E522 File Offset: 0x0002C722
 	[PunRPC]
 	private void DetectionNetworked()
 	{
@@ -140,7 +133,6 @@ public class IRLightSensor : MonoBehaviour
 		base.StartCoroutine(this.StopDetection());
 	}
 
-	// Token: 0x060007B9 RID: 1977 RVA: 0x0002E559 File Offset: 0x0002C759
 	private IEnumerator StopDetection()
 	{
 		yield return new WaitForSeconds(2f);
@@ -150,7 +142,6 @@ public class IRLightSensor : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060007BA RID: 1978 RVA: 0x0002E568 File Offset: 0x0002C768
 	private void MotionUse()
 	{
 		RaycastHit raycastHit;
@@ -171,7 +162,6 @@ public class IRLightSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007BB RID: 1979 RVA: 0x0002E5FC File Offset: 0x0002C7FC
 	private void OnGrabbed()
 	{
 		if (this.isPlaced)
@@ -191,7 +181,6 @@ public class IRLightSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007BC RID: 1980 RVA: 0x0002E660 File Offset: 0x0002C860
 	[PunRPC]
 	private void PlaceOrPickupSensor(bool isBeingPlaced, Vector3 position, Vector3 normal, string _roomName)
 	{
@@ -208,7 +197,6 @@ public class IRLightSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007BD RID: 1981 RVA: 0x0002E6D0 File Offset: 0x0002C8D0
 	private IEnumerator Place(Vector3 position, Vector3 normal)
 	{
 		base.transform.SetParent(null);
@@ -227,50 +215,38 @@ public class IRLightSensor : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x040007BA RID: 1978
 	[HideInInspector]
 	public bool isPlaced;
 
-	// Token: 0x040007BB RID: 1979
 	private PhotonObjectInteract photonInteract;
 
-	// Token: 0x040007BC RID: 1980
 	private Rigidbody rigidbdy;
 
-	// Token: 0x040007BD RID: 1981
 	private PhotonView view;
 
-	// Token: 0x040007BE RID: 1982
 	[SerializeField]
 	private Renderer rend;
 
-	// Token: 0x040007BF RID: 1983
 	[HideInInspector]
 	public string roomName;
 
-	// Token: 0x040007C0 RID: 1984
 	[SerializeField]
 	private LayerMask mask;
 
-	// Token: 0x040007C1 RID: 1985
 	[SerializeField]
 	private GameObject helperObject;
 
-	// Token: 0x040007C2 RID: 1986
 	[SerializeField]
 	private Light myLight;
 
-	// Token: 0x040007C3 RID: 1987
 	[HideInInspector]
 	public int id;
 
-	// Token: 0x040007C4 RID: 1988
 	private bool detected;
 
-	// Token: 0x040007C5 RID: 1989
 	[Header("PC")]
 	private float grabDistance = 1f;
 
-	// Token: 0x040007C6 RID: 1990
 	private Ray playerAim;
 }
+

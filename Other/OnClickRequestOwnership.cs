@@ -2,11 +2,9 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000046 RID: 70
 [RequireComponent(typeof(PhotonView))]
 public class OnClickRequestOwnership : MonoBehaviourPunCallbacks
 {
-	// Token: 0x0600017C RID: 380 RVA: 0x0000A990 File Offset: 0x00008B90
 	public void OnClick()
 	{
 		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -26,7 +24,6 @@ public class OnClickRequestOwnership : MonoBehaviourPunCallbacks
 		base.photonView.RequestOwnership();
 	}
 
-	// Token: 0x0600017D RID: 381 RVA: 0x0000AA38 File Offset: 0x00008C38
 	[PunRPC]
 	public void ColorRpc(Vector3 col)
 	{
@@ -34,3 +31,4 @@ public class OnClickRequestOwnership : MonoBehaviourPunCallbacks
 		base.gameObject.GetComponent<Renderer>().material.color = color;
 	}
 }
+

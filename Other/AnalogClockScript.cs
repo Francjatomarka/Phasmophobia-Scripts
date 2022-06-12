@@ -1,10 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000025 RID: 37
 public class AnalogClockScript : MonoBehaviour
 {
-	// Token: 0x060000FC RID: 252 RVA: 0x00008380 File Offset: 0x00006580
 	public override string ToString()
 	{
 		string text = this.currentHour.ToString().PadLeft(2, '0');
@@ -23,7 +21,6 @@ public class AnalogClockScript : MonoBehaviour
 		});
 	}
 
-	// Token: 0x060000FD RID: 253 RVA: 0x00008464 File Offset: 0x00006664
 	private void Start()
 	{
 		if (!this.secondHand)
@@ -47,7 +44,6 @@ public class AnalogClockScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000FE RID: 254 RVA: 0x00008500 File Offset: 0x00006700
 	private void Update()
 	{
 		this.currentTime = this.ToString();
@@ -77,58 +73,42 @@ public class AnalogClockScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000117 RID: 279
 	private const float MAX_DEGREE_ANGLE = 360f;
 
-	// Token: 0x04000118 RID: 280
 	private const float SECONDS_PER_MINUTE = 60f;
 
-	// Token: 0x04000119 RID: 281
 	private const float MINUTES_PER_HOUR = 60f;
 
-	// Token: 0x0400011A RID: 282
 	private const float HOURS_PER_WHOLEDAY = 24f;
 
-	// Token: 0x0400011B RID: 283
 	private const float HOURS_PER_HALFDAY = 12f;
 
-	// Token: 0x0400011C RID: 284
 	private const float NORMAL_TIMERATE = 1f;
 
-	// Token: 0x0400011D RID: 285
 	private const float VECTOR_NOCHANGE = 0f;
 
-	// Token: 0x0400011E RID: 286
 	public GameObject secondHand;
 
-	// Token: 0x0400011F RID: 287
 	public GameObject minuteHand;
 
-	// Token: 0x04000120 RID: 288
 	public GameObject hourHand;
 
-	// Token: 0x04000121 RID: 289
 	[Range(0f, 23f)]
 	public int currentHour;
 
-	// Token: 0x04000122 RID: 290
 	[Range(0f, 59f)]
 	public int currentMinutes;
 
-	// Token: 0x04000123 RID: 291
 	[Range(0f, 59f)]
 	public int currentSeconds;
 
-	// Token: 0x04000124 RID: 292
 	public string currentTime = "";
 
-	// Token: 0x04000125 RID: 293
 	[Range(0.1f, 4f)]
 	public float currentTimeRate = 1f;
 
-	// Token: 0x04000126 RID: 294
 	public bool use24HourFormat;
 
-	// Token: 0x04000127 RID: 295
 	private float updateTimeElapsed;
 }
+

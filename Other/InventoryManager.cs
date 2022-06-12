@@ -4,10 +4,8 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x0200013A RID: 314
 public class InventoryManager : MonoBehaviourPunCallbacks
 {
-	// Token: 0x060008B9 RID: 2233 RVA: 0x000353A4 File Offset: 0x000335A4
 	private void Awake()
 	{
 		this.view = base.GetComponent<PhotonView>();
@@ -18,7 +16,6 @@ public class InventoryManager : MonoBehaviourPunCallbacks
 		this.maskTransforms[0].sizeDelta = new Vector2(1200f, 1200f);
 	}
 
-	// Token: 0x060008BA RID: 2234 RVA: 0x00035408 File Offset: 0x00033608
 	public void AddButton(InventoryItem item)
 	{
 		if (item.canChangeAmount && item.totalAmount < item.maxAmount)
@@ -44,7 +41,6 @@ public class InventoryManager : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060008BB RID: 2235 RVA: 0x00035498 File Offset: 0x00033698
 	public void UpdateText()
 	{
 		this.inventoryText.text = "";
@@ -65,7 +61,6 @@ public class InventoryManager : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060008BC RID: 2236 RVA: 0x00035554 File Offset: 0x00033754
 	public void MinusButton(InventoryItem item)
 	{
 		if (item.canChangeAmount)
@@ -82,7 +77,6 @@ public class InventoryManager : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060008BD RID: 2237 RVA: 0x00003D4C File Offset: 0x00001F4C
 	public void LeftRoom()
 	{
 	}
@@ -98,7 +92,6 @@ public class InventoryManager : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060008BF RID: 2239 RVA: 0x00035604 File Offset: 0x00033804
 	public void SaveInventory()
 	{
 		for (int i = 0; i < this.items.Count; i++)
@@ -107,7 +100,6 @@ public class InventoryManager : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060008C0 RID: 2240 RVA: 0x00035638 File Offset: 0x00033838
 	public void ChangePageButton(int pageID)
 	{
 		for (int i = 0; i < this.maskTransforms.Length; i++)
@@ -117,7 +109,6 @@ public class InventoryManager : MonoBehaviourPunCallbacks
 		this.maskTransforms[pageID].sizeDelta = new Vector2(1200f, 1200f);
 	}
 
-	// Token: 0x060008C1 RID: 2241 RVA: 0x000356B0 File Offset: 0x000338B0
 	public static void RemoveItemsFromInventory()
 	{
 		PlayerPrefs.SetInt("EMFReaderInventory", PlayerPrefs.GetInt("EMFReaderInventory") - PlayerPrefs.GetInt("currentEMFReaderAmount"));
@@ -145,7 +136,6 @@ public class InventoryManager : MonoBehaviourPunCallbacks
 		InventoryManager.ResetTemporaryInventory();
 	}
 
-	// Token: 0x060008C2 RID: 2242 RVA: 0x0003596C File Offset: 0x00033B6C
 	public static void ResetTemporaryInventory()
 	{
 		PlayerPrefs.SetInt("currentEMFReaderAmount", 0);
@@ -194,17 +184,14 @@ public class InventoryManager : MonoBehaviourPunCallbacks
 		PlayerPrefs.SetInt("totalGHeadMountedCameraAmount", 0);
 	}
 
-	// Token: 0x040008C6 RID: 2246
 	private PhotonView view;
 
-	// Token: 0x040008C7 RID: 2247
 	public List<InventoryItem> items = new List<InventoryItem>();
 
-	// Token: 0x040008C8 RID: 2248
 	[SerializeField]
 	private RectTransform[] maskTransforms;
 
-	// Token: 0x040008C9 RID: 2249
 	[SerializeField]
 	private Text inventoryText;
 }
+

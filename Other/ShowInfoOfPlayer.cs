@@ -3,11 +3,9 @@ using Photon;
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x02000048 RID: 72
 [RequireComponent(typeof(PhotonView))]
 public class ShowInfoOfPlayer : MonoBehaviourPunCallbacks
 {
-	// Token: 0x06000181 RID: 385 RVA: 0x0000AA8C File Offset: 0x00008C8C
 	private void Start()
 	{
 		if (this.font == null)
@@ -31,7 +29,6 @@ public class ShowInfoOfPlayer : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000182 RID: 386 RVA: 0x0000AB90 File Offset: 0x00008D90
 	private void Update()
 	{
 		bool flag = !this.DisableOnOwnObjects || base.photonView.IsMine;
@@ -57,18 +54,14 @@ public class ShowInfoOfPlayer : MonoBehaviourPunCallbacks
 		this.tm.text = "n/a";
 	}
 
-	// Token: 0x040001BA RID: 442
 	private GameObject textGo;
 
-	// Token: 0x040001BB RID: 443
 	private TextMesh tm;
 
-	// Token: 0x040001BC RID: 444
 	public float CharacterSize;
 
-	// Token: 0x040001BD RID: 445
 	public Font font;
 
-	// Token: 0x040001BE RID: 446
 	public bool DisableOnOwnObjects;
 }
+

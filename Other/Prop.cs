@@ -2,10 +2,8 @@
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x02000147 RID: 327
 public class Prop : MonoBehaviour
 {
-	// Token: 0x060008AC RID: 2220 RVA: 0x000345EC File Offset: 0x000327EC
 	private void Awake()
 	{
 		if (this.photonInteract == null)
@@ -22,7 +20,6 @@ public class Prop : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008AD RID: 2221 RVA: 0x00034647 File Offset: 0x00032847
 	private void Start()
 	{
 		if (PhotonNetwork.InRoom && !this.view.IsMine)
@@ -32,7 +29,6 @@ public class Prop : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060008AE RID: 2222 RVA: 0x00034678 File Offset: 0x00032878
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (this.photonInteract.isGrabbed)
@@ -60,18 +56,15 @@ public class Prop : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040008CD RID: 2253
 	public PhotonObjectInteract photonInteract;
 
-	// Token: 0x040008CE RID: 2254
 	[SerializeField]
 	private Rigidbody body;
 
-	// Token: 0x040008CF RID: 2255
 	[SerializeField]
 	private PhotonView view;
 
-	// Token: 0x040008D0 RID: 2256
 	[SerializeField]
 	private AudioClip[] impactClips;
 }
+

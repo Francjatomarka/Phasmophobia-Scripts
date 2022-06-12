@@ -4,10 +4,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using Photon.Pun;
 
-// Token: 0x0200012C RID: 300
 public class FallTeleportBox : MonoBehaviour
 {
-	// Token: 0x06000856 RID: 2134 RVA: 0x000329E4 File Offset: 0x00030BE4
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.isTrigger)
@@ -63,7 +61,6 @@ public class FallTeleportBox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000857 RID: 2135 RVA: 0x00032B36 File Offset: 0x00030D36
 	private void Update()
 	{
 		if (Keyboard.current.pKey.wasPressedThisFrame && Application.isEditor)
@@ -72,7 +69,6 @@ public class FallTeleportBox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000858 RID: 2136 RVA: 0x00032B58 File Offset: 0x00030D58
 	private void TeleportPlayer()
 	{
 		if (GameController.instance)
@@ -84,3 +80,4 @@ public class FallTeleportBox : MonoBehaviour
 		return;
 	}
 }
+

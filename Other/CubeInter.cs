@@ -2,11 +2,9 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000066 RID: 102
 [RequireComponent(typeof(PhotonView))]
 public class CubeInter : MonoBehaviourPunCallbacks, IPunObservable
 {
-	// Token: 0x06000246 RID: 582 RVA: 0x0000F5B0 File Offset: 0x0000D7B0
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.IsWriting)
@@ -41,7 +39,6 @@ public class CubeInter : MonoBehaviourPunCallbacks, IPunObservable
 		}
 	}
 
-	// Token: 0x06000247 RID: 583 RVA: 0x0000F6E0 File Offset: 0x0000D8E0
 	public void Update()
 	{
 		if (base.photonView.IsMine || !PhotonNetwork.InRoom)
@@ -75,25 +72,19 @@ public class CubeInter : MonoBehaviourPunCallbacks, IPunObservable
 		base.transform.localRotation = state3.rot;
 	}
 
-	// Token: 0x04000284 RID: 644
 	private CubeInter.State[] m_BufferedState = new CubeInter.State[20];
 
-	// Token: 0x04000285 RID: 645
 	private int m_TimestampCount;
 
-	// Token: 0x04000286 RID: 646
 	public double InterpolationDelay = 0.15;
 
-	// Token: 0x020004E1 RID: 1249
 	internal struct State
 	{
-		// Token: 0x040023AE RID: 9134
 		internal double timestamp;
 
-		// Token: 0x040023AF RID: 9135
 		internal Vector3 pos;
 
-		// Token: 0x040023B0 RID: 9136
 		internal Quaternion rot;
 	}
 }
+

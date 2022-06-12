@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR;
 
-// Token: 0x020000F3 RID: 243
 public class GamepadUISelector : MonoBehaviour
 {
-	// Token: 0x060006A5 RID: 1701 RVA: 0x000273F8 File Offset: 0x000255F8
 	private void OnEnable()
 	{
 		if (this.startOnEnable)
@@ -20,7 +18,6 @@ public class GamepadUISelector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006A6 RID: 1702 RVA: 0x00027424 File Offset: 0x00025624
 	public void SetSelection()
 	{
 		GamepadUISelector.instance = this;
@@ -68,34 +65,27 @@ public class GamepadUISelector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040006C3 RID: 1731
 	public static GamepadUISelector instance;
 
-	// Token: 0x040006C4 RID: 1732
 	[SerializeField]
 	private GameObject selectedObject;
 
-	// Token: 0x040006C5 RID: 1733
 	[SerializeField]
 	private GameObject[] objectsToDisable;
 
-	// Token: 0x040006C6 RID: 1734
 	[SerializeField]
 	private GameObject[] objectsToEnable;
 
-	// Token: 0x040006C7 RID: 1735
 	[SerializeField]
 	private bool startOnEnable = true;
 
-	// Token: 0x040006C8 RID: 1736
 	[SerializeField]
 	private EventSystem eventSystem;
 
-	// Token: 0x040006C9 RID: 1737
 	[SerializeField]
 	private bool selectByDefault;
 
-	// Token: 0x040006CA RID: 1738
 	[SerializeField]
 	private bool delaySelection;
 }
+

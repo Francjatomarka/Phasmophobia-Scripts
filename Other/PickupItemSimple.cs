@@ -2,11 +2,9 @@ using System;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000091 RID: 145
 [RequireComponent(typeof(PhotonView))]
 public class PickupItemSimple : MonoBehaviourPunCallbacks
 {
-	// Token: 0x06000468 RID: 1128 RVA: 0x00018F7C File Offset: 0x0001717C
 	public void OnTriggerEnter(Collider other)
 	{
 		PhotonView component = other.GetComponent<PhotonView>();
@@ -16,7 +14,6 @@ public class PickupItemSimple : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000469 RID: 1129 RVA: 0x00018FAF File Offset: 0x000171AF
 	public void Pickup()
 	{
 		if (this.SentPickup)
@@ -27,7 +24,6 @@ public class PickupItemSimple : MonoBehaviourPunCallbacks
 		base.photonView.RPC("PunPickupSimple", RpcTarget.AllViaServer, Array.Empty<object>());
 	}
 
-	// Token: 0x0600046A RID: 1130 RVA: 0x00018FD8 File Offset: 0x000171D8
 	[PunRPC]
 	public void PunPickupSimple(PhotonMessageInfo msgInfo)
 	{
@@ -50,7 +46,6 @@ public class PickupItemSimple : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x0600046B RID: 1131 RVA: 0x00019068 File Offset: 0x00017268
 	public void RespawnAfter()
 	{
 		if (base.gameObject != null)
@@ -59,12 +54,10 @@ public class PickupItemSimple : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x04000479 RID: 1145
 	public float SecondsBeforeRespawn = 2f;
 
-	// Token: 0x0400047A RID: 1146
 	public bool PickupOnCollide;
 
-	// Token: 0x0400047B RID: 1147
 	public bool SentPickup;
 }
+

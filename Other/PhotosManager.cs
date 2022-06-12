@@ -2,10 +2,8 @@ using System;
 using System.IO;
 using UnityEngine;
 
-// Token: 0x02000143 RID: 323
 public class PhotosManager : MonoBehaviour
 {
-	// Token: 0x06000921 RID: 2337 RVA: 0x00038230 File Offset: 0x00036430
 	private void Start()
 	{
 		for (int i = 0; i < this.photoRends.Length; i++)
@@ -32,7 +30,7 @@ public class PhotosManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400093F RID: 2367
 	[SerializeField]
 	private Renderer[] photoRends;
 }
+

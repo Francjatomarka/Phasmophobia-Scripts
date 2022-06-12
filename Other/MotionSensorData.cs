@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000180 RID: 384
 public class MotionSensorData : MonoBehaviour
 {
-	// Token: 0x06000AF3 RID: 2803 RVA: 0x00045464 File Offset: 0x00043664
 	private void Awake()
 	{
 		MotionSensorData.instance = this;
 		this.startColor = ((this.image1 == null) ? Color.yellow : this.image1.color);
 	}
 
-	// Token: 0x06000AF4 RID: 2804 RVA: 0x00045494 File Offset: 0x00043694
 	private void Update()
 	{
 		if (this.detected1)
@@ -70,7 +67,6 @@ public class MotionSensorData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AF5 RID: 2805 RVA: 0x00045600 File Offset: 0x00043800
 	public void Detected(MotionSensor sensor)
 	{
 		this.source.Play();
@@ -115,7 +111,6 @@ public class MotionSensorData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AF6 RID: 2806 RVA: 0x00045704 File Offset: 0x00043904
 	public void SetText(MotionSensor sensor)
 	{
 		if (!this.Sensors.Contains(sensor))
@@ -142,7 +137,6 @@ public class MotionSensorData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AF7 RID: 2807 RVA: 0x000457D0 File Offset: 0x000439D0
 	public void RemoveText(MotionSensor sensor)
 	{
 		switch (sensor.id)
@@ -164,69 +158,50 @@ public class MotionSensorData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000B67 RID: 2919
 	public static MotionSensorData instance;
 
-	// Token: 0x04000B68 RID: 2920
 	[HideInInspector]
 	public List<MotionSensor> Sensors = new List<MotionSensor>();
 
-	// Token: 0x04000B69 RID: 2921
 	private float timer1 = 6f;
 
-	// Token: 0x04000B6A RID: 2922
 	private float timer2 = 6f;
 
-	// Token: 0x04000B6B RID: 2923
 	private float timer3 = 6f;
 
-	// Token: 0x04000B6C RID: 2924
 	private float timer4 = 6f;
 
-	// Token: 0x04000B6D RID: 2925
 	private bool detected1;
 
-	// Token: 0x04000B6E RID: 2926
 	private bool detected2;
 
-	// Token: 0x04000B6F RID: 2927
 	private bool detected3;
 
-	// Token: 0x04000B70 RID: 2928
 	private bool detected4;
 
-	// Token: 0x04000B71 RID: 2929
 	public Image image1;
 
-	// Token: 0x04000B72 RID: 2930
 	public Image image2;
 
-	// Token: 0x04000B73 RID: 2931
 	public Image image3;
 
-	// Token: 0x04000B74 RID: 2932
 	public Image image4;
 
-	// Token: 0x04000B75 RID: 2933
 	private Color startColor;
 
-	// Token: 0x04000B76 RID: 2934
 	[SerializeField]
 	private Text sensor_1_Text;
 
-	// Token: 0x04000B77 RID: 2935
 	[SerializeField]
 	private Text sensor_2_Text;
 
-	// Token: 0x04000B78 RID: 2936
 	[SerializeField]
 	private Text sensor_3_Text;
 
-	// Token: 0x04000B79 RID: 2937
 	[SerializeField]
 	private Text sensor_4_Text;
 
-	// Token: 0x04000B7A RID: 2938
 	[SerializeField]
 	private AudioSource source;
 }
+

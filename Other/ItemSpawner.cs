@@ -5,10 +5,8 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x0200017E RID: 382
 public class ItemSpawner : MonoBehaviourPunCallbacks
 {
-	// Token: 0x06000ADE RID: 2782 RVA: 0x000444B8 File Offset: 0x000426B8
 	private void Awake()
 	{
 		for (int i = 0; i < this.headMountedCameras.Length; i++)
@@ -20,7 +18,6 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000ADF RID: 2783 RVA: 0x000444EC File Offset: 0x000426EC
 	private void Start()
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -58,14 +55,12 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000AE2 RID: 2786 RVA: 0x000445B9 File Offset: 0x000427B9
 	[PunRPC]
 	private void SyncSpawn()
 	{
 		this.hasSpawned = true;
 	}
 
-	// Token: 0x06000AE3 RID: 2787 RVA: 0x000445C4 File Offset: 0x000427C4
 	private void SpawnItems()
 	{
 		if (this.hasSpawned)
@@ -399,7 +394,6 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		this.CheckIfAnyItemsHaveSpawned();
 	}
 
-	// Token: 0x06000AE4 RID: 2788 RVA: 0x00044FA8 File Offset: 0x000431A8
 	[PunRPC]
 	private void SpawnHeadMountedCameras(int amount)
 	{
@@ -412,7 +406,6 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000AE5 RID: 2789 RVA: 0x00044FE4 File Offset: 0x000431E4
 	private IEnumerator SpawnHeadMountedCamerasDelay(int amount)
 	{
 		yield return new WaitForSeconds(2f);
@@ -426,7 +419,6 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		yield break;
 	}
 
-	// Token: 0x06000AE6 RID: 2790 RVA: 0x00044FFC File Offset: 0x000431FC
 	private void CheckIfAnyItemsHaveSpawned()
 	{
 		this.hasSpawnedOtherItems = false;
@@ -436,7 +428,6 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000AE7 RID: 2791 RVA: 0x0004514C File Offset: 0x0004334C
 	private void CheckSanityPillsOwners()
 	{
 		if (PlayerPrefs.GetInt("currentSanityPillsAmount") > 0)
@@ -449,7 +440,6 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000AE8 RID: 2792 RVA: 0x0004519B File Offset: 0x0004339B
 	[PunRPC]
 	private void AddSanityPillOwner(Photon.Realtime.Player player, int amount)
 	{
@@ -457,7 +447,6 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		this.playerSanityPillAmounts.Add(amount);
 	}
 
-	// Token: 0x06000AE9 RID: 2793 RVA: 0x000451B5 File Offset: 0x000433B5
 	[PunRPC]
 	private void RemoveSanityPillFromOwner()
 	{
@@ -468,7 +457,6 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		PlayerPrefs.SetInt("SanityPillsInventory", PlayerPrefs.GetInt("SanityPillsInventory") - 1);
 	}
 
-	// Token: 0x06000AEA RID: 2794 RVA: 0x000451DC File Offset: 0x000433DC
 	public void RemovePainKillers()
 	{
 		if (GameController.instance.isTutorial)
@@ -499,112 +487,85 @@ public class ItemSpawner : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x04000B42 RID: 2882
 	[SerializeField]
 	private GameObject[] emfSpawners;
 
-	// Token: 0x04000B43 RID: 2883
 	[SerializeField]
 	private GameObject[] flashlightSpawners;
 
-	// Token: 0x04000B44 RID: 2884
 	[SerializeField]
 	private GameObject[] cameraSpawners;
 
-	// Token: 0x04000B45 RID: 2885
 	[SerializeField]
 	private GameObject[] lighterSpawners;
 
-	// Token: 0x04000B46 RID: 2886
 	[SerializeField]
 	private GameObject[] candleSpawners;
 
-	// Token: 0x04000B47 RID: 2887
 	[SerializeField]
 	private GameObject[] uvFlashlightSpawners;
 
-	// Token: 0x04000B48 RID: 2888
 	[SerializeField]
 	private GameObject[] crucifixSpawners;
 
-	// Token: 0x04000B49 RID: 2889
 	[SerializeField]
 	private GameObject[] dslrCameraSpawners;
 
-	// Token: 0x04000B4A RID: 2890
 	[SerializeField]
 	private GameObject[] evpRecorderSpawners;
 
-	// Token: 0x04000B4B RID: 2891
 	[SerializeField]
 	private GameObject[] saltSpawners;
 
-	// Token: 0x04000B4C RID: 2892
 	[SerializeField]
 	private GameObject[] sageSpawners;
 
-	// Token: 0x04000B4D RID: 2893
 	[SerializeField]
 	private GameObject[] tripodSpawners;
 
-	// Token: 0x04000B4E RID: 2894
 	[SerializeField]
 	private GameObject[] motionSensorSpawners;
 
-	// Token: 0x04000B4F RID: 2895
 	[SerializeField]
 	private GameObject[] soundSensorSpawners;
 
-	// Token: 0x04000B50 RID: 2896
 	[SerializeField]
 	private GameObject[] painKillersSpawners;
 
-	// Token: 0x04000B51 RID: 2897
 	[SerializeField]
 	private GameObject[] thermometerSpawners;
 
-	// Token: 0x04000B52 RID: 2898
 	[SerializeField]
 	private GameObject[] strongFlashlightSpawners;
 
-	// Token: 0x04000B53 RID: 2899
 	[SerializeField]
 	private GameObject[] ghostWritingBookSpawners;
 
-	// Token: 0x04000B54 RID: 2900
 	[SerializeField]
 	private GameObject[] irLightSensorSpawners;
 
-	// Token: 0x04000B55 RID: 2901
 	[SerializeField]
 	private GameObject[] parabolicMicrophoneSpawners;
 
-	// Token: 0x04000B56 RID: 2902
 	[SerializeField]
 	private GameObject[] glowstickSpawners;
 
-	// Token: 0x04000B57 RID: 2903
 	[SerializeField]
 	private CCTV[] headMountedCameras;
 
-	// Token: 0x04000B58 RID: 2904
 	[SerializeField]
 	private GameObject[] defaultItemSpawners;
 
-	// Token: 0x04000B59 RID: 2905
 	private List<Photon.Realtime.Player> playersWhoOwnSanityPills = new List<Photon.Realtime.Player>();
 
-	// Token: 0x04000B5A RID: 2906
 	private List<int> playerSanityPillAmounts = new List<int>();
 
-	// Token: 0x04000B5B RID: 2907
 	[SerializeField]
 	private PhotonView view;
 
-	// Token: 0x04000B5C RID: 2908
 	private bool hasSpawned;
 
-	// Token: 0x04000B5D RID: 2909
 	[HideInInspector]
 	public bool hasSpawnedOtherItems;
 }
+

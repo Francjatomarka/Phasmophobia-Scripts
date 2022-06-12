@@ -4,16 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-// Token: 0x0200013B RID: 315
 public class LevelSelectionManager : MonoBehaviour
 {
-	// Token: 0x060008C4 RID: 2244 RVA: 0x00035B70 File Offset: 0x00033D70
 	private void Awake()
 	{
 		this.view = base.GetComponent<PhotonView>();
 	}
 
-	// Token: 0x060008C5 RID: 2245 RVA: 0x00035B80 File Offset: 0x00033D80
 	private void Start()
 	{
 		if (this.storeSDKManager.storeBranchType == StoreSDKManager.StoreBranchType.youtube)
@@ -32,7 +29,6 @@ public class LevelSelectionManager : MonoBehaviour
 		this.localisedExperience_Required = LocalisationSystem.GetLocalisedValue("Experience_Required");
 	}
 
-	// Token: 0x060008C6 RID: 2246 RVA: 0x00035BF4 File Offset: 0x00033DF4
 	private void AssignContracts()
 	{
 		for (int i = 0; i < this.contracts.Count; i++)
@@ -52,7 +48,6 @@ public class LevelSelectionManager : MonoBehaviour
 		this.ForceGenerateSmallContract(num);
 	}
 
-	// Token: 0x060008C7 RID: 2247 RVA: 0x00035CBC File Offset: 0x00033EBC
 	private void AssignYoutuberContracts()
 	{
 		this.contracts[0].gameObject.SetActive(true);
@@ -78,14 +73,12 @@ public class LevelSelectionManager : MonoBehaviour
 		this.contracts[6].levelNameText.text = this.contracts[6].levelName;
 	}
 
-	// Token: 0x060008C8 RID: 2248 RVA: 0x00035EFC File Offset: 0x000340FC
 	public void SelectContractButton(Contract contract)
 	{
 		this.selectedContract = contract;
 		this.ShowContract();
 	}
 
-	// Token: 0x060008C9 RID: 2249 RVA: 0x00035F0C File Offset: 0x0003410C
 	public void SyncContract()
 	{
 		this.view.RPC("NetworkedLevelSelect", RpcTarget.AllBufferedViaServer, new object[]
@@ -96,7 +89,6 @@ public class LevelSelectionManager : MonoBehaviour
 		});
 	}
 
-	// Token: 0x060008CA RID: 2250 RVA: 0x00035F6C File Offset: 0x0003416C
 	public void SelectButton()
 	{
 		this.view.RPC("NetworkedLevelSelect", RpcTarget.AllBufferedViaServer, new object[]
@@ -110,7 +102,6 @@ public class LevelSelectionManager : MonoBehaviour
 		this.serverManager.SelectJob(false);
 	}
 
-	// Token: 0x060008CB RID: 2251 RVA: 0x00035FEE File Offset: 0x000341EE
 	[PunRPC]
 	public void NetworkedLevelSelect(string name, string levelName, int difficulty)
 	{
@@ -121,7 +112,6 @@ public class LevelSelectionManager : MonoBehaviour
 		PlayerPrefs.SetInt("LevelDifficulty", difficulty);
 	}
 
-	// Token: 0x060008CC RID: 2252 RVA: 0x0003601C File Offset: 0x0003421C
 	private void ShowContract()
 	{
 		this.titleText.text = this.selectedContract.levelName;
@@ -155,7 +145,6 @@ public class LevelSelectionManager : MonoBehaviour
 		this.mapObject.SetActive(false);
 	}
 
-	// Token: 0x060008CD RID: 2253 RVA: 0x00036180 File Offset: 0x00034380
 	private void ForceGenerateSmallContract(int amount)
 	{
 		for (int i = 0; i < this.currentContracts.Count; i++)
@@ -171,89 +160,68 @@ public class LevelSelectionManager : MonoBehaviour
 		contract.levelNameText.text = contract.levelName;
 	}
 
-	// Token: 0x040008CC RID: 2252
 	[SerializeField]
 	private ServerManager serverManager;
 
-	// Token: 0x040008CD RID: 2253
 	[SerializeField]
 	private StoreSDKManager storeSDKManager;
 
-	// Token: 0x040008CE RID: 2254
 	[HideInInspector]
 	public List<Contract> currentContracts = new List<Contract>();
 
-	// Token: 0x040008CF RID: 2255
 	[SerializeField]
 	private List<Contract> contracts = new List<Contract>();
 
-	// Token: 0x040008D0 RID: 2256
 	[HideInInspector]
 	public string selectedLevelName;
 
-	// Token: 0x040008D1 RID: 2257
 	[HideInInspector]
 	public string contractLevelName;
 
-	// Token: 0x040008D2 RID: 2258
 	[HideInInspector]
 	public Contract.LevelDifficulty contractLevelDifficulty;
 
-	// Token: 0x040008D3 RID: 2259
 	[SerializeField]
 	private Button readyButton;
 
-	// Token: 0x040008D4 RID: 2260
 	[SerializeField]
 	private Text readyText;
 
-	// Token: 0x040008D5 RID: 2261
 	[SerializeField]
 	private Text titleText;
 
-	// Token: 0x040008D6 RID: 2262
 	[SerializeField]
 	private Text descriptionText;
 
-	// Token: 0x040008D7 RID: 2263
 	[SerializeField]
 	private Text firstBulletPointText;
 
-	// Token: 0x040008D8 RID: 2264
 	[SerializeField]
 	private Text secondBulletPointText;
 
-	// Token: 0x040008D9 RID: 2265
 	[SerializeField]
 	private Text thirdBulletPointText;
 
-	// Token: 0x040008DA RID: 2266
 	[SerializeField]
 	private Text difficultyLevelText;
 
-	// Token: 0x040008DB RID: 2267
 	[SerializeField]
 	private Button selectButton;
 
-	// Token: 0x040008DC RID: 2268
 	[SerializeField]
 	private Text selectButtonText;
 
-	// Token: 0x040008DD RID: 2269
 	private string localisedExperience_Required;
 
-	// Token: 0x040008DE RID: 2270
 	private PhotonView view;
 
-	// Token: 0x040008DF RID: 2271
 	[HideInInspector]
 	public Contract selectedContract;
 
-	// Token: 0x040008E0 RID: 2272
 	[SerializeField]
 	private GameObject mapObject;
 
-	// Token: 0x040008E1 RID: 2273
 	[SerializeField]
 	private GameObject descriptionObject;
 }
+

@@ -6,16 +6,13 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR;
 using Photon.Pun;
 
-// Token: 0x02000168 RID: 360
 public class PCMenu : MonoBehaviour
 {
-	// Token: 0x06000A27 RID: 2599 RVA: 0x0003DF63 File Offset: 0x0003C163
 	private void Awake()
 	{
 		this.isOnMenu = false;
 	}
 
-	// Token: 0x06000A28 RID: 2600 RVA: 0x0003DF6C File Offset: 0x0003C16C
 	private void Start()
 	{
 		
@@ -27,7 +24,6 @@ public class PCMenu : MonoBehaviour
 		base.StartCoroutine(this.DisableUIDelay());
 	}
 
-	// Token: 0x06000A29 RID: 2601 RVA: 0x0003DF8F File Offset: 0x0003C18F
 	private IEnumerator DisableUIDelay()
 	{
 		yield return new WaitUntil(() => EventSystem.current);
@@ -36,7 +32,6 @@ public class PCMenu : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A2A RID: 2602 RVA: 0x0003DF97 File Offset: 0x0003C197
 	public void ForceIntoMenu()
 	{
 		this.OpenMenu();
@@ -44,7 +39,6 @@ public class PCMenu : MonoBehaviour
 		base.StartCoroutine(this.EnableInputDelay());
 	}
 
-	// Token: 0x06000A2B RID: 2603 RVA: 0x0003DFB2 File Offset: 0x0003C1B2
 	private IEnumerator EnableInputDelay()
 	{
 		yield return new WaitUntil(() => EventSystem.current);
@@ -53,7 +47,6 @@ public class PCMenu : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A2C RID: 2604 RVA: 0x0003DFBC File Offset: 0x0003C1BC
 	public void LeaveMenu()
 	{
 		if (this.isOnMenu)
@@ -70,7 +63,6 @@ public class PCMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A2D RID: 2605 RVA: 0x0003E078 File Offset: 0x0003C278
 	public void OpenMenu()
 	{
 		this.isOnMenu = true;
@@ -89,7 +81,6 @@ public class PCMenu : MonoBehaviour
 		base.StartCoroutine(this.EnableInputDelay());
 	}
 
-	// Token: 0x06000A2E RID: 2606 RVA: 0x0003E174 File Offset: 0x0003C374
 	private void Update()
 	{
 		
@@ -103,7 +94,6 @@ public class PCMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A2F RID: 2607 RVA: 0x0003E1DC File Offset: 0x0003C3DC
 	public void OnControlSchemeChanged()
 	{
 		if (XRDevice.isPresent)
@@ -138,13 +128,11 @@ public class PCMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A31 RID: 2609 RVA: 0x0003E2BE File Offset: 0x0003C4BE
 	public void OnPause()
 	{
 		this.LeaveMenu();
 	}
 
-	// Token: 0x06000A32 RID: 2610 RVA: 0x0003E2BE File Offset: 0x0003C4BE
 	public void OnDrop(InputAction.CallbackContext context)
 	{
 		if (context.phase == InputActionPhase.Canceled)
@@ -168,22 +156,18 @@ public class PCMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000A5F RID: 2655
 	[HideInInspector]
 	public bool isOnMenu;
 
-	// Token: 0x04000A60 RID: 2656
 	[SerializeField]
 	private Player player;
 
-	// Token: 0x04000A61 RID: 2657
 	[SerializeField]
 	private LayerMask mask;
 
-	// Token: 0x04000A62 RID: 2658
 	[SerializeField]
 	private GameObject firstSelectedButton;
 
-	// Token: 0x04000A63 RID: 2659
 	private string currentControlScheme;
 }
+

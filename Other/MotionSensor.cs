@@ -6,10 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 using Photon.Pun;
 
-// Token: 0x02000118 RID: 280
 public class MotionSensor : MonoBehaviour
 {
-	// Token: 0x060007CF RID: 1999 RVA: 0x0002EB7C File Offset: 0x0002CD7C
 	private void Awake()
 	{
 		this.photonInteract = base.GetComponent<PhotonObjectInteract>();
@@ -23,7 +21,6 @@ public class MotionSensor : MonoBehaviour
 		this.iconStartLocalScale = this.mapIcon.localScale;
 	}
 
-	// Token: 0x060007D0 RID: 2000 RVA: 0x0002EC0C File Offset: 0x0002CE0C
 	private void Start()
 	{
 		if (XRDevice.isPresent)
@@ -39,7 +36,6 @@ public class MotionSensor : MonoBehaviour
 		this.rend.material.SetTexture("_EmissionMap", this.redTexture);
 	}
 
-	// Token: 0x060007D1 RID: 2001 RVA: 0x0002EC9C File Offset: 0x0002CE9C
 	private void Update()
 	{
 		if (this.isPlaced)
@@ -112,7 +108,6 @@ public class MotionSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007D2 RID: 2002 RVA: 0x0002EF40 File Offset: 0x0002D140
 	private void SecondaryUse()
 	{
 		Camera playerCam = GameObject.Find("PCPlayerHead").GetComponent<Camera>();
@@ -137,7 +132,6 @@ public class MotionSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007D3 RID: 2003 RVA: 0x0002EFFE File Offset: 0x0002D1FE
 	public void Detection(bool isGhost)
 	{
         if (PhotonNetwork.InRoom)
@@ -151,7 +145,6 @@ public class MotionSensor : MonoBehaviour
 		DetectionNetworked(isGhost);
 	}
 
-	// Token: 0x060007D4 RID: 2004 RVA: 0x0002F020 File Offset: 0x0002D220
 	[PunRPC]
 	private void DetectionNetworked(bool isGhost)
 	{
@@ -169,7 +162,6 @@ public class MotionSensor : MonoBehaviour
 		base.StartCoroutine(this.PlayNoiseObject());
 	}
 
-	// Token: 0x060007D5 RID: 2005 RVA: 0x0002F098 File Offset: 0x0002D298
 	private void MotionUse()
 	{
 		RaycastHit raycastHit;
@@ -190,7 +182,6 @@ public class MotionSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007D6 RID: 2006 RVA: 0x0002F12C File Offset: 0x0002D32C
 	private void OnGrabbed()
 	{
 		if (this.isPlaced)
@@ -210,7 +201,6 @@ public class MotionSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007D7 RID: 2007 RVA: 0x0002F190 File Offset: 0x0002D390
 	[PunRPC]
 	private void PlaceOrPickupSensor(bool isBeingPlaced, Vector3 position, Vector3 normal, string _roomName)
 	{
@@ -237,7 +227,6 @@ public class MotionSensor : MonoBehaviour
 		this.mapIcon.gameObject.SetActive(false);
 	}
 
-	// Token: 0x060007D8 RID: 2008 RVA: 0x0002F261 File Offset: 0x0002D461
 	private IEnumerator Place(Vector3 position, Vector3 normal)
 	{
 		base.transform.SetParent(null);
@@ -264,7 +253,6 @@ public class MotionSensor : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060007D9 RID: 2009 RVA: 0x0002F27E File Offset: 0x0002D47E
 	private IEnumerator MapIconDelay()
 	{
 		yield return new WaitForSeconds(3f);
@@ -283,7 +271,6 @@ public class MotionSensor : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060007DA RID: 2010 RVA: 0x0002F28D File Offset: 0x0002D48D
 	[PunRPC]
 	private void AssignSensorOnMap(int floorID)
 	{
@@ -294,7 +281,6 @@ public class MotionSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007DB RID: 2011 RVA: 0x0002F2B8 File Offset: 0x0002D4B8
 	private IEnumerator PlayNoiseObject()
 	{
 		this.noise.gameObject.SetActive(true);
@@ -303,75 +289,55 @@ public class MotionSensor : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x040007D8 RID: 2008
 	[HideInInspector]
 	public bool isPlaced;
 
-	// Token: 0x040007D9 RID: 2009
 	private PhotonObjectInteract photonInteract;
 
-	// Token: 0x040007DA RID: 2010
 	private Rigidbody rigidbdy;
 
-	// Token: 0x040007DB RID: 2011
 	private PhotonView view;
 
-	// Token: 0x040007DC RID: 2012
 	private Renderer rend;
 
-	// Token: 0x040007DD RID: 2013
 	private Noise noise;
 
-	// Token: 0x040007DE RID: 2014
 	[HideInInspector]
 	public string roomName;
 
-	// Token: 0x040007DF RID: 2015
 	[SerializeField]
 	private Texture greenTexture;
 
-	// Token: 0x040007E0 RID: 2016
 	[SerializeField]
 	private Texture redTexture;
 
-	// Token: 0x040007E1 RID: 2017
 	[SerializeField]
 	private LayerMask mask;
 
-	// Token: 0x040007E2 RID: 2018
 	[SerializeField]
 	private GameObject helperObject;
 
-	// Token: 0x040007E3 RID: 2019
 	[HideInInspector]
 	public int id;
 
-	// Token: 0x040007E4 RID: 2020
 	private float timer = 2f;
 
-	// Token: 0x040007E5 RID: 2021
 	private bool detected;
 
-	// Token: 0x040007E6 RID: 2022
 	[SerializeField]
 	private Transform mapIcon;
 
-	// Token: 0x040007E7 RID: 2023
 	public Image sensorIcon;
 
-	// Token: 0x040007E8 RID: 2024
 	private Quaternion iconStartLocalRotation;
 
-	// Token: 0x040007E9 RID: 2025
 	private Vector3 iconStartLocalScale;
 
-	// Token: 0x040007EA RID: 2026
 	private Vector3 iconStartLocalPosition;
 
-	// Token: 0x040007EB RID: 2027
 	[Header("PC")]
 	private float grabDistance = 1f;
 
-	// Token: 0x040007EC RID: 2028
 	private Ray playerAim;
 }
+

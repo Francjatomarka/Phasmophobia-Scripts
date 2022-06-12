@@ -2,10 +2,8 @@ using System;
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x0200009C RID: 156
 public class ShowStatusWhenConnecting : MonoBehaviour
 {
-	// Token: 0x060004A2 RID: 1186 RVA: 0x00019BA8 File Offset: 0x00017DA8
 	private void OnGUI()
 	{
 		if (this.Skin != null)
@@ -24,7 +22,6 @@ public class ShowStatusWhenConnecting : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060004A3 RID: 1187 RVA: 0x00019C64 File Offset: 0x00017E64
 	private string GetConnectingDots()
 	{
 		string text = "";
@@ -36,6 +33,6 @@ public class ShowStatusWhenConnecting : MonoBehaviour
 		return text;
 	}
 
-	// Token: 0x0400048B RID: 1163
 	public GUISkin Skin;
 }
+

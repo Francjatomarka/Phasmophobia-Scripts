@@ -2,10 +2,8 @@
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x020000E6 RID: 230
 public class PoltergeistPower : IState
 {
-	// Token: 0x0600064B RID: 1611 RVA: 0x00022EAE File Offset: 0x000210AE
 	public PoltergeistPower(GhostAI ghostAI, GhostInteraction ghostInteraction, LayerMask mask, PhotonObjectInteract[] props)
 	{
 		this.ghostInteraction = ghostInteraction;
@@ -14,7 +12,6 @@ public class PoltergeistPower : IState
 		this.props = props;
 	}
 
-	// Token: 0x0600064C RID: 1612 RVA: 0x00022ED4 File Offset: 0x000210D4
 	public void Enter()
 	{
 		if (this.props.Length == 0)
@@ -43,25 +40,20 @@ public class PoltergeistPower : IState
 		this.ghostAI.ChangeState(GhostAI.States.idle, null, null);
 	}
 
-	// Token: 0x0600064D RID: 1613 RVA: 0x00003F60 File Offset: 0x00002160
 	public void Execute()
 	{
 	}
 
-	// Token: 0x0600064E RID: 1614 RVA: 0x00003F60 File Offset: 0x00002160
 	public void Exit()
 	{
 	}
 
-	// Token: 0x0400062B RID: 1579
 	private GhostInteraction ghostInteraction;
 
-	// Token: 0x0400062C RID: 1580
 	private LayerMask mask;
 
-	// Token: 0x0400062D RID: 1581
 	private GhostAI ghostAI;
 
-	// Token: 0x0400062E RID: 1582
 	private PhotonObjectInteract[] props;
 }
+

@@ -5,10 +5,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using Photon.Pun;
 
-// Token: 0x02000142 RID: 322
 public class FuseBox : MonoBehaviour
 {
-	// Token: 0x0600087B RID: 2171 RVA: 0x00032990 File Offset: 0x00030B90
 	private void Awake()
 	{
 		if (!this.noise)
@@ -31,7 +29,6 @@ public class FuseBox : MonoBehaviour
 		this.photonInteract.AddUseEvent(new UnityAction(this.Use));
 	}
 
-	// Token: 0x0600087C RID: 2172 RVA: 0x00032A2C File Offset: 0x00030C2C
 	public void SetupAudioGroup()
 	{
 		this.source.outputAudioMixerGroup = SoundController.instance.GetFloorAudioSnapshot(base.transform.position.y);
@@ -39,7 +36,6 @@ public class FuseBox : MonoBehaviour
 		MapController.instance.AssignIcon(this.mapIcon, this.floorType);
 	}
 
-	// Token: 0x0600087D RID: 2173 RVA: 0x00032A8F File Offset: 0x00030C8F
 	private void Start()
 	{
 		if (LevelController.instance.type == LevelController.levelType.small)
@@ -55,7 +51,6 @@ public class FuseBox : MonoBehaviour
 		this.maxLights = 8;
 	}
 
-	// Token: 0x0600087E RID: 2174 RVA: 0x00032AC3 File Offset: 0x00030CC3
 	public void TurnOff()
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -72,7 +67,6 @@ public class FuseBox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600087F RID: 2175 RVA: 0x00032AFB File Offset: 0x00030CFB
 	public void Use()
 	{
 		if (PhotonNetwork.InRoom)
@@ -86,7 +80,6 @@ public class FuseBox : MonoBehaviour
 		this.UseNetworked(false);
 	}
 
-	// Token: 0x06000880 RID: 2176 RVA: 0x00032B2C File Offset: 0x00030D2C
 	[PunRPC]
 	private void UseNetworked(bool isGhostUsing)
 	{
@@ -200,7 +193,6 @@ public class FuseBox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000881 RID: 2177 RVA: 0x00032EE0 File Offset: 0x000310E0
 	private IEnumerator PlayNoiseObject()
 	{
 		this.noise.gameObject.SetActive(true);
@@ -209,7 +201,6 @@ public class FuseBox : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000882 RID: 2178 RVA: 0x00032EF0 File Offset: 0x000310F0
 	public void ChangeOnLights(int value)
 	{
 		this.currentOnLights += value;
@@ -230,67 +221,51 @@ public class FuseBox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040008A3 RID: 2211
 	[SerializeField]
 	private Renderer[] rends;
 
-	// Token: 0x040008A4 RID: 2212
 	[SerializeField]
 	private Light[] lights;
 
-	// Token: 0x040008A5 RID: 2213
 	[SerializeField]
 	private Renderer[] rendsToTurnOff;
 
-	// Token: 0x040008A6 RID: 2214
 	[SerializeField]
 	private AudioSource source;
 
-	// Token: 0x040008A7 RID: 2215
 	[SerializeField]
 	private PhotonView view;
 
-	// Token: 0x040008A8 RID: 2216
 	[SerializeField]
 	private Noise noise;
 
-	// Token: 0x040008A9 RID: 2217
 	public Transform parentObject;
 
-	// Token: 0x040008AA RID: 2218
 	[SerializeField]
 	private AudioClip onClip;
 
-	// Token: 0x040008AB RID: 2219
 	[SerializeField]
 	private AudioClip offClip;
 
-	// Token: 0x040008AC RID: 2220
 	[HideInInspector]
 	public bool isOn = true;
 
-	// Token: 0x040008AD RID: 2221
 	public List<LightSwitch> switches = new List<LightSwitch>();
 
-	// Token: 0x040008AE RID: 2222
 	[SerializeField]
 	private PhotonObjectInteract photonInteract;
 
-	// Token: 0x040008AF RID: 2223
 	[HideInInspector]
 	public List<ReflectionProbe> probes = new List<ReflectionProbe>();
 
-	// Token: 0x040008B0 RID: 2224
 	[HideInInspector]
 	private int currentOnLights;
 
-	// Token: 0x040008B1 RID: 2225
 	private int maxLights = 10;
 
-	// Token: 0x040008B2 RID: 2226
 	[SerializeField]
 	private Transform mapIcon;
 
-	// Token: 0x040008B3 RID: 2227
 	private LevelRoom.Type floorType = LevelRoom.Type.firstFloor;
 }
+

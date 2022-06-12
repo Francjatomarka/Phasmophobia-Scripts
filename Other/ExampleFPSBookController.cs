@@ -3,16 +3,13 @@ using TLGFPowerBooks;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000019 RID: 25
 public class ExampleFPSBookController : MonoBehaviour
 {
-	// Token: 0x060000BC RID: 188 RVA: 0x00005CAE File Offset: 0x00003EAE
 	private void Start()
 	{
 		this.camTr = base.GetComponent<Transform>();
 	}
 
-	// Token: 0x060000BD RID: 189 RVA: 0x00005CBC File Offset: 0x00003EBC
 	private void Update()
 	{
 		this.pointer.color = Color.white;
@@ -62,30 +59,22 @@ public class ExampleFPSBookController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000090 RID: 144
 	public LayerMask bookLayer;
 
-	// Token: 0x04000091 RID: 145
 	public float raycastDistance = 3f;
 
-	// Token: 0x04000092 RID: 146
 	public float raycastStartDistance;
 
-	// Token: 0x04000093 RID: 147
 	public KeyCode openCloseBookKey;
 
-	// Token: 0x04000094 RID: 148
 	public KeyCode nextPageKey;
 
-	// Token: 0x04000095 RID: 149
 	public KeyCode prevPageKey;
 
-	// Token: 0x04000096 RID: 150
 	public Image pointer;
 
-	// Token: 0x04000097 RID: 151
 	private Transform camTr;
 
-	// Token: 0x04000098 RID: 152
 	private PBook activePowerBook;
 }
+

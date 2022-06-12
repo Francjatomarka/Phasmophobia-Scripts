@@ -6,10 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 using Photon.Pun;
 
-// Token: 0x0200010B RID: 267
 public class CCTV : MonoBehaviour
 {
-	// Token: 0x0600074E RID: 1870 RVA: 0x0002B308 File Offset: 0x00029508
 	private void Awake()
 	{
 		this.view = base.GetComponent<PhotonView>();
@@ -22,7 +20,6 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600074F RID: 1871 RVA: 0x0002B364 File Offset: 0x00029564
 	private void Start()
 	{
 		if (MainManager.instance)
@@ -48,7 +45,6 @@ public class CCTV : MonoBehaviour
 		this.SetupDSLR();
 	}
 
-	// Token: 0x06000750 RID: 1872 RVA: 0x0002B404 File Offset: 0x00029604
 	private void SetupCCTV()
 	{
 		if (MapController.instance)
@@ -59,7 +55,6 @@ public class CCTV : MonoBehaviour
 		FindObjectOfType<MapController>().AssignIcon(this.mapIcon.transform, this.floorType);
 	}
 
-	// Token: 0x06000751 RID: 1873 RVA: 0x0002B454 File Offset: 0x00029654
 	private void SetupDSLR()
 	{
 		if (!this.isHeadCamera)
@@ -100,7 +95,6 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000752 RID: 1874 RVA: 0x0002B568 File Offset: 0x00029768
 	public void Use()
 	{
 		if (this.isHeadCamera)
@@ -115,7 +109,6 @@ public class CCTV : MonoBehaviour
 		this.NetworkedUse();
 	}
 
-	// Token: 0x06000753 RID: 1875 RVA: 0x0002B597 File Offset: 0x00029797
 	public void TurnOff()
 	{
 		if (this.IsThisCameraSwitchedOn)
@@ -129,7 +122,6 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000754 RID: 1876 RVA: 0x0002B5C5 File Offset: 0x000297C5
 	public void TurnOn()
 	{
 		if (!this.IsThisCameraSwitchedOn)
@@ -143,7 +135,6 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000755 RID: 1877 RVA: 0x0002B5F4 File Offset: 0x000297F4
 	public void SecondaryUse()
 	{
 		if (this.isFixedCamera)
@@ -205,7 +196,6 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000756 RID: 1878 RVA: 0x0002B7D0 File Offset: 0x000299D0
 	[PunRPC]
 	private void NonVRPlaceCamera(Vector3 point, Quaternion rot)
 	{
@@ -215,7 +205,6 @@ public class CCTV : MonoBehaviour
 		base.transform.rotation = rot;
 	}
 
-	// Token: 0x06000757 RID: 1879 RVA: 0x0002B804 File Offset: 0x00029A04
 	[PunRPC]
 	private void PlaceCamera(int id)
 	{
@@ -227,7 +216,6 @@ public class CCTV : MonoBehaviour
 		this.boxCollider.size = this.startColSize / 2f;
 	}
 
-	// Token: 0x06000758 RID: 1880 RVA: 0x0002B878 File Offset: 0x00029A78
 	[PunRPC]
 	private void NetworkedUse()
 	{
@@ -273,7 +261,6 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000759 RID: 1881 RVA: 0x0002B98C File Offset: 0x00029B8C
 	private void OnGrabbed()
 	{
 		if (!this.isHeadCamera)
@@ -294,14 +281,12 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600075A RID: 1882 RVA: 0x0002BA05 File Offset: 0x00029C05
 	[PunRPC]
 	private void OnGrabbedSync()
 	{
 		this.boxCollider.size = this.startColSize;
 	}
 
-	// Token: 0x0600075B RID: 1883 RVA: 0x0002BA18 File Offset: 0x00029C18
 	private void Update()
 	{
 		if (this.isFixedCamera || this.isHeadCamera)
@@ -350,7 +335,6 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600075C RID: 1884 RVA: 0x0002BBAC File Offset: 0x00029DAC
 	private void OnDisable()
 	{
 		if (this.helperObject)
@@ -374,7 +358,6 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600075D RID: 1885 RVA: 0x0002BCB8 File Offset: 0x00029EB8
 	private void OnPlayerSpawned()
 	{
 		if (GameController.instance != null && !this.isFixedCamera && !this.isHeadCamera && !XRDevice.isPresent)
@@ -390,91 +373,70 @@ public class CCTV : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600075E RID: 1886 RVA: 0x0002BD44 File Offset: 0x00029F44
 	public void UseKeyPressed()
 	{
 		this.useKeyIsPressed = true;
 	}
 
-	// Token: 0x0600075F RID: 1887 RVA: 0x0002BD4D File Offset: 0x00029F4D
 	public void UseKeyStopped()
 	{
 		this.useKeyIsPressed = false;
 	}
 	public RenderTexture rt;
 
-	// Token: 0x04000762 RID: 1890
 	public Camera cam;
 
 	public bool isThisCameraActiveOnACCTVScreen;
 
-	// Token: 0x04000764 RID: 1892
 	[SerializeField]
 	private PhotonObjectInteract photonInteract;
 
-	// Token: 0x04000765 RID: 1893
 	[SerializeField]
 	private PhotonView view;
 
-	// Token: 0x04000766 RID: 1894
 	public Renderer[] rends;
 
-	// Token: 0x04000767 RID: 1895
 	[SerializeField]
 	private bool IsThisCameraSwitchedOn;
 
-	// Token: 0x04000768 RID: 1896
 	public bool isFixedCamera;
 
-	// Token: 0x04000769 RID: 1897
 	public bool isHeadCamera;
 
-	// Token: 0x0400076A RID: 1898
 	[SerializeField]
 	private Nightvision nightVision;
 
-	// Token: 0x0400076B RID: 1899
 	[SerializeField]
 	private GameObject helperObject;
 
-	// Token: 0x0400076C RID: 1900
 	public Light myLight;
 
-	// Token: 0x0400076D RID: 1901
 	[SerializeField]
 	private BoxCollider boxCollider;
 
-	// Token: 0x0400076E RID: 1902
 	[SerializeField]
 	private Vector3 startColSize;
 
-	// Token: 0x0400076F RID: 1903
 	public Transform headCamParent;
 
-	// Token: 0x04000770 RID: 1904
 	public Image mapIcon;
 
-	// Token: 0x04000771 RID: 1905
 	[SerializeField]
 	private LevelRoom.Type floorType = LevelRoom.Type.firstFloor;
 
-	// Token: 0x04000772 RID: 1906
 	[Header("PC")]
 	private readonly float grabDistance = 2f;
 
-	// Token: 0x04000773 RID: 1907
 	[SerializeField]
 	private Ray playerAim;
 
-	// Token: 0x04000774 RID: 1908
 	[SerializeField]
 	private LayerMask mask;
 
-	// Token: 0x04000775 RID: 1909
 	[SerializeField]
 	private LayerMask helperMask;
 
-	// Token: 0x04000776 RID: 1910
 	[SerializeField]
 	private bool useKeyIsPressed;
 }
+

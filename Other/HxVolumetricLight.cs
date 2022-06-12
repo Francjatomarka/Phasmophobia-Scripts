@@ -2,11 +2,9 @@
 using UnityEngine;
 using UnityEngine.Rendering;
 
-// Token: 0x0200000D RID: 13
 [ExecuteInEditMode]
 public class HxVolumetricLight : MonoBehaviour
 {
-	// Token: 0x060000B5 RID: 181 RVA: 0x000094A8 File Offset: 0x000076A8
 	public Light LightSafe()
 	{
 		if (this.myLight == null)
@@ -16,7 +14,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return this.myLight;
 	}
 
-	// Token: 0x060000B6 RID: 182 RVA: 0x000094CA File Offset: 0x000076CA
 	public HxDummyLight DummyLightSafe()
 	{
 		if (this.myDummyLight == null)
@@ -26,7 +23,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return this.myDummyLight;
 	}
 
-	// Token: 0x060000B7 RID: 183 RVA: 0x000094EC File Offset: 0x000076EC
 	private LightType GetLightType()
 	{
 		if (this.myLight != null)
@@ -40,7 +36,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return LightType.Area;
 	}
 
-	// Token: 0x060000B8 RID: 184 RVA: 0x00009523 File Offset: 0x00007723
 	private LightShadows LightShadow()
 	{
 		if (this.myLight != null)
@@ -50,13 +45,11 @@ public class HxVolumetricLight : MonoBehaviour
 		return LightShadows.None;
 	}
 
-	// Token: 0x060000B9 RID: 185 RVA: 0x00009540 File Offset: 0x00007740
 	private bool HasLight()
 	{
 		return this.myLight != null || this.myDummyLight != null;
 	}
 
-	// Token: 0x060000BA RID: 186 RVA: 0x00009563 File Offset: 0x00007763
 	private Texture LightCookie()
 	{
 		if (this.myLight != null)
@@ -70,7 +63,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x060000BB RID: 187 RVA: 0x0000959A File Offset: 0x0000779A
 	private Texture LightFalloffTexture()
 	{
 		if (this.LightFalloff != null)
@@ -80,7 +72,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return HxVolumetricCamera.Active.LightFalloff;
 	}
 
-	// Token: 0x060000BC RID: 188 RVA: 0x000095BB File Offset: 0x000077BB
 	private float LightShadowBias()
 	{
 		if (this.myLight != null)
@@ -90,7 +81,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return 0.1f;
 	}
 
-	// Token: 0x060000BD RID: 189 RVA: 0x000095E4 File Offset: 0x000077E4
 	private Color LightColor()
 	{
 		if (this.myLight != null)
@@ -123,7 +113,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000BE RID: 190 RVA: 0x000096A8 File Offset: 0x000078A8
 	private float LightSpotAngle()
 	{
 		if (this.myLight != null)
@@ -141,7 +130,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return 1f;
 	}
 
-	// Token: 0x060000BF RID: 191 RVA: 0x00009708 File Offset: 0x00007908
 	private bool LightEnabled()
 	{
 		if (this.myLight != null)
@@ -170,7 +158,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return this.myProjector != null && this.myProjector.enabled;
 	}
 
-	// Token: 0x060000C0 RID: 192 RVA: 0x000097D8 File Offset: 0x000079D8
 	private float LightRange()
 	{
 		if (this.myLight != null)
@@ -188,7 +175,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return 0f;
 	}
 
-	// Token: 0x060000C1 RID: 193 RVA: 0x00009838 File Offset: 0x00007A38
 	private float LightShadowStrength()
 	{
 		if (this.myLight != null)
@@ -198,7 +184,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return 1f;
 	}
 
-	// Token: 0x060000C2 RID: 194 RVA: 0x0000985C File Offset: 0x00007A5C
 	private float LightIntensity()
 	{
 		if (this.myLight != null)
@@ -216,7 +201,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return 0f;
 	}
 
-	// Token: 0x060000C3 RID: 195 RVA: 0x000098B8 File Offset: 0x00007AB8
 	private void OnEnable()
 	{
 		this.myLight = base.GetComponent<Light>();
@@ -232,7 +216,6 @@ public class HxVolumetricLight : MonoBehaviour
 		HxVolumetricCamera.ActiveDirectionalLights.Add(this);
 	}
 
-	// Token: 0x060000C4 RID: 196 RVA: 0x00009929 File Offset: 0x00007B29
 	private void OnDisable()
 	{
 		HxVolumetricCamera.AllVolumetricLight.Remove(this);
@@ -245,7 +228,6 @@ public class HxVolumetricLight : MonoBehaviour
 		HxVolumetricCamera.ActiveDirectionalLights.Remove(this);
 	}
 
-	// Token: 0x060000C5 RID: 197 RVA: 0x0000995A File Offset: 0x00007B5A
 	private void OnDestroy()
 	{
 		HxVolumetricCamera.AllVolumetricLight.Remove(this);
@@ -258,14 +240,12 @@ public class HxVolumetricLight : MonoBehaviour
 		this.octreeNode = null;
 	}
 
-	// Token: 0x060000C6 RID: 198 RVA: 0x0000998B File Offset: 0x00007B8B
 	private void Start()
 	{
 		this.myLight = base.GetComponent<Light>();
 		this.myDummyLight = base.GetComponent<HxDummyLight>();
 	}
 
-	// Token: 0x060000C7 RID: 199 RVA: 0x000099A8 File Offset: 0x00007BA8
 	public void BuildBuffer(CommandBuffer CameraBuffer)
 	{
 		if (this.LightEnabled() && this.LightIntensity() > 0f)
@@ -297,7 +277,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000C8 RID: 200 RVA: 0x00009A34 File Offset: 0x00007C34
 	public void ReleaseBuffer()
 	{
 		if (this.myLight != null && this.bufferBuilt)
@@ -315,7 +294,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000C9 RID: 201 RVA: 0x00009AA0 File Offset: 0x00007CA0
 	public static void CreatePID()
 	{
 		HxVolumetricLight._hxProjectorTexturePID = Shader.PropertyToID("_ShadowTex");
@@ -339,7 +317,6 @@ public class HxVolumetricLight : MonoBehaviour
 		HxVolumetricLight._LightTexture0PID = Shader.PropertyToID("_LightTexture0");
 	}
 
-	// Token: 0x060000CA RID: 202 RVA: 0x00009BCA File Offset: 0x00007DCA
 	private float LightNearPlane()
 	{
 		if (this.myLight != null)
@@ -349,7 +326,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return 0.1f;
 	}
 
-	// Token: 0x060000CB RID: 203 RVA: 0x00009BEC File Offset: 0x00007DEC
 	private int DirectionalPass(CommandBuffer buffer)
 	{
 		if (HxVolumetricCamera.Active.Ambient == HxVolumetricCamera.HxAmbientMode.UseRenderSettings)
@@ -386,7 +362,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000CC RID: 204 RVA: 0x00009D5D File Offset: 0x00007F5D
 	private float getContrast()
 	{
 		if (this.CustomNoiseContrast)
@@ -396,7 +371,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return HxVolumetricCamera.Active.NoiseContrast;
 	}
 
-	// Token: 0x060000CD RID: 205 RVA: 0x00009D78 File Offset: 0x00007F78
 	private bool ShaderModel4()
 	{
 		if (SystemInfo.graphicsDeviceType != GraphicsDeviceType.Direct3D9)
@@ -406,7 +380,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060000CE RID: 206 RVA: 0x00009D8C File Offset: 0x00007F8C
 	private void BuildDirectionalBuffer(CommandBuffer CameraBuffer)
 	{
 		bool flag = this.LightShadow() != LightShadows.None && this.Shadows;
@@ -503,7 +476,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000CF RID: 207 RVA: 0x0000A3CC File Offset: 0x000085CC
 	private void LoadVolumeDateIntoBuffer(CommandBuffer buffer)
 	{
 		if (this.ShaderModel4())
@@ -516,13 +488,11 @@ public class HxVolumetricLight : MonoBehaviour
 		buffer.SetGlobalVectorArray("hxVolumeSettingsOld", HxVolumetricLight.VolumeSettingsArraysOld);
 	}
 
-	// Token: 0x060000D0 RID: 208 RVA: 0x0000A424 File Offset: 0x00008624
 	private float CalcLightInstensityDistance(float distance)
 	{
 		return Mathf.InverseLerp(this.CustomMaxLightDistance ? this.MaxLightDistance : HxVolumetricCamera.Active.MaxLightDistance, (this.CustomMaxLightDistance ? this.MaxLightDistance : HxVolumetricCamera.Active.MaxLightDistance) * 0.8f, distance);
 	}
 
-	// Token: 0x060000D1 RID: 209 RVA: 0x0000A474 File Offset: 0x00008674
 	private void BuildSpotLightBuffer(CommandBuffer cameraBuffer)
 	{
 		float num = this.ClosestDistanceToCone(HxVolumetricCamera.Active.transform.position);
@@ -627,7 +597,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000D2 RID: 210 RVA: 0x0000AAC4 File Offset: 0x00008CC4
 	private void BuildProjectorLightBuffer(CommandBuffer cameraBuffer)
 	{
 		float num = Mathf.Sqrt(this.lastBounds.SqrDistance(HxVolumetricCamera.ActiveCamera.transform.position));
@@ -699,7 +668,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000D3 RID: 211 RVA: 0x0000B058 File Offset: 0x00009258
 	private void SetColors(CommandBuffer buffer, float distanceLerp)
 	{
 		Vector4 vector = (this.CustomColor ? this.Color : this.LightColor()) * (this.CustomIntensity ? this.Intensity : this.LightIntensity()) * distanceLerp;
@@ -730,7 +698,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000D4 RID: 212 RVA: 0x0000B228 File Offset: 0x00009428
 	private void SetColors(CommandBuffer buffer)
 	{
 		Vector4 vector = (this.CustomColor ? this.Color : this.LightColor()) * (this.CustomIntensity ? this.Intensity : this.LightIntensity());
@@ -761,7 +728,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000D5 RID: 213 RVA: 0x0000B37C File Offset: 0x0000957C
 	private Vector3 CalcTintColor(Vector4 c)
 	{
 		Vector3 a = new Vector3(c.x, c.y, c.z);
@@ -777,7 +743,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return a.normalized * magnitude;
 	}
 
-	// Token: 0x060000D6 RID: 214 RVA: 0x0000B460 File Offset: 0x00009660
 	private Vector3 CalcTintColorEdge(Vector4 c)
 	{
 		Vector3 a = new Vector3(c.x, c.y, c.z);
@@ -793,7 +758,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return a.normalized * magnitude;
 	}
 
-	// Token: 0x060000D7 RID: 215 RVA: 0x0000B544 File Offset: 0x00009744
 	private void BuildPointBuffer(CommandBuffer cameraBuffer)
 	{
 		float num = Mathf.Max(Vector3.Distance(HxVolumetricCamera.Active.transform.position, base.transform.position) - this.LightRange(), 0f);
@@ -893,7 +857,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000D8 RID: 216 RVA: 0x0000BAE8 File Offset: 0x00009CE8
 	public int MID(bool RenderShadows, bool full)
 	{
 		int num = 0;
@@ -928,13 +891,11 @@ public class HxVolumetricLight : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x060000D9 RID: 217 RVA: 0x0000BB7B File Offset: 0x00009D7B
 	private void Update()
 	{
 		this.OffsetUpdated = false;
 	}
 
-	// Token: 0x060000DA RID: 218 RVA: 0x0000BB84 File Offset: 0x00009D84
 	private float GetFogDensity()
 	{
 		if (this.CustomDensity)
@@ -944,7 +905,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return HxVolumetricCamera.Active.Density + this.ExtraDensity;
 	}
 
-	// Token: 0x060000DB RID: 219 RVA: 0x0000BBAD File Offset: 0x00009DAD
 	private Texture3D GetNoiseTexture()
 	{
 		if (!this.CustomNoiseTexture)
@@ -958,14 +918,12 @@ public class HxVolumetricLight : MonoBehaviour
 		return this.NoiseTexture3D;
 	}
 
-	// Token: 0x060000DC RID: 220 RVA: 0x0000BBE4 File Offset: 0x00009DE4
 	private int GetSampleCount(bool RenderShadows)
 	{
 		int b = this.CustomSampleCount ? this.SampleCount : ((this.GetLightType() != LightType.Directional) ? HxVolumetricCamera.Active.SampleCount : HxVolumetricCamera.Active.DirectionalSampleCount);
 		return Mathf.Max(2, b);
 	}
 
-	// Token: 0x060000DD RID: 221 RVA: 0x0000BC28 File Offset: 0x00009E28
 	public static Vector3 ClosestPointOnLine(Vector3 vA, Vector3 vB, Vector3 vPoint)
 	{
 		Vector3 rhs = vPoint - vA;
@@ -984,7 +942,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return vA + b;
 	}
 
-	// Token: 0x060000DE RID: 222 RVA: 0x0000BC80 File Offset: 0x00009E80
 	private float ClosestDistanceToCone(Vector3 Point)
 	{
 		Vector3 vector = base.transform.forward * this.LightRange();
@@ -1012,7 +969,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return Vector3.Distance(Point, vector3);
 	}
 
-	// Token: 0x060000DF RID: 223 RVA: 0x0000BDE4 File Offset: 0x00009FE4
 	private void UpdateLightMatrix()
 	{
 		this.LastRange = this.LightRange();
@@ -1044,7 +1000,6 @@ public class HxVolumetricLight : MonoBehaviour
 		this.matrixReconstruct = false;
 	}
 
-	// Token: 0x060000E0 RID: 224 RVA: 0x0000BFCC File Offset: 0x0000A1CC
 	private void CheckLightType()
 	{
 		if (this.lastType != this.GetLightType())
@@ -1064,7 +1019,6 @@ public class HxVolumetricLight : MonoBehaviour
 		this.lastType = this.GetLightType();
 	}
 
-	// Token: 0x060000E1 RID: 225 RVA: 0x0000C04C File Offset: 0x0000A24C
 	private void LoadVolumeData()
 	{
 		if (this.ShaderModel4())
@@ -1110,13 +1064,11 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E2 RID: 226 RVA: 0x0000C268 File Offset: 0x0000A468
 	private bool BoundsIntersect(HxDensityVolume vol)
 	{
 		return this.minBounds.x <= vol.maxBounds.x && this.maxBounds.x >= vol.minBounds.x && this.minBounds.y <= vol.maxBounds.y && this.maxBounds.y >= vol.minBounds.y && this.minBounds.z <= vol.maxBounds.z && this.maxBounds.z >= vol.minBounds.z;
 	}
 
-	// Token: 0x060000E3 RID: 227 RVA: 0x0000C30C File Offset: 0x0000A50C
 	private void LoadVolumeDataBounds()
 	{
 		if (this.ShaderModel4())
@@ -1162,7 +1114,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E4 RID: 228 RVA: 0x0000C554 File Offset: 0x0000A754
 	private Vector4 NormalOfTriangle(Vector3 a, Vector3 b, Vector3 c)
 	{
 		Vector3 vector = Vector3.Cross(b - a, c - a);
@@ -1170,7 +1121,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return new Vector4(vector.x, vector.y, vector.z, 0f);
 	}
 
-	// Token: 0x060000E5 RID: 229 RVA: 0x0000C598 File Offset: 0x0000A798
 	private void DrawIntersect()
 	{
 		Vector3 forward = base.transform.forward;
@@ -1247,7 +1197,6 @@ public class HxVolumetricLight : MonoBehaviour
 		Debug.DrawLine(position2 + forward2 * num, position2 + forward2 * num2);
 	}
 
-	// Token: 0x060000E6 RID: 230 RVA: 0x0000C96C File Offset: 0x0000AB6C
 	private float GetAspect()
 	{
 		if (this.myProjector != null)
@@ -1257,7 +1206,6 @@ public class HxVolumetricLight : MonoBehaviour
 		return 0f;
 	}
 
-	// Token: 0x060000E7 RID: 231 RVA: 0x0000C98D File Offset: 0x0000AB8D
 	private float GetOrthoSize()
 	{
 		if (this.myProjector != null)
@@ -1267,13 +1215,11 @@ public class HxVolumetricLight : MonoBehaviour
 		return 0f;
 	}
 
-	// Token: 0x060000E8 RID: 232 RVA: 0x0000C9AE File Offset: 0x0000ABAE
 	private bool GetOrtho()
 	{
 		return this.myProjector != null && this.myProjector.orthographic;
 	}
 
-	// Token: 0x060000E9 RID: 233 RVA: 0x0000C9CC File Offset: 0x0000ABCC
 	public void UpdatePosition(bool first = false)
 	{
 		if (first || base.transform.hasChanged || this.matrixReconstruct || this.LastRange != this.LightRange() || this.LastSpotAngle != this.LightSpotAngle() || this.lastType != this.GetLightType() || (this.GetLightType() == LightType.Area && (this.LastAspect != this.GetAspect() || this.LastOrthoSize == this.GetOrthoSize() || this.LastOrtho == this.GetOrtho())))
@@ -1385,7 +1331,6 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000EA RID: 234 RVA: 0x0000D148 File Offset: 0x0000B348
 	public void DrawBounds()
 	{
 		if (this.GetLightType() != LightType.Directional)
@@ -1405,336 +1350,232 @@ public class HxVolumetricLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000110 RID: 272
 	private static float ShadowDistanceExtra = 0.75f;
 
-	// Token: 0x04000111 RID: 273
 	private Light myLight;
 
-	// Token: 0x04000112 RID: 274
 	private HxDummyLight myDummyLight;
 
-	// Token: 0x04000113 RID: 275
 	public Texture3D NoiseTexture3D;
 
-	// Token: 0x04000114 RID: 276
 	private CommandBuffer BufferRender;
 
-	// Token: 0x04000115 RID: 277
 	private CommandBuffer BufferCopy;
 
-	// Token: 0x04000116 RID: 278
 	private Projector myProjector;
 
-	// Token: 0x04000117 RID: 279
 	public Vector3 NoiseScale = new Vector3(0.5f, 0.5f, 0.5f);
 
-	// Token: 0x04000118 RID: 280
 	public Vector3 NoiseVelocity = new Vector3(1f, 1f, 0f);
 
-	// Token: 0x04000119 RID: 281
 	private bool dirty = true;
 
-	// Token: 0x0400011A RID: 282
 	public Texture LightFalloff;
 
-	// Token: 0x0400011B RID: 283
 	public float NearPlane;
 
-	// Token: 0x0400011C RID: 284
 	public bool NoiseEnabled;
 
-	// Token: 0x0400011D RID: 285
 	public bool CustomMieScatter;
 
-	// Token: 0x0400011E RID: 286
 	public bool CustomExtinction;
 
-	// Token: 0x0400011F RID: 287
 	public bool CustomExtinctionEffect;
 
-	// Token: 0x04000120 RID: 288
 	public bool CustomDensity;
 
-	// Token: 0x04000121 RID: 289
 	public bool CustomSampleCount;
 
-	// Token: 0x04000122 RID: 290
 	public bool CustomColor;
 
-	// Token: 0x04000123 RID: 291
 	public bool CustomNoiseEnabled;
 
-	// Token: 0x04000124 RID: 292
 	public bool CustomNoiseTexture;
 
-	// Token: 0x04000125 RID: 293
 	public bool CustomNoiseScale;
 
-	// Token: 0x04000126 RID: 294
 	public bool CustomNoiseVelocity;
 
-	// Token: 0x04000127 RID: 295
 	public bool CustomNoiseContrast;
 
-	// Token: 0x04000128 RID: 296
 	public bool CustomFogHeightEnabled;
 
-	// Token: 0x04000129 RID: 297
 	public bool CustomFogHeight;
 
-	// Token: 0x0400012A RID: 298
 	public bool CustomFogTransitionSize;
 
-	// Token: 0x0400012B RID: 299
 	public bool CustomAboveFogPercent;
 
-	// Token: 0x0400012C RID: 300
 	public bool CustomSunSize;
 
-	// Token: 0x0400012D RID: 301
 	public bool CustomSunBleed;
 
-	// Token: 0x0400012E RID: 302
 	public bool ShadowCasting = true;
 
-	// Token: 0x0400012F RID: 303
 	public bool CustomStrength;
 
-	// Token: 0x04000130 RID: 304
 	public bool CustomIntensity;
 
-	// Token: 0x04000131 RID: 305
 	public bool CustomTintMode;
 
-	// Token: 0x04000132 RID: 306
 	public bool CustomTintColor;
 
-	// Token: 0x04000133 RID: 307
 	public bool CustomTintColor2;
 
-	// Token: 0x04000134 RID: 308
 	public bool CustomTintGradient;
 
-	// Token: 0x04000135 RID: 309
 	public bool CustomTintIntensity;
 
-	// Token: 0x04000136 RID: 310
 	public bool CustomMaxLightDistance;
 
-	// Token: 0x04000137 RID: 311
 	[Range(0f, 4f)]
 	public float NoiseContrast = 1f;
 
-	// Token: 0x04000138 RID: 312
 	public HxVolumetricCamera.HxTintMode TintMode;
 
-	// Token: 0x04000139 RID: 313
 	public Color TintColor = Color.red;
 
-	// Token: 0x0400013A RID: 314
 	public Color TintColor2 = Color.blue;
 
-	// Token: 0x0400013B RID: 315
 	public float TintIntensity = 0.2f;
 
-	// Token: 0x0400013C RID: 316
 	[Range(0f, 1f)]
 	public float TintGradient = 0.2f;
 
-	// Token: 0x0400013D RID: 317
 	[Range(0f, 8f)]
 	public float Intensity = 1f;
 
-	// Token: 0x0400013E RID: 318
 	[Range(0f, 1f)]
 	public float Strength = 1f;
 
-	// Token: 0x0400013F RID: 319
 	public Color Color = Color.white;
 
-	// Token: 0x04000140 RID: 320
 	[Range(0f, 0.9999f)]
 	[Tooltip("0 for even scattering, 1 for forward scattering")]
 	public float MieScattering = 0.05f;
 
-	// Token: 0x04000141 RID: 321
 	[Range(0f, 1f)]
 	[Tooltip("Create a sun using mie scattering")]
 	public float SunSize;
 
-	// Token: 0x04000142 RID: 322
 	[Tooltip("Allows the sun to bleed over the edge of objects (recommend using bloom)")]
 	public bool SunBleed = true;
 
-	// Token: 0x04000143 RID: 323
 	[Range(0f, 10f)]
 	[Tooltip("dimms results over distance")]
 	public float Extinction = 0.01f;
 
-	// Token: 0x04000144 RID: 324
 	[Range(0f, 1f)]
 	[Tooltip("Density of air")]
 	public float Density = 0.2f;
 
-	// Token: 0x04000145 RID: 325
 	[Range(0f, 1f)]
 	[Tooltip("Useful when you want a light to have slightly more density")]
 	public float ExtraDensity;
 
-	// Token: 0x04000146 RID: 326
 	[Range(2f, 64f)]
 	[Tooltip("How many samples per pixel, Recommended 4-8 for point, 6 - 16 for Directional")]
 	public int SampleCount = 4;
 
-	// Token: 0x04000147 RID: 327
 	[Tooltip("Ray marching Shadows can be expensive, save some frames by not marching shadows")]
 	public bool Shadows = true;
 
-	// Token: 0x04000148 RID: 328
 	public bool FogHeightEnabled;
 
-	// Token: 0x04000149 RID: 329
 	public float FogHeight = 5f;
 
-	// Token: 0x0400014A RID: 330
 	public float FogTransitionSize = 5f;
 
-	// Token: 0x0400014B RID: 331
 	public float MaxLightDistance = 128f;
 
-	// Token: 0x0400014C RID: 332
 	public float AboveFogPercent = 0.1f;
 
-	// Token: 0x0400014D RID: 333
 	private bool OffsetUpdated;
 
-	// Token: 0x0400014E RID: 334
 	public Vector3 Offset = Vector3.zero;
 
-	// Token: 0x0400014F RID: 335
 	private static MaterialPropertyBlock propertyBlock;
 
-	// Token: 0x04000150 RID: 336
 	private bool bufferBuilt;
 
-	// Token: 0x04000151 RID: 337
 	public static int VolumetricBMVPPID;
 
-	// Token: 0x04000152 RID: 338
 	public static int VolumetricMVPPID;
 
-	// Token: 0x04000153 RID: 339
 	public static int VolumetricMVP2PID;
 
-	// Token: 0x04000154 RID: 340
 	public static int VolumetricMVPID;
 
-	// Token: 0x04000155 RID: 341
 	private static int LightColourPID;
 
-	// Token: 0x04000156 RID: 342
 	private static int LightColour2PID;
 
-	// Token: 0x04000157 RID: 343
 	private static int FogHeightsPID;
 
-	// Token: 0x04000158 RID: 344
 	private static int PhasePID;
 
-	// Token: 0x04000159 RID: 345
 	private static int _LightParamsPID;
 
-	// Token: 0x0400015A RID: 346
 	private static int DensityPID;
 
-	// Token: 0x0400015B RID: 347
 	private static int ShadowBiasPID;
 
-	// Token: 0x0400015C RID: 348
 	private static int _CustomLightPositionPID;
 
-	// Token: 0x0400015D RID: 349
 	private static int hxNearPlanePID;
 
-	// Token: 0x0400015E RID: 350
 	private static int NoiseScalePID;
 
-	// Token: 0x0400015F RID: 351
 	private static int NoiseOffsetPID;
 
-	// Token: 0x04000160 RID: 352
 	private static int _SpotLightParamsPID;
 
-	// Token: 0x04000161 RID: 353
 	private static int _LightTexture0PID;
 
-	// Token: 0x04000162 RID: 354
 	private static int _hxProjectorTexturePID;
 
-	// Token: 0x04000163 RID: 355
 	private static int _hxProjectorFalloffTexturePID;
 
-	// Token: 0x04000164 RID: 356
 	private bool LastBufferDirectional;
 
-	// Token: 0x04000165 RID: 357
 	private float LastSpotAngle;
 
-	// Token: 0x04000166 RID: 358
 	private float LastRange;
 
-	// Token: 0x04000167 RID: 359
 	private float LastAspect;
 
-	// Token: 0x04000168 RID: 360
 	private LightType lastType = LightType.Area;
 
-	// Token: 0x04000169 RID: 361
 	private Matrix4x4 LightMatrix;
 
-	// Token: 0x0400016A RID: 362
 	private Bounds lastBounds;
 
-	// Token: 0x0400016B RID: 363
 	private Vector3 minBounds;
 
-	// Token: 0x0400016C RID: 364
 	private Vector3 maxBounds;
 
-	// Token: 0x0400016D RID: 365
 	private HxOctreeNode<HxVolumetricLight>.NodeObject octreeNode;
 
-	// Token: 0x0400016E RID: 366
 	private Vector4 TopFrustumNormal;
 
-	// Token: 0x0400016F RID: 367
 	private Vector4 BottomFrustumNormal;
 
-	// Token: 0x04000170 RID: 368
 	private Vector4 LeftFrustumNormal;
 
-	// Token: 0x04000171 RID: 369
 	private Vector4 RightFrustumNormal;
 
-	// Token: 0x04000172 RID: 370
 	private static Matrix4x4[] VolumeMatrixArrays = new Matrix4x4[50];
 
-	// Token: 0x04000173 RID: 371
 	private static Vector4[] VolumeSettingsArrays = new Vector4[50];
 
-	// Token: 0x04000174 RID: 372
 	private static Matrix4x4[] VolumeMatrixArraysOld = new Matrix4x4[10];
 
-	// Token: 0x04000175 RID: 373
 	private static Vector4[] VolumeSettingsArraysOld = new Vector4[10];
 
-	// Token: 0x04000176 RID: 374
 	private float LastOrthoSize;
 
-	// Token: 0x04000177 RID: 375
 	private bool LastOrtho;
 
-	// Token: 0x04000178 RID: 376
 	private bool matrixReconstruct = true;
 }
+

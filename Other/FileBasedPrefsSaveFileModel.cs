@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-// Token: 0x02000004 RID: 4
 [Serializable]
 public class FileBasedPrefsSaveFileModel
 {
-	// Token: 0x06000026 RID: 38 RVA: 0x00002358 File Offset: 0x00000558
 	public object GetValueFromKey(string key, object defaultValue)
 	{
 		if (defaultValue is string)
@@ -52,7 +50,6 @@ public class FileBasedPrefsSaveFileModel
 		return defaultValue;
 	}
 
-	// Token: 0x06000027 RID: 39 RVA: 0x0000246D File Offset: 0x0000066D
 	public void UpdateOrAddData(string key, object value)
 	{
 		if (this.HasKeyFromObject(key, value))
@@ -63,7 +60,6 @@ public class FileBasedPrefsSaveFileModel
 		this.SetValueForNewKey(key, value);
 	}
 
-	// Token: 0x06000028 RID: 40 RVA: 0x0000248C File Offset: 0x0000068C
 	private void SetValueForNewKey(string key, object value)
 	{
 		if (value is string)
@@ -92,7 +88,6 @@ public class FileBasedPrefsSaveFileModel
 		}
 	}
 
-	// Token: 0x06000029 RID: 41 RVA: 0x00002564 File Offset: 0x00000764
 	private void SetValueForExistingKey(string key, object value)
 	{
 		if (value is string)
@@ -137,7 +132,6 @@ public class FileBasedPrefsSaveFileModel
 		}
 	}
 
-	// Token: 0x0600002A RID: 42 RVA: 0x00002680 File Offset: 0x00000880
 	public bool HasKeyFromObject(string key, object value)
 	{
 		if (value is string)
@@ -183,7 +177,6 @@ public class FileBasedPrefsSaveFileModel
 		return false;
 	}
 
-	// Token: 0x0600002B RID: 43 RVA: 0x00002758 File Offset: 0x00000958
 	public void DeleteKey(string key)
 	{
 		for (int i = 0; i < this.StringData.Length; i++)
@@ -224,7 +217,6 @@ public class FileBasedPrefsSaveFileModel
 		}
 	}
 
-	// Token: 0x0600002C RID: 44 RVA: 0x00002894 File Offset: 0x00000A94
 	public void DeleteString(string key)
 	{
 		for (int i = 0; i < this.StringData.Length; i++)
@@ -238,7 +230,6 @@ public class FileBasedPrefsSaveFileModel
 		}
 	}
 
-	// Token: 0x0600002D RID: 45 RVA: 0x000028E8 File Offset: 0x00000AE8
 	public void DeleteInt(string key)
 	{
 		for (int i = 0; i < this.IntData.Length; i++)
@@ -252,7 +243,6 @@ public class FileBasedPrefsSaveFileModel
 		}
 	}
 
-	// Token: 0x0600002E RID: 46 RVA: 0x0000293C File Offset: 0x00000B3C
 	public void DeleteFloat(string key)
 	{
 		for (int i = 0; i < this.FloatData.Length; i++)
@@ -266,7 +256,6 @@ public class FileBasedPrefsSaveFileModel
 		}
 	}
 
-	// Token: 0x0600002F RID: 47 RVA: 0x00002990 File Offset: 0x00000B90
 	public void DeleteBool(string key)
 	{
 		for (int i = 0; i < this.BoolData.Length; i++)
@@ -280,7 +269,6 @@ public class FileBasedPrefsSaveFileModel
 		}
 	}
 
-	// Token: 0x06000030 RID: 48 RVA: 0x000029E4 File Offset: 0x00000BE4
 	public bool HasKey(string key)
 	{
 		for (int i = 0; i < this.StringData.Length; i++)
@@ -314,87 +302,68 @@ public class FileBasedPrefsSaveFileModel
 		return false;
 	}
 
-	// Token: 0x04000008 RID: 8
 	public FileBasedPrefsSaveFileModel.StringItem[] StringData = new FileBasedPrefsSaveFileModel.StringItem[0];
 
-	// Token: 0x04000009 RID: 9
 	public FileBasedPrefsSaveFileModel.IntItem[] IntData = new FileBasedPrefsSaveFileModel.IntItem[0];
 
-	// Token: 0x0400000A RID: 10
 	public FileBasedPrefsSaveFileModel.FloatItem[] FloatData = new FileBasedPrefsSaveFileModel.FloatItem[0];
 
-	// Token: 0x0400000B RID: 11
 	public FileBasedPrefsSaveFileModel.BoolItem[] BoolData = new FileBasedPrefsSaveFileModel.BoolItem[0];
 
-	// Token: 0x0200030A RID: 778
 	[Serializable]
 	public class StringItem
 	{
-		// Token: 0x0600149D RID: 5277 RVA: 0x00057E09 File Offset: 0x00056009
 		public StringItem(string K, string V)
 		{
 			this.Key = K;
 			this.Value = V;
 		}
 
-		// Token: 0x040014CE RID: 5326
 		public string Key;
 
-		// Token: 0x040014CF RID: 5327
 		public string Value;
 	}
 
-	// Token: 0x0200030B RID: 779
 	[Serializable]
 	public class IntItem
 	{
-		// Token: 0x0600149E RID: 5278 RVA: 0x00057E1F File Offset: 0x0005601F
 		public IntItem(string K, int V)
 		{
 			this.Key = K;
 			this.Value = V;
 		}
 
-		// Token: 0x040014D0 RID: 5328
 		public string Key;
 
-		// Token: 0x040014D1 RID: 5329
 		public int Value;
 	}
 
-	// Token: 0x0200030C RID: 780
 	[Serializable]
 	public class FloatItem
 	{
-		// Token: 0x0600149F RID: 5279 RVA: 0x00057E35 File Offset: 0x00056035
 		public FloatItem(string K, float V)
 		{
 			this.Key = K;
 			this.Value = V;
 		}
 
-		// Token: 0x040014D2 RID: 5330
 		public string Key;
 
-		// Token: 0x040014D3 RID: 5331
 		public float Value;
 	}
 
-	// Token: 0x0200030D RID: 781
 	[Serializable]
 	public class BoolItem
 	{
-		// Token: 0x060014A0 RID: 5280 RVA: 0x00057E4B File Offset: 0x0005604B
 		public BoolItem(string K, bool V)
 		{
 			this.Key = K;
 			this.Value = V;
 		}
 
-		// Token: 0x040014D4 RID: 5332
 		public string Key;
 
-		// Token: 0x040014D5 RID: 5333
 		public bool Value;
 	}
 }
+

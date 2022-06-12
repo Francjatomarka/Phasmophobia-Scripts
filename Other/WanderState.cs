@@ -2,17 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-// Token: 0x020000C6 RID: 198
 public class WanderState : IState
 {
-	// Token: 0x06000595 RID: 1429 RVA: 0x00020B24 File Offset: 0x0001ED24
 	public WanderState(GhostAI ghostAI, NavMeshAgent agent)
 	{
 		this.ghostAI = ghostAI;
 		this.agent = agent;
 	}
 
-	// Token: 0x06000596 RID: 1430 RVA: 0x00020B48 File Offset: 0x0001ED48
 	public void Enter()
 	{
 		if (!this.ghostAI.canWander)
@@ -31,7 +28,6 @@ public class WanderState : IState
 		this.ghostAI.anim.SetBool("isIdle", false);
 	}
 
-	// Token: 0x06000597 RID: 1431 RVA: 0x00020BDC File Offset: 0x0001EDDC
 	public void Execute()
 	{
 		this.stuckTimer -= Time.deltaTime;
@@ -51,12 +47,10 @@ public class WanderState : IState
 		}
 	}
 
-	// Token: 0x06000598 RID: 1432 RVA: 0x00003D4C File Offset: 0x00001F4C
 	public void Exit()
 	{
 	}
 
-	// Token: 0x06000599 RID: 1433 RVA: 0x00020C78 File Offset: 0x0001EE78
 	private Vector3 RandomNavSphere()
 	{
 		NavMeshHit navMeshHit;
@@ -64,12 +58,10 @@ public class WanderState : IState
 		return navMeshHit.position;
 	}
 
-	// Token: 0x04000541 RID: 1345
 	private GhostAI ghostAI;
 
-	// Token: 0x04000542 RID: 1346
 	private NavMeshAgent agent;
 
-	// Token: 0x04000543 RID: 1347
 	private float stuckTimer = 30f;
 }
+

@@ -5,10 +5,8 @@ using UnityEngine.Events;
 using UnityEngine.XR;
 using Photon.Pun;
 
-// Token: 0x02000121 RID: 289
 public class SoundSensor : MonoBehaviour
 {
-	// Token: 0x0600081C RID: 2076 RVA: 0x0003143C File Offset: 0x0002F63C
 	private void Awake()
 	{
 		this.photonInteract = base.GetComponent<PhotonObjectInteract>();
@@ -21,7 +19,6 @@ public class SoundSensor : MonoBehaviour
 		this.iconStartLocalScale = this.mapIcon.localScale;
 	}
 
-	// Token: 0x0600081D RID: 2077 RVA: 0x000314C0 File Offset: 0x0002F6C0
 	private void Start()
 	{
 		if (XRDevice.isPresent)
@@ -37,7 +34,6 @@ public class SoundSensor : MonoBehaviour
 		this.rend.material.SetColor("_EmissionColor", Color.red);
 	}
 
-	// Token: 0x0600081E RID: 2078 RVA: 0x0003154C File Offset: 0x0002F74C
 	private void OnGrabbed()
 	{
 		if (this.isPlaced)
@@ -57,7 +53,6 @@ public class SoundSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600081F RID: 2079 RVA: 0x000315B0 File Offset: 0x0002F7B0
 	private void MotionUse()
 	{
 		RaycastHit raycastHit;
@@ -78,7 +73,6 @@ public class SoundSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000820 RID: 2080 RVA: 0x00031644 File Offset: 0x0002F844
 	[PunRPC]
 	private void PlaceOrPickupSensor(bool isBeingPlaced, Vector3 position, Vector3 normal, string _roomName)
 	{
@@ -106,7 +100,6 @@ public class SoundSensor : MonoBehaviour
 		this.mapIcon.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06000821 RID: 2081 RVA: 0x0003173E File Offset: 0x0002F93E
 	private IEnumerator Place(Vector3 position, Vector3 normal)
 	{
 		base.transform.SetParent(null);
@@ -133,7 +126,6 @@ public class SoundSensor : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000822 RID: 2082 RVA: 0x0003175B File Offset: 0x0002F95B
 	private IEnumerator MapIconDelay()
 	{
 		yield return new WaitForSeconds(3f);
@@ -147,7 +139,6 @@ public class SoundSensor : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000823 RID: 2083 RVA: 0x0003176A File Offset: 0x0002F96A
 	[PunRPC]
 	private void AssignSoundSensorToMap(int floorID)
 	{
@@ -155,7 +146,6 @@ public class SoundSensor : MonoBehaviour
 		MapController.instance.AssignSensor(base.transform, this.mapIcon, floorID, null);
 	}
 
-	// Token: 0x06000824 RID: 2084 RVA: 0x00031798 File Offset: 0x0002F998
 	private void Update()
 	{
 		if (this.isPlaced)
@@ -230,7 +220,6 @@ public class SoundSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000825 RID: 2085 RVA: 0x00031A48 File Offset: 0x0002FC48
 	private void SecondaryUse()
 	{
 		Camera playerCamera = GameObject.Find("PCPlayerHead").GetComponent<Camera>();
@@ -255,7 +244,6 @@ public class SoundSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000826 RID: 2086 RVA: 0x00031B12 File Offset: 0x0002FD12
 	private IEnumerator ResetTrigger()
 	{
 		this.col.enabled = false;
@@ -264,7 +252,6 @@ public class SoundSensor : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000827 RID: 2087 RVA: 0x00031B21 File Offset: 0x0002FD21
 	private void OnDisable()
 	{
 		if (this.helperObject)
@@ -273,65 +260,48 @@ public class SoundSensor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400081A RID: 2074
 	[HideInInspector]
 	public bool isPlaced;
 
-	// Token: 0x0400081B RID: 2075
 	[HideInInspector]
 	public int id;
 
-	// Token: 0x0400081C RID: 2076
 	[HideInInspector]
 	public string roomName;
 
-	// Token: 0x0400081D RID: 2077
 	private PhotonObjectInteract photonInteract;
 
-	// Token: 0x0400081E RID: 2078
 	private Rigidbody rigidbdy;
 
-	// Token: 0x0400081F RID: 2079
 	private PhotonView view;
 
-	// Token: 0x04000820 RID: 2080
 	private Renderer rend;
 
-	// Token: 0x04000821 RID: 2081
 	private float checkTimer = 5f;
 
-	// Token: 0x04000822 RID: 2082
 	public float highestVolume;
 
-	// Token: 0x04000823 RID: 2083
 	[SerializeField]
 	private BoxCollider col;
 
-	// Token: 0x04000824 RID: 2084
 	[SerializeField]
 	private GameObject helperObject;
 
-	// Token: 0x04000825 RID: 2085
 	[SerializeField]
 	private Transform mapIcon;
 
-	// Token: 0x04000826 RID: 2086
 	private Quaternion iconStartLocalRotation;
 
-	// Token: 0x04000827 RID: 2087
 	private Vector3 iconStartLocalScale;
 
-	// Token: 0x04000828 RID: 2088
 	private Vector3 iconStartLocalPosition;
 
-	// Token: 0x04000829 RID: 2089
 	[Header("PC")]
 	private float grabDistance = 1f;
 
-	// Token: 0x0400082A RID: 2090
 	private Ray playerAim;
 
-	// Token: 0x0400082B RID: 2091
 	[SerializeField]
 	private LayerMask mask;
 }
+

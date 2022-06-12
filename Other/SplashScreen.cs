@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR;
 
-// Token: 0x0200014A RID: 330
 public class SplashScreen : MonoBehaviour
 {
 	private float timer = 5.1f;
@@ -65,3 +64,4 @@ public class SplashScreen : MonoBehaviour
 		yield break;
 	}
 }
+

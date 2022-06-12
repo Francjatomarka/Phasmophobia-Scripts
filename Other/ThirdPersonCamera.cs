@@ -1,10 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200006A RID: 106
 public class ThirdPersonCamera : MonoBehaviour
 {
-	// Token: 0x06000253 RID: 595 RVA: 0x0000FC24 File Offset: 0x0000DE24
 	private void OnEnable()
 	{
 		if (!this.cameraTransform && Camera.main)
@@ -36,13 +34,11 @@ public class ThirdPersonCamera : MonoBehaviour
 		this.Cut(this._target, this.centerOffset);
 	}
 
-	// Token: 0x06000254 RID: 596 RVA: 0x0000FD4E File Offset: 0x0000DF4E
 	private void DebugDrawStuff()
 	{
 		Debug.DrawLine(this._target.position, this._target.position + this.headOffset);
 	}
 
-	// Token: 0x06000255 RID: 597 RVA: 0x0000D18D File Offset: 0x0000B38D
 	private float AngleDistance(float a, float b)
 	{
 		a = Mathf.Repeat(a, 360f);
@@ -50,7 +46,6 @@ public class ThirdPersonCamera : MonoBehaviour
 		return Mathf.Abs(b - a);
 	}
 
-	// Token: 0x06000256 RID: 598 RVA: 0x0000FD78 File Offset: 0x0000DF78
 	private void Apply(Transform dummyTarget, Vector3 dummyCenter)
 	{
 		if (!this.controller)
@@ -107,13 +102,11 @@ public class ThirdPersonCamera : MonoBehaviour
 		this.SetUpRotation(vector, headPos);
 	}
 
-	// Token: 0x06000257 RID: 599 RVA: 0x0000FF9C File Offset: 0x0000E19C
 	private void LateUpdate()
 	{
 		this.Apply(base.transform, Vector3.zero);
 	}
 
-	// Token: 0x06000258 RID: 600 RVA: 0x0000FFB0 File Offset: 0x0000E1B0
 	private void Cut(Transform dummyTarget, Vector3 dummyCenter)
 	{
 		float num = this.heightSmoothLag;
@@ -129,7 +122,6 @@ public class ThirdPersonCamera : MonoBehaviour
 		this.snapSmoothLag = num3;
 	}
 
-	// Token: 0x06000259 RID: 601 RVA: 0x00010020 File Offset: 0x0000E220
 	private void SetUpRotation(Vector3 centerPos, Vector3 headPos)
 	{
 		Vector3 position = this.cameraTransform.position;
@@ -151,66 +143,47 @@ public class ThirdPersonCamera : MonoBehaviour
 		this.cameraTransform.rotation *= Quaternion.Euler(-num2, 0f, 0f);
 	}
 
-	// Token: 0x0600025A RID: 602 RVA: 0x00010170 File Offset: 0x0000E370
 	private Vector3 GetCenterOffset()
 	{
 		return this.centerOffset;
 	}
 
-	// Token: 0x04000292 RID: 658
 	public Transform cameraTransform;
 
-	// Token: 0x04000293 RID: 659
 	private Transform _target;
 
-	// Token: 0x04000294 RID: 660
 	public float distance = 7f;
 
-	// Token: 0x04000295 RID: 661
 	public float height = 3f;
 
-	// Token: 0x04000296 RID: 662
 	public float angularSmoothLag = 0.3f;
 
-	// Token: 0x04000297 RID: 663
 	public float angularMaxSpeed = 15f;
 
-	// Token: 0x04000298 RID: 664
 	public float heightSmoothLag = 0.3f;
 
-	// Token: 0x04000299 RID: 665
 	public float snapSmoothLag = 0.2f;
 
-	// Token: 0x0400029A RID: 666
 	public float snapMaxSpeed = 720f;
 
-	// Token: 0x0400029B RID: 667
 	public float clampHeadPositionScreenSpace = 0.75f;
 
-	// Token: 0x0400029C RID: 668
 	public float lockCameraTimeout = 0.2f;
 
-	// Token: 0x0400029D RID: 669
 	private Vector3 headOffset = Vector3.zero;
 
-	// Token: 0x0400029E RID: 670
 	private Vector3 centerOffset = Vector3.zero;
 
-	// Token: 0x0400029F RID: 671
 	private float heightVelocity;
 
-	// Token: 0x040002A0 RID: 672
 	private float angleVelocity;
 
-	// Token: 0x040002A1 RID: 673
 	private bool snap;
 
-	// Token: 0x040002A2 RID: 674
 	private ThirdPersonController controller;
 
-	// Token: 0x040002A3 RID: 675
 	private float targetHeight = 100000f;
 
-	// Token: 0x040002A4 RID: 676
 	private Camera m_CameraTransformCamera;
 }
+

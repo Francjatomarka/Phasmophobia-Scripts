@@ -1,10 +1,8 @@
 using System;
 using UnityEngine;
 
-// Token: 0x020000F7 RID: 247
 public static class StandardShaderUtils
 {
-	// Token: 0x060006B9 RID: 1721 RVA: 0x000279AC File Offset: 0x00025BAC
 	public static void ChangeRenderMode(Material standardShaderMaterial, StandardShaderUtils.BlendMode blendMode)
 	{
 		switch (blendMode)
@@ -50,16 +48,12 @@ public static class StandardShaderUtils
 		}
 	}
 
-	// Token: 0x020004BC RID: 1212
 	public enum BlendMode
 	{
-		// Token: 0x0400227A RID: 8826
 		Opaque,
-		// Token: 0x0400227B RID: 8827
 		Cutout,
-		// Token: 0x0400227C RID: 8828
 		Fade,
-		// Token: 0x0400227D RID: 8829
 		Transparent
 	}
 }
+

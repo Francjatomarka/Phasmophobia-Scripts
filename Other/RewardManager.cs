@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 
-// Token: 0x02000145 RID: 325
 public class RewardManager : MonoBehaviour
 {
-	// Token: 0x06000928 RID: 2344 RVA: 0x000383FA File Offset: 0x000365FA
 	private void Start()
 	{
 		this.levelDifficulty = (Contract.LevelDifficulty)PlayerPrefs.GetInt("LevelDifficulty");
@@ -14,7 +12,6 @@ public class RewardManager : MonoBehaviour
 		this.SetupMoneyReward();
 	}
 
-	// Token: 0x06000929 RID: 2345 RVA: 0x00038418 File Offset: 0x00036618
 	private void SetupMoneyReward()
 	{
 		int num;
@@ -84,7 +81,6 @@ public class RewardManager : MonoBehaviour
 		this.playerStatsManager.UpdateMoney();
 	}
 
-	// Token: 0x0600092A RID: 2346 RVA: 0x00038700 File Offset: 0x00036900
 	private void SetupExperienceReward()
 	{
 		if (PlayerPrefs.GetInt("PlayerDied") == 1)
@@ -116,7 +112,6 @@ public class RewardManager : MonoBehaviour
 		this.playerStatsManager.UpdateExperience();
 	}
 
-	// Token: 0x0600092B RID: 2347 RVA: 0x00038848 File Offset: 0x00036A48
 	private int GetPhotosRewardAmount()
 	{
 		if (PlayerPrefs.GetInt("PhotosMission") == 0)
@@ -150,7 +145,6 @@ public class RewardManager : MonoBehaviour
 		return 40;
 	}
 
-	// Token: 0x0600092C RID: 2348 RVA: 0x000388D8 File Offset: 0x00036AD8
 	private void CheckUnlocks(int level)
 	{
 		if (level == 3)
@@ -198,7 +192,6 @@ public class RewardManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600092D RID: 2349 RVA: 0x00038AC0 File Offset: 0x00036CC0
 	public void ResumeButton()
 	{
 		if (PhotonNetwork.InRoom)
@@ -212,105 +205,81 @@ public class RewardManager : MonoBehaviour
 		base.gameObject.SetActive(false);
 	}
 
-	// Token: 0x04000943 RID: 2371
 	[Header("Main")]
 	[SerializeField]
 	private GameObject mainObject;
 
-	// Token: 0x04000944 RID: 2372
 	[SerializeField]
 	private PlayerStatsManager playerStatsManager;
 
-	// Token: 0x04000945 RID: 2373
 	[SerializeField]
 	private GamepadUISelector serverSelector;
 
-	// Token: 0x04000946 RID: 2374
 	[Header("Money Reward")]
 	[SerializeField]
 	private Text mainMissionRewardText;
 
-	// Token: 0x04000947 RID: 2375
 	[SerializeField]
 	private Text sideMission1RewardText;
 
-	// Token: 0x04000948 RID: 2376
 	[SerializeField]
 	private Text sideMission2RewardText;
 
-	// Token: 0x04000949 RID: 2377
 	[SerializeField]
 	private Text hiddenMissionRewardText;
 
-	// Token: 0x0400094A RID: 2378
 	[SerializeField]
 	private Text totalPhotosRewardText;
 
-	// Token: 0x0400094B RID: 2379
 	[SerializeField]
 	private Text totalDNARewardText;
 
-	// Token: 0x0400094C RID: 2380
 	[SerializeField]
 	private Text totalMissionRewardText;
 
-	// Token: 0x0400094D RID: 2381
 	[SerializeField]
 	private Text ghostTypeText;
 
-	// Token: 0x0400094E RID: 2382
 	[SerializeField]
 	private StoreManager storeManager;
 
-	// Token: 0x0400094F RID: 2383
 	[SerializeField]
 	private Text insuranceAmountText;
 
-	// Token: 0x04000950 RID: 2384
 	[Header("Experience Reward")]
 	[SerializeField]
 	private Text levelUpText;
 
-	// Token: 0x04000951 RID: 2385
 	[SerializeField]
 	private Text experienceGainedText;
 
-	// Token: 0x04000952 RID: 2386
 	[SerializeField]
 	private Slider expSlider;
 
-	// Token: 0x04000953 RID: 2387
 	[SerializeField]
 	private Text expSliderValueText;
 
-	// Token: 0x04000954 RID: 2388
 	[SerializeField]
 	private Text currentLevelText;
 
-	// Token: 0x04000955 RID: 2389
 	[SerializeField]
 	private Text nextLevelText;
 
-	// Token: 0x04000956 RID: 2390
 	[SerializeField]
 	private Text unlock1Text;
 
-	// Token: 0x04000957 RID: 2391
 	[SerializeField]
 	private Text unlock2Text;
 
-	// Token: 0x04000958 RID: 2392
 	[SerializeField]
 	private Text unlock3Text;
 
-	// Token: 0x04000959 RID: 2393
 	[SerializeField]
 	private GameObject mainExperience;
 
-	// Token: 0x0400095A RID: 2394
 	[SerializeField]
 	private GameObject deadExperience;
 
-	// Token: 0x0400095B RID: 2395
 	private Contract.LevelDifficulty levelDifficulty;
 }
+

@@ -2,10 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000021 RID: 33
 public class BookCoverHelper : MonoBehaviour
 {
-	// Token: 0x060000DE RID: 222 RVA: 0x00006D50 File Offset: 0x00004F50
 	private void Start()
 	{
 		this.rTr = base.GetComponent<RectTransform>();
@@ -53,21 +51,16 @@ public class BookCoverHelper : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040000CC RID: 204
 	public RectTransform target;
 
-	// Token: 0x040000CD RID: 205
 	private RectTransform rTr;
 
-	// Token: 0x040000CE RID: 206
 	private Text text;
 
-	// Token: 0x040000CF RID: 207
 	private Image image;
 
-	// Token: 0x040000D0 RID: 208
 	private Text targetText;
 
-	// Token: 0x040000D1 RID: 209
 	private Image targetImage;
 }
+

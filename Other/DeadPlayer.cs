@@ -4,17 +4,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using Photon.Pun;
 
-// Token: 0x0200016C RID: 364
 public class DeadPlayer : MonoBehaviour
 {
-	// Token: 0x06000A54 RID: 2644 RVA: 0x0003FBAD File Offset: 0x0003DDAD
 	private void Awake()
 	{
 		this.view = base.GetComponent<PhotonView>();
 		this.source = base.GetComponent<AudioSource>();
 	}
 
-	// Token: 0x06000A55 RID: 2645 RVA: 0x0003FBC7 File Offset: 0x0003DDC7
 	private void Start()
 	{
 		if (GameController.instance != null)
@@ -23,7 +20,6 @@ public class DeadPlayer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A56 RID: 2646 RVA: 0x0003FBF0 File Offset: 0x0003DDF0
 	public void Spawn(int modelID, int actorID)
 	{
 		this.view.RPC("SpawnBody", RpcTarget.All, new object[]
@@ -36,7 +32,6 @@ public class DeadPlayer : MonoBehaviour
 		});
 	}
 
-	// Token: 0x06000A57 RID: 2647 RVA: 0x0003FC3D File Offset: 0x0003DE3D
 	[PunRPC]
 	private void SpawnBody(int modelID)
 	{
@@ -44,7 +39,6 @@ public class DeadPlayer : MonoBehaviour
 		base.StartCoroutine(this.EnableRagdoll());
 	}
 
-	// Token: 0x06000A58 RID: 2648 RVA: 0x0003FC5A File Offset: 0x0003DE5A
 	private IEnumerator EnableRagdoll()
 	{
 		yield return new WaitForSeconds(4f);
@@ -80,7 +74,6 @@ public class DeadPlayer : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000A59 RID: 2649 RVA: 0x0003FC6C File Offset: 0x0003DE6C
 	[PunRPC]
 	private void PlaySound(int actorID)
 	{
@@ -99,7 +92,6 @@ public class DeadPlayer : MonoBehaviour
 		this.source.Play();
 	}
 
-	// Token: 0x06000A5A RID: 2650 RVA: 0x0003FCE2 File Offset: 0x0003DEE2
 	private void DestroyDeadPlayer()
 	{
 		if (this.view.IsMine)
@@ -108,21 +100,17 @@ public class DeadPlayer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000A78 RID: 2680
 	[SerializeField]
 	private GameObject[] characterModels;
 
-	// Token: 0x04000A79 RID: 2681
 	private PhotonView view;
 
-	// Token: 0x04000A7A RID: 2682
 	private AudioSource source;
 
-	// Token: 0x04000A7B RID: 2683
 	[SerializeField]
 	private Collider[] ragdollColliders;
 
-	// Token: 0x04000A7C RID: 2684
 	[SerializeField]
 	private Animator[] ragdollAnims;
 }
+

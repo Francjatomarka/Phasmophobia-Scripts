@@ -5,10 +5,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using Photon.Pun;
 
-// Token: 0x02000101 RID: 257
 public class LightSwitch : MonoBehaviour
 {
-	// Token: 0x06000702 RID: 1794 RVA: 0x000296A4 File Offset: 0x000278A4
 	private void Awake()
 	{
 		this.isOn = false;
@@ -30,7 +28,6 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000703 RID: 1795 RVA: 0x0002977C File Offset: 0x0002797C
 	private void Start()
 	{
 		if (this.handPrintObject != null)
@@ -52,7 +49,6 @@ public class LightSwitch : MonoBehaviour
 		this.source.outputAudioMixerGroup = SoundController.instance.GetFloorAudioSnapshot(base.transform.position.y);
 	}
 
-	// Token: 0x06000704 RID: 1796 RVA: 0x00029838 File Offset: 0x00027A38
 	public void UseLight()
 	{
 		if (this.isBlinking)
@@ -71,7 +67,6 @@ public class LightSwitch : MonoBehaviour
 		this.Use();
 	}
 
-	// Token: 0x06000705 RID: 1797 RVA: 0x0002988C File Offset: 0x00027A8C
 	[PunRPC]
 	private void Use()
 	{
@@ -179,7 +174,6 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000706 RID: 1798 RVA: 0x00029CAC File Offset: 0x00027EAC
 	private IEnumerator PlayNoiseObject()
 	{
 		this.noise.gameObject.SetActive(true);
@@ -188,7 +182,6 @@ public class LightSwitch : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000707 RID: 1799 RVA: 0x00029CBC File Offset: 0x00027EBC
 	public void FuseOff()
 	{
 		foreach (Light light in this.lights)
@@ -219,7 +212,6 @@ public class LightSwitch : MonoBehaviour
 		base.StopAllCoroutines();
 	}
 
-	// Token: 0x06000708 RID: 1800 RVA: 0x00029DEC File Offset: 0x00027FEC
 	public void FuseOn()
 	{
 		if (this.isOn)
@@ -253,13 +245,11 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000709 RID: 1801 RVA: 0x00029F2C File Offset: 0x0002812C
 	public void StartBlinking()
 	{
 		this.isBlinking = true;
 	}
 
-	// Token: 0x0600070A RID: 1802 RVA: 0x00029F38 File Offset: 0x00028138
 	public void StopBlinking()
 	{
 		this.isBlinking = false;
@@ -273,7 +263,6 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600070B RID: 1803 RVA: 0x00029F8C File Offset: 0x0002818C
 	[PunRPC]
 	private void ResetLights()
 	{
@@ -283,7 +272,6 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600070C RID: 1804 RVA: 0x00029FCC File Offset: 0x000281CC
 	private void Update()
 	{
 		if (this.isBlinking)
@@ -301,7 +289,6 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600070D RID: 1805 RVA: 0x0002A024 File Offset: 0x00028224
 	public void Blink()
 	{
 		if (LevelController.instance.fuseBox.isOn)
@@ -352,7 +339,6 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600070E RID: 1806 RVA: 0x0002A203 File Offset: 0x00028403
 	public void TurnOff()
 	{
 		this.view.RPC("TurnOffNetworked", RpcTarget.AllBuffered, new object[]
@@ -361,7 +347,6 @@ public class LightSwitch : MonoBehaviour
 		});
 	}
 
-	// Token: 0x0600070F RID: 1807 RVA: 0x0002A228 File Offset: 0x00028428
 	[PunRPC]
 	public void TurnOffNetworked(bool playSound)
 	{
@@ -418,7 +403,6 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000710 RID: 1808 RVA: 0x0002A424 File Offset: 0x00028624
 	public void TurnOn(bool playSound)
 	{
 		this.view.RPC("TurnOnNetworked", RpcTarget.All, new object[]
@@ -427,7 +411,6 @@ public class LightSwitch : MonoBehaviour
 		});
 	}
 
-	// Token: 0x06000711 RID: 1809 RVA: 0x0002A448 File Offset: 0x00028648
 	[PunRPC]
 	public void TurnOnNetworked(bool playSound)
 	{
@@ -478,7 +461,6 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000712 RID: 1810 RVA: 0x0002A620 File Offset: 0x00028820
 	private IEnumerator FlickerAfterTimer()
 	{
 		yield return new WaitForSeconds(UnityEngine.Random.Range(30f, 160f));
@@ -490,14 +472,12 @@ public class LightSwitch : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000713 RID: 1811 RVA: 0x0002A62F File Offset: 0x0002882F
 	[PunRPC]
 	private void FlickerNetworked()
 	{
 		base.StartCoroutine(this.Flicker());
 	}
 
-	// Token: 0x06000714 RID: 1812 RVA: 0x0002A63E File Offset: 0x0002883E
 	private IEnumerator Flicker()
 	{
 		if (!this.isOn)
@@ -559,7 +539,6 @@ public class LightSwitch : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000715 RID: 1813 RVA: 0x0002A650 File Offset: 0x00028850
 	public void ResetReflectionProbes()
 	{
 		foreach (ReflectionProbe reflectionProbe in this.probes)
@@ -571,13 +550,11 @@ public class LightSwitch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000716 RID: 1814 RVA: 0x0002A6AC File Offset: 0x000288AC
 	public void SmashBulb()
 	{
 		this.view.RPC("SmashBulbNetworked", RpcTarget.All, Array.Empty<object>());
 	}
 
-	// Token: 0x06000717 RID: 1815 RVA: 0x0002A6C4 File Offset: 0x000288C4
 	[PunRPC]
 	public void SmashBulbNetworked()
 	{
@@ -622,7 +599,6 @@ public class LightSwitch : MonoBehaviour
 		base.StartCoroutine(this.PlayNoiseObject());
 	}
 
-	// Token: 0x06000718 RID: 1816 RVA: 0x0002A850 File Offset: 0x00028A50
 	public void SpawnHandPrintEvidence()
 	{
 		if (this.handPrintObject == null)
@@ -636,77 +612,57 @@ public class LightSwitch : MonoBehaviour
 		this.view.RPC("NetworkedSpawnHandPrintEvidence", RpcTarget.All, Array.Empty<object>());
 	}
 
-	// Token: 0x06000719 RID: 1817 RVA: 0x0002A885 File Offset: 0x00028A85
 	[PunRPC]
 	private void NetworkedSpawnHandPrintEvidence()
 	{
 		this.handPrintObject.SetActive(true);
 	}
 
-	// Token: 0x04000725 RID: 1829
 	private Light myLight;
 
-	// Token: 0x04000726 RID: 1830
 	private AudioSource source;
 
-	// Token: 0x04000727 RID: 1831
 	[HideInInspector]
 	public PhotonView view;
 
-	// Token: 0x04000728 RID: 1832
 	[SerializeField]
 	private AudioClip[] clips;
 
-	// Token: 0x04000729 RID: 1833
 	[SerializeField]
 	private AudioClip bulbSmashClip;
 
-	// Token: 0x0400072A RID: 1834
 	public List<Light> lights = new List<Light>();
 
-	// Token: 0x0400072B RID: 1835
 	public List<Renderer> rends = new List<Renderer>();
 
-	// Token: 0x0400072C RID: 1836
 	public List<ReflectionProbe> probes = new List<ReflectionProbe>();
 
-	// Token: 0x0400072D RID: 1837
 	public Animator[] animators;
 
-	// Token: 0x0400072E RID: 1838
 	public AudioSource[] sources;
 
-	// Token: 0x0400072F RID: 1839
 	public GameObject[] objectsToActivate;
 
-	// Token: 0x04000730 RID: 1840
 	public Transform lever;
 
-	// Token: 0x04000731 RID: 1841
 	public PhotonObjectInteract photonInteract;
 
-	// Token: 0x04000732 RID: 1842
 	private List<float> lightsMaxIntensity = new List<float>();
 
-	// Token: 0x04000733 RID: 1843
 	private float blinkTimer;
 
-	// Token: 0x04000734 RID: 1844
 	[HideInInspector]
 	public bool isBlinking;
 
-	// Token: 0x04000735 RID: 1845
 	private Noise noise;
 
-	// Token: 0x04000736 RID: 1846
 	[HideInInspector]
 	public bool isOn;
 
-	// Token: 0x04000737 RID: 1847
 	[HideInInspector]
 	public LevelRoom myRoom;
 
-	// Token: 0x04000738 RID: 1848
 	[SerializeField]
 	private GameObject handPrintObject;
 }
+

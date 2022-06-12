@@ -3,17 +3,14 @@ using System.Collections;
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x020000DE RID: 222
 [RequireComponent(typeof(PhotonView))]
 public class SanityEffectsController : MonoBehaviour
 {
-	// Token: 0x0600064C RID: 1612 RVA: 0x0002577C File Offset: 0x0002397C
 	private void Awake()
 	{
 		this.view = base.GetComponent<PhotonView>();
 	}
 
-	// Token: 0x0600064D RID: 1613 RVA: 0x0002578C File Offset: 0x0002398C
 	private void Update()
 	{
 		this.timer -= Time.deltaTime;
@@ -27,7 +24,6 @@ public class SanityEffectsController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600064E RID: 1614 RVA: 0x000257FC File Offset: 0x000239FC
 	private void AttemptToSpawnWindowGhost()
 	{
 		if (this.windows.Length == 0 || this.windowGhostObj == null)
@@ -51,7 +47,6 @@ public class SanityEffectsController : MonoBehaviour
 		});
 	}
 
-	// Token: 0x0600064F RID: 1615 RVA: 0x000258CC File Offset: 0x00023ACC
 	[PunRPC]
 	private void SpawnGhostNetworked(int windowViewId)
 	{
@@ -62,7 +57,6 @@ public class SanityEffectsController : MonoBehaviour
 		base.StartCoroutine(this.SpawnGhostAtWindow(PhotonView.Find(windowViewId).GetComponent<Window>()));
 	}
 
-	// Token: 0x06000650 RID: 1616 RVA: 0x000258FD File Offset: 0x00023AFD
 	private IEnumerator SpawnGhostAtWindow(Window window)
 	{
 		if (window.windowGhostStart == null)
@@ -81,23 +75,18 @@ public class SanityEffectsController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04000615 RID: 1557
 	private float timer = 30f;
 
-	// Token: 0x04000616 RID: 1558
 	private Vector3 pos;
 
-	// Token: 0x04000617 RID: 1559
 	private PhotonView view;
 
-	// Token: 0x04000618 RID: 1560
 	[SerializeField]
 	private Window[] windows;
 
-	// Token: 0x04000619 RID: 1561
 	[SerializeField]
 	private GameObject windowGhostObj;
 
-	// Token: 0x0400061A RID: 1562
 	private GhostTraits.Type ghostType;
 }
+

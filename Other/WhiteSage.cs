@@ -5,10 +5,8 @@ using UnityEngine.InputSystem;
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x02000128 RID: 296
 public class WhiteSage : MonoBehaviour
 {
-	// Token: 0x06000849 RID: 2121 RVA: 0x000324B3 File Offset: 0x000306B3
 	private void Awake()
 	{
 		this.smoke.SetActive(false);
@@ -16,7 +14,6 @@ public class WhiteSage : MonoBehaviour
 		this.photonInteract.AddPCSecondaryUseEvent(new UnityAction(this.Use));
 	}
 
-	// Token: 0x0600084A RID: 2122 RVA: 0x000324C1 File Offset: 0x000306C1
 	private IEnumerator WhiteSageUsed()
 	{
 		this.smoke.SetActive(true);
@@ -32,7 +29,6 @@ public class WhiteSage : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0600084B RID: 2123 RVA: 0x000324D0 File Offset: 0x000306D0
 	private void OnDisable()
 	{
 		if (this.isOn)
@@ -47,7 +43,6 @@ public class WhiteSage : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600084C RID: 2124 RVA: 0x00032538 File Offset: 0x00030738
 	public void Use()
 	{
 		if (this.hasBeenUsed)
@@ -62,7 +57,6 @@ public class WhiteSage : MonoBehaviour
 		NetworkedUse();
 	}
 
-	// Token: 0x0600084D RID: 2125 RVA: 0x00032559 File Offset: 0x00030759
 	[PunRPC]
 	private void NetworkedUse()
 	{
@@ -71,7 +65,6 @@ public class WhiteSage : MonoBehaviour
 		this.Check();
 	}
 
-	// Token: 0x0600084E RID: 2126 RVA: 0x00032578 File Offset: 0x00030778
 	private void Check()
 	{
 		if (!PhotonNetwork.IsMasterClient && PhotonNetwork.InRoom)
@@ -97,26 +90,21 @@ public class WhiteSage : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400084D RID: 2125
 	[SerializeField]
 	private GameObject smoke;
 
-	// Token: 0x0400084E RID: 2126
 	[SerializeField]
 	private PhotonView view;
 
-	// Token: 0x0400084F RID: 2127
 	[SerializeField]
 	private Renderer[] rends;
 
-	// Token: 0x04000850 RID: 2128
 	private bool hasBeenUsed;
 
-	// Token: 0x04000851 RID: 2129
 	private bool hasMultiplied;
 
-	// Token: 0x04000852 RID: 2130
 	private bool isOn;
 
 	private PhotonObjectInteract photonInteract;
 }
+

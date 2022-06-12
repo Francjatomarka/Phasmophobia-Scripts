@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
 
-// Token: 0x02000160 RID: 352
 public class DragRigidbodyUse : MonoBehaviour
 {
-	// Token: 0x060009F5 RID: 2549 RVA: 0x0003C6EC File Offset: 0x0003A8EC
 	private void Awake()
 	{
 		this.isObjectHeld = false;
@@ -14,7 +12,6 @@ public class DragRigidbodyUse : MonoBehaviour
 		this.objectHeld = null;
 	}
 
-	// Token: 0x060009F6 RID: 2550 RVA: 0x0003C703 File Offset: 0x0003A903
 	private void FixedUpdate()
 	{
 		if (!this.interactKeyIsPressed)
@@ -34,7 +31,6 @@ public class DragRigidbodyUse : MonoBehaviour
 		this.HoldObject();
 	}
 
-	// Token: 0x060009F7 RID: 2551 RVA: 0x0003C738 File Offset: 0x0003A938
 	private void TryOpenDoor()
 	{
 		if (this.player.isDead)
@@ -62,7 +58,6 @@ public class DragRigidbodyUse : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009F8 RID: 2552 RVA: 0x0003C864 File Offset: 0x0003AA64
 	private void TryPickObject()
 	{
 		if (this.player.isDead)
@@ -104,7 +99,6 @@ public class DragRigidbodyUse : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009F9 RID: 2553 RVA: 0x0003C9F8 File Offset: 0x0003ABF8
 	private void HoldObject()
 	{
 		this.playerAim = this.playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
@@ -117,7 +111,6 @@ public class DragRigidbodyUse : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060009FA RID: 2554 RVA: 0x0003CABC File Offset: 0x0003ACBC
 	public void DropObject()
 	{
 		this.isObjectHeld = false;
@@ -136,7 +129,6 @@ public class DragRigidbodyUse : MonoBehaviour
 		this.objectHeld = null;
 	}
 
-	// Token: 0x060009FB RID: 2555 RVA: 0x0003CB64 File Offset: 0x0003AD64
 	public void OnInteract(InputAction.CallbackContext context)
 	{
 		if (context.phase == InputActionPhase.Started)
@@ -174,43 +166,32 @@ public class DragRigidbodyUse : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000A1E RID: 2590
 	[SerializeField]
 	private Camera playerCam;
 
-	// Token: 0x04000A1F RID: 2591
 	private float distance = 1f;
 
-	// Token: 0x04000A20 RID: 2592
 	private float maxDistanceGrab = 3f;
 
-	// Token: 0x04000A21 RID: 2593
 	private Ray playerAim;
 
-	// Token: 0x04000A22 RID: 2594
 	[HideInInspector]
 	public GameObject objectHeld;
 
-	// Token: 0x04000A23 RID: 2595
 	private bool isObjectHeld;
 
-	// Token: 0x04000A24 RID: 2596
 	private bool tryPickupObject;
 
-	// Token: 0x04000A25 RID: 2597
 	private bool wasKinematic;
 
-	// Token: 0x04000A26 RID: 2598
 	private bool wasGravity;
 
-	// Token: 0x04000A27 RID: 2599
 	[SerializeField]
 	private LayerMask mask;
 
-	// Token: 0x04000A28 RID: 2600
 	[SerializeField]
 	private Player player;
 
-	// Token: 0x04000A29 RID: 2601
 	private bool interactKeyIsPressed;
 }
+

@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x02000068 RID: 104
 public class DragToMove : MonoBehaviour
 {
-	// Token: 0x0600024D RID: 589 RVA: 0x0000F96C File Offset: 0x0000DB6C
 	public void Start()
 	{
 		this.cubeStartPositions = new Vector3[this.cubes.Length];
@@ -18,7 +16,6 @@ public class DragToMove : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600024E RID: 590 RVA: 0x0000F9BC File Offset: 0x0000DBBC
 	public void Update()
 	{
 		if (!PhotonNetwork.IsMasterClient)
@@ -56,7 +53,6 @@ public class DragToMove : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600024F RID: 591 RVA: 0x0000FAEC File Offset: 0x0000DCEC
 	public IEnumerator RecordMouse()
 	{
 		this.recording = true;
@@ -80,24 +76,18 @@ public class DragToMove : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x0400028A RID: 650
 	public float speed = 5f;
 
-	// Token: 0x0400028B RID: 651
 	public Transform[] cubes;
 
-	// Token: 0x0400028C RID: 652
 	public List<Vector3> PositionsQueue = new List<Vector3>(20);
 
-	// Token: 0x0400028D RID: 653
 	private Vector3[] cubeStartPositions;
 
-	// Token: 0x0400028E RID: 654
 	private int nextPosIndex;
 
-	// Token: 0x0400028F RID: 655
 	private float lerpTime;
 
-	// Token: 0x04000290 RID: 656
 	private bool recording;
 }
+

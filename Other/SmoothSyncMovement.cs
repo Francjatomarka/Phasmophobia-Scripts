@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200009D RID: 157
 [RequireComponent(typeof(PhotonView))]
 public class SmoothSyncMovement : MonoBehaviourPunCallbacks, IPunObservable
 {
-	// Token: 0x060004A5 RID: 1189 RVA: 0x00019CA8 File Offset: 0x00017EA8
 	public void Awake()
 	{
 		bool flag = false;
@@ -28,7 +26,6 @@ public class SmoothSyncMovement : MonoBehaviourPunCallbacks, IPunObservable
 		}
 	}
 
-	// Token: 0x060004A6 RID: 1190 RVA: 0x00019D1C File Offset: 0x00017F1C
 	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.IsWriting)
@@ -41,7 +38,6 @@ public class SmoothSyncMovement : MonoBehaviourPunCallbacks, IPunObservable
 		this.correctPlayerRot = (Quaternion)stream.ReceiveNext();
 	}
 
-	// Token: 0x060004A7 RID: 1191 RVA: 0x00019D80 File Offset: 0x00017F80
 	public void Update()
 	{
 		if (!base.photonView.IsMine)
@@ -51,12 +47,10 @@ public class SmoothSyncMovement : MonoBehaviourPunCallbacks, IPunObservable
 		}
 	}
 
-	// Token: 0x0400048C RID: 1164
 	public float SmoothingDelay = 5f;
 
-	// Token: 0x0400048D RID: 1165
 	private Vector3 correctPlayerPos = Vector3.zero;
 
-	// Token: 0x0400048E RID: 1166
 	private Quaternion correctPlayerRot = Quaternion.identity;
 }
+

@@ -2,17 +2,14 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-// Token: 0x020000F0 RID: 240
 public class AppearState : IState
 {
-	// Token: 0x060006AE RID: 1710 RVA: 0x000253D8 File Offset: 0x000235D8
 	public AppearState(GhostAI ghostAI, NavMeshAgent agent)
 	{
 		this.ghostAI = ghostAI;
 		this.agent = agent;
 	}
 
-	// Token: 0x060006AF RID: 1711 RVA: 0x000253FC File Offset: 0x000235FC
 	public void Enter()
 	{
 		this.ghostAI.Appear(false);
@@ -65,7 +62,6 @@ public class AppearState : IState
 		}
 	}
 
-	// Token: 0x060006B0 RID: 1712 RVA: 0x0002562C File Offset: 0x0002382C
 	public void Execute()
 	{
 		this.appearTimer -= Time.deltaTime;
@@ -93,24 +89,19 @@ public class AppearState : IState
 		}
 	}
 
-	// Token: 0x060006B1 RID: 1713 RVA: 0x00025751 File Offset: 0x00023951
 	public void Exit()
 	{
 		this.ghostAI.UnAppear(false);
 	}
 
-	// Token: 0x04000675 RID: 1653
 	private GhostAI ghostAI;
 
-	// Token: 0x04000676 RID: 1654
 	private NavMeshAgent agent;
 
-	// Token: 0x04000677 RID: 1655
 	private LightSwitch mainLight;
 
-	// Token: 0x04000678 RID: 1656
 	private Transform target;
 
-	// Token: 0x04000679 RID: 1657
 	private float appearTimer = 2.5f;
 }
+

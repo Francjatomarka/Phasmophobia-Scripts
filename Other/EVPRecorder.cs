@@ -8,16 +8,13 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 using Photon.Pun;
 
-// Token: 0x02000110 RID: 272
 public class EVPRecorder : MonoBehaviour
 {
-	// Token: 0x0600077C RID: 1916 RVA: 0x0002C6B2 File Offset: 0x0002A8B2
 	private void Awake()
 	{
 		this.noise.gameObject.SetActive(false);
 	}
 
-	// Token: 0x0600077D RID: 1917 RVA: 0x0002C6C8 File Offset: 0x0002A8C8
 	private void Start()
 	{
 		if (MainManager.instance)
@@ -41,7 +38,6 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600077E RID: 1918 RVA: 0x0002C754 File Offset: 0x0002A954
 	private void Update()
 	{
 		if (this.isOn)
@@ -86,7 +82,6 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600077F RID: 1919 RVA: 0x0002C89E File Offset: 0x0002AA9E
 	private IEnumerator FailCheck()
 	{
 		yield return new WaitForSeconds(1f);
@@ -99,7 +94,6 @@ public class EVPRecorder : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06000780 RID: 1920 RVA: 0x0002C8B0 File Offset: 0x0002AAB0
 	private void ResponseCheck()
 	{
 		if (this.soundSource.isPlaying)
@@ -144,7 +138,6 @@ public class EVPRecorder : MonoBehaviour
 		this.AgeAnswer();
 	}
 
-	// Token: 0x06000781 RID: 1921 RVA: 0x0002C9FD File Offset: 0x0002ABFD
 	private void Use()
 	{
         if (PhotonNetwork.InRoom)
@@ -159,7 +152,6 @@ public class EVPRecorder : MonoBehaviour
 		
 	}
 
-	// Token: 0x06000782 RID: 1922 RVA: 0x0002CA28 File Offset: 0x0002AC28
 	public void TurnOff()
 	{
 		if (this.isOn)
@@ -176,7 +168,6 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000783 RID: 1923 RVA: 0x0002CA5C File Offset: 0x0002AC5C
 	[PunRPC]
 	private void NetworkUse(int actorID)
 	{
@@ -210,13 +201,11 @@ public class EVPRecorder : MonoBehaviour
 		this.fmText.text = "";
 	}
 
-	// Token: 0x06000784 RID: 1924 RVA: 0x0002CB10 File Offset: 0x0002AD10
 	private bool IsCorrectGhostType()
 	{
 		return LevelController.instance.currentGhost.ghostInfo.ghostTraits.ghostType == GhostTraits.Type.Spirit || LevelController.instance.currentGhost.ghostInfo.ghostTraits.ghostType == GhostTraits.Type.Poltergeist || LevelController.instance.currentGhost.ghostInfo.ghostTraits.ghostType == GhostTraits.Type.Jinn || LevelController.instance.currentGhost.ghostInfo.ghostTraits.ghostType == GhostTraits.Type.Wraith || LevelController.instance.currentGhost.ghostInfo.ghostTraits.ghostType == GhostTraits.Type.Mare || LevelController.instance.currentGhost.ghostInfo.ghostTraits.ghostType == GhostTraits.Type.Demon || LevelController.instance.currentGhost.ghostInfo.ghostTraits.ghostType == GhostTraits.Type.Oni;
 	}
 
-	// Token: 0x06000785 RID: 1925 RVA: 0x0002CBEC File Offset: 0x0002ADEC
 	public void SetupKeywords()
 	{
 		Question item = new Question
@@ -313,7 +302,6 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000786 RID: 1926 RVA: 0x0002D04C File Offset: 0x0002B24C
 	public void OnPhraseRecognized(string args)
 	{
 		this.hasAnswered = false;
@@ -386,7 +374,6 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000787 RID: 1927 RVA: 0x0002D274 File Offset: 0x0002B474
 	[PunRPC]
 	private void PlayDifficultySound(int index)
 	{
@@ -396,7 +383,6 @@ public class EVPRecorder : MonoBehaviour
 		DailyChallengesController.Instance.ChangeChallengeProgression(ChallengeType.SpiritBoxResponse, 1);
 	}
 
-	// Token: 0x06000788 RID: 1928 RVA: 0x0002D2D4 File Offset: 0x0002B4D4
 	[PunRPC]
 	private void PlayLocationSound(int index)
 	{
@@ -406,7 +392,6 @@ public class EVPRecorder : MonoBehaviour
 		DailyChallengesController.Instance.ChangeChallengeProgression(ChallengeType.SpiritBoxResponse, 1);
 	}
 
-	// Token: 0x06000789 RID: 1929 RVA: 0x0002D334 File Offset: 0x0002B534
 	[PunRPC]
 	private void PlayAboutSound(int index)
 	{
@@ -416,14 +401,12 @@ public class EVPRecorder : MonoBehaviour
 		DailyChallengesController.Instance.ChangeChallengeProgression(ChallengeType.SpiritBoxResponse, 1);
 	}
 
-	// Token: 0x0600078A RID: 1930 RVA: 0x0002D391 File Offset: 0x0002B591
 	public void PlayTrailerSound()
 	{
 		this.soundSource.clip = this.trailerSoundClip;
 		this.soundSource.Play();
 	}
 
-	// Token: 0x0600078B RID: 1931 RVA: 0x0002D3B0 File Offset: 0x0002B5B0
 	private void LocationAnswer()
 	{
 		if (!SpeechRecognitionController.instance.hasSaidGhostsName && !GameController.instance.isTutorial && UnityEngine.Random.Range(0, 3) < 2 && PlayerPrefs.GetInt("isYoutuberVersion") == 0)
@@ -444,7 +427,6 @@ public class EVPRecorder : MonoBehaviour
 		});
 	}
 
-	// Token: 0x0600078C RID: 1932 RVA: 0x0002D478 File Offset: 0x0002B678
 	private void AgeAnswer()
 	{
 		if (!SpeechRecognitionController.instance.hasSaidGhostsName && !GameController.instance.isTutorial && UnityEngine.Random.Range(0, 3) < 2 && PlayerPrefs.GetInt("isYoutuberVersion") == 0)
@@ -501,7 +483,6 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600078D RID: 1933 RVA: 0x0002D5E8 File Offset: 0x0002B7E8
 	private void GenderAnswer()
 	{
 		if (!SpeechRecognitionController.instance.hasSaidGhostsName && !GameController.instance.isTutorial && UnityEngine.Random.Range(0, 3) < 2 && PlayerPrefs.GetInt("isYoutuberVersion") == 0)
@@ -542,7 +523,6 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600078E RID: 1934 RVA: 0x0002D6FC File Offset: 0x0002B8FC
 	private void OnPlayerSpawned()
 	{
 		if (!XRDevice.isPresent)
@@ -551,7 +531,6 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600078F RID: 1935 RVA: 0x0002D718 File Offset: 0x0002B918
 	private void PlayInputDelay()
 	{
 		if (PlayerPrefs.GetInt("localPushToTalkValue") == 0)
@@ -570,7 +549,6 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000790 RID: 1936 RVA: 0x0002D79C File Offset: 0x0002B99C
 	private void OnDisable()
 	{
 		if (PlayerPrefs.GetInt("localPushToTalkValue") == 0 && !XRDevice.isPresent && GameController.instance && GameController.instance.myPlayer != null && GameController.instance.myPlayer.player.playerInput)
@@ -586,83 +564,62 @@ public class EVPRecorder : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000791 RID: 1937 RVA: 0x0002D863 File Offset: 0x0002BA63
 	public void PushToTalkStarted()
 	{
 		this.voipKeyIsPressed = true;
 	}
 
-	// Token: 0x06000792 RID: 1938 RVA: 0x0002D86C File Offset: 0x0002BA6C
 	public void PushToTalkStopped()
 	{
 		this.voipKeyIsPressed = false;
 	}
 
-	// Token: 0x0400078C RID: 1932
 	[SerializeField]
 	private Text fmText;
 
-	// Token: 0x0400078D RID: 1933
 	public AudioSource loopSource;
 
-	// Token: 0x0400078E RID: 1934
 	public AudioSource soundSource;
 
-	// Token: 0x0400078F RID: 1935
 	[SerializeField]
 	private AudioClip[] difficultyAnswerClips = new AudioClip[0];
 
-	// Token: 0x04000790 RID: 1936
 	[SerializeField]
 	private AudioClip[] locationAnswerClips = new AudioClip[0];
 
-	// Token: 0x04000791 RID: 1937
 	[SerializeField]
 	private AudioClip[] aboutAnswerClips = new AudioClip[0];
 
-	// Token: 0x04000792 RID: 1938
 	[SerializeField]
 	private PhotonView view;
 
-	// Token: 0x04000793 RID: 1939
 	[SerializeField]
 	private Noise noise;
 
-	// Token: 0x04000794 RID: 1940
 	[SerializeField]
 	private PhotonObjectInteract photonInteract;
 
-	// Token: 0x04000795 RID: 1941
 	private bool isOn;
 
-	// Token: 0x04000796 RID: 1942
 	private float scanTimer = 0.1f;
 
-	// Token: 0x04000797 RID: 1943
 	private float currentFMChannel = 100f;
 
-	// Token: 0x04000798 RID: 1944
 	private bool isAddingFM;
 
-	// Token: 0x04000799 RID: 1945
 	private List<Question> questions = new List<Question>();
 
-	// Token: 0x0400079A RID: 1946
 	private List<string> yesQuestions = new List<string>();
 
-	// Token: 0x0400079B RID: 1947
 	private List<string> noQuestions = new List<string>();
 
-	// Token: 0x0400079C RID: 1948
 	private bool voipKeyIsPressed;
 
-	// Token: 0x0400079D RID: 1949
 	private float responseTimer = 15f;
 
-	// Token: 0x0400079E RID: 1950
 	[SerializeField]
 	private AudioClip trailerSoundClip;
 
-	// Token: 0x0400079F RID: 1951
 	private bool hasAnswered = true;
 }
+

@@ -1,121 +1,109 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000121 RID: 289
 public class SaveFileController : MonoBehaviour
 {
-	// Token: 0x060007D4 RID: 2004 RVA: 0x0002EBA8 File Offset: 0x0002CDA8
-	public void SaveData()
-    {
-		FBPP.Save();
-	}
 	public void Awake()
 	{
-		var config = new FBPPConfig()
-		{
-			AutoSaveData = false,
-			EncryptionSecret = "dani"
-		};
-		FBPP.Start(config);
-		if (!FBPP.HasKey("myTotalExp"))
+		if (!FileBasedPrefs.HasKey("myTotalExp"))
 		{
 			if (PlayerPrefs.GetInt("myTotalExp") > 100000)
 			{
 				PlayerPrefs.SetInt("myTotalExp", 1000);
 			}
-			FBPP.SetInt("myTotalExp", PlayerPrefs.GetInt("myTotalExp"));
+			FileBasedPrefs.SetInt("myTotalExp", PlayerPrefs.GetInt("myTotalExp"));
 		}
-		if (!FBPP.HasKey("PlayersMoney"))
+		if (!FileBasedPrefs.HasKey("PlayersMoney"))
 		{
-			FBPP.SetInt("PlayersMoney", PlayerPrefs.GetInt("PlayersMoney"));
+			FileBasedPrefs.SetInt("PlayersMoney", PlayerPrefs.GetInt("PlayersMoney"));
 		}
-		if (!FBPP.HasKey("EMFReaderInventory"))
+		if (!FileBasedPrefs.HasKey("EMFReaderInventory"))
 		{
-			FBPP.SetInt("EMFReaderInventory", PlayerPrefs.GetInt("EMFReaderInventory"));
+			FileBasedPrefs.SetInt("EMFReaderInventory", PlayerPrefs.GetInt("EMFReaderInventory"));
 		}
-		if (!FBPP.HasKey("FlashlightInventory"))
+		if (!FileBasedPrefs.HasKey("FlashlightInventory"))
 		{
-			FBPP.SetInt("FlashlightInventory", PlayerPrefs.GetInt("FlashlightInventory"));
+			FileBasedPrefs.SetInt("FlashlightInventory", PlayerPrefs.GetInt("FlashlightInventory"));
 		}
-		if (!FBPP.HasKey("CameraInventory"))
+		if (!FileBasedPrefs.HasKey("CameraInventory"))
 		{
-			FBPP.SetInt("CameraInventory", PlayerPrefs.GetInt("CameraInventory"));
+			FileBasedPrefs.SetInt("CameraInventory", PlayerPrefs.GetInt("CameraInventory"));
 		}
-		if (!FBPP.HasKey("LighterInventory"))
+		if (!FileBasedPrefs.HasKey("LighterInventory"))
 		{
-			FBPP.SetInt("LighterInventory", PlayerPrefs.GetInt("LighterInventory"));
+			FileBasedPrefs.SetInt("LighterInventory", PlayerPrefs.GetInt("LighterInventory"));
 		}
-		if (!FBPP.HasKey("CandleInventory"))
+		if (!FileBasedPrefs.HasKey("CandleInventory"))
 		{
-			FBPP.SetInt("CandleInventory", PlayerPrefs.GetInt("CandleInventory"));
+			FileBasedPrefs.SetInt("CandleInventory", PlayerPrefs.GetInt("CandleInventory"));
 		}
-		if (!FBPP.HasKey("UVFlashlightInventory"))
+		if (!FileBasedPrefs.HasKey("UVFlashlightInventory"))
 		{
-			FBPP.SetInt("UVFlashlightInventory", PlayerPrefs.GetInt("UVFlashlightInventory"));
+			FileBasedPrefs.SetInt("UVFlashlightInventory", PlayerPrefs.GetInt("UVFlashlightInventory"));
 		}
-		if (!FBPP.HasKey("CrucifixInventory"))
+		if (!FileBasedPrefs.HasKey("CrucifixInventory"))
 		{
-			FBPP.SetInt("CrucifixInventory", PlayerPrefs.GetInt("CrucifixInventory"));
+			FileBasedPrefs.SetInt("CrucifixInventory", PlayerPrefs.GetInt("CrucifixInventory"));
 		}
-		if (!FBPP.HasKey("DSLRCameraInventory"))
+		if (!FileBasedPrefs.HasKey("DSLRCameraInventory"))
 		{
-			FBPP.SetInt("DSLRCameraInventory", PlayerPrefs.GetInt("DSLRCameraInventory"));
+			FileBasedPrefs.SetInt("DSLRCameraInventory", PlayerPrefs.GetInt("DSLRCameraInventory"));
 		}
-		if (!FBPP.HasKey("EVPRecorderInventory"))
+		if (!FileBasedPrefs.HasKey("EVPRecorderInventory"))
 		{
-			FBPP.SetInt("EVPRecorderInventory", PlayerPrefs.GetInt("EVPRecorderInventory"));
+			FileBasedPrefs.SetInt("EVPRecorderInventory", PlayerPrefs.GetInt("EVPRecorderInventory"));
 		}
-		if (!FBPP.HasKey("SaltInventory"))
+		if (!FileBasedPrefs.HasKey("SaltInventory"))
 		{
-			FBPP.SetInt("SaltInventory", PlayerPrefs.GetInt("SaltInventory"));
+			FileBasedPrefs.SetInt("SaltInventory", PlayerPrefs.GetInt("SaltInventory"));
 		}
-		if (!FBPP.HasKey("SageInventory"))
+		if (!FileBasedPrefs.HasKey("SageInventory"))
 		{
-			FBPP.SetInt("SageInventory", PlayerPrefs.GetInt("SageInventory"));
+			FileBasedPrefs.SetInt("SageInventory", PlayerPrefs.GetInt("SageInventory"));
 		}
-		if (!FBPP.HasKey("TripodInventory"))
+		if (!FileBasedPrefs.HasKey("TripodInventory"))
 		{
-			FBPP.SetInt("TripodInventory", PlayerPrefs.GetInt("TripodInventory"));
+			FileBasedPrefs.SetInt("TripodInventory", PlayerPrefs.GetInt("TripodInventory"));
 		}
-		if (!FBPP.HasKey("StrongFlashlightInventory"))
+		if (!FileBasedPrefs.HasKey("StrongFlashlightInventory"))
 		{
-			FBPP.SetInt("StrongFlashlightInventory", PlayerPrefs.GetInt("StrongFlashlightInventory"));
+			FileBasedPrefs.SetInt("StrongFlashlightInventory", PlayerPrefs.GetInt("StrongFlashlightInventory"));
 		}
-		if (!FBPP.HasKey("MotionSensorInventory"))
+		if (!FileBasedPrefs.HasKey("MotionSensorInventory"))
 		{
-			FBPP.SetInt("MotionSensorInventory", PlayerPrefs.GetInt("MotionSensorInventory"));
+			FileBasedPrefs.SetInt("MotionSensorInventory", PlayerPrefs.GetInt("MotionSensorInventory"));
 		}
-		if (!FBPP.HasKey("SoundSensorInventory"))
+		if (!FileBasedPrefs.HasKey("SoundSensorInventory"))
 		{
-			FBPP.SetInt("SoundSensorInventory", PlayerPrefs.GetInt("SoundSensorInventory"));
+			FileBasedPrefs.SetInt("SoundSensorInventory", PlayerPrefs.GetInt("SoundSensorInventory"));
 		}
-		if (!FBPP.HasKey("SanityPillsInventory"))
+		if (!FileBasedPrefs.HasKey("SanityPillsInventory"))
 		{
-			FBPP.SetInt("SanityPillsInventory", PlayerPrefs.GetInt("SanityPillsInventory"));
+			FileBasedPrefs.SetInt("SanityPillsInventory", PlayerPrefs.GetInt("SanityPillsInventory"));
 		}
-		if (!FBPP.HasKey("ThermometerInventory"))
+		if (!FileBasedPrefs.HasKey("ThermometerInventory"))
 		{
-			FBPP.SetInt("ThermometerInventory", PlayerPrefs.GetInt("ThermometerInventory"));
+			FileBasedPrefs.SetInt("ThermometerInventory", PlayerPrefs.GetInt("ThermometerInventory"));
 		}
-		if (!FBPP.HasKey("GhostWritingBookInventory"))
+		if (!FileBasedPrefs.HasKey("GhostWritingBookInventory"))
 		{
-			FBPP.SetInt("GhostWritingBookInventory", PlayerPrefs.GetInt("GhostWritingBookInventory"));
+			FileBasedPrefs.SetInt("GhostWritingBookInventory", PlayerPrefs.GetInt("GhostWritingBookInventory"));
 		}
-		if (!FBPP.HasKey("IRLightSensorInventory"))
+		if (!FileBasedPrefs.HasKey("IRLightSensorInventory"))
 		{
-			FBPP.SetInt("IRLightSensorInventory", PlayerPrefs.GetInt("IRLightSensorInventory"));
+			FileBasedPrefs.SetInt("IRLightSensorInventory", PlayerPrefs.GetInt("IRLightSensorInventory"));
 		}
-		if (!FBPP.HasKey("ParabolicMicrophoneInventory"))
+		if (!FileBasedPrefs.HasKey("ParabolicMicrophoneInventory"))
 		{
-			FBPP.SetInt("ParabolicMicrophoneInventory", PlayerPrefs.GetInt("ParabolicMicrophoneInventory"));
+			FileBasedPrefs.SetInt("ParabolicMicrophoneInventory", PlayerPrefs.GetInt("ParabolicMicrophoneInventory"));
 		}
-		if (!FBPP.HasKey("GlowstickInventory"))
+		if (!FileBasedPrefs.HasKey("GlowstickInventory"))
 		{
-			FBPP.SetInt("GlowstickInventory", PlayerPrefs.GetInt("GlowstickInventory"));
+			FileBasedPrefs.SetInt("GlowstickInventory", PlayerPrefs.GetInt("GlowstickInventory"));
 		}
-		if (!FBPP.HasKey("HeadMountedCameraInventory"))
+		if (!FileBasedPrefs.HasKey("HeadMountedCameraInventory"))
 		{
-			FBPP.SetInt("HeadMountedCameraInventory", PlayerPrefs.GetInt("HeadMountedCameraInventory"));
+			FileBasedPrefs.SetInt("HeadMountedCameraInventory", PlayerPrefs.GetInt("HeadMountedCameraInventory"));
 		}
 		PlayerPrefs.DeleteKey("myTotalExp");
 		PlayerPrefs.DeleteKey("PlayersMoney");
@@ -148,120 +136,117 @@ public class SaveFileController : MonoBehaviour
 		this.storeManager.UpdatePlayerMoneyText();
 	}
 
-	// Token: 0x060007D5 RID: 2005 RVA: 0x0002EFF8 File Offset: 0x0002D1F8
 	private void SetDefaultValues()
 	{
-		if (!FBPP.HasKey("myTotalExp"))
+		if (!FileBasedPrefs.HasKey("myTotalExp"))
 		{
-			FBPP.SetInt("myTotalExp", 0);
+			FileBasedPrefs.SetInt("myTotalExp", 0);
 		}
-		if (!FBPP.HasKey("PlayersMoney"))
+		if (!FileBasedPrefs.HasKey("PlayersMoney"))
 		{
-			FBPP.SetInt("PlayersMoney", 0);
+			FileBasedPrefs.SetInt("PlayersMoney", 0);
 		}
-		if (!FBPP.HasKey("PlayersMoney"))
+		if (!FileBasedPrefs.HasKey("PlayersMoney"))
 		{
-			FBPP.SetInt("PlayersMoney", 0);
+			FileBasedPrefs.SetInt("PlayersMoney", 0);
 		}
-		if (!FBPP.HasKey("EMFReaderInventory"))
+		if (!FileBasedPrefs.HasKey("EMFReaderInventory"))
 		{
-			FBPP.SetInt("EMFReaderInventory", 0);
+			FileBasedPrefs.SetInt("EMFReaderInventory", 0);
 		}
-		if (!FBPP.HasKey("FlashlightInventory"))
+		if (!FileBasedPrefs.HasKey("FlashlightInventory"))
 		{
-			FBPP.SetInt("FlashlightInventory", 0);
+			FileBasedPrefs.SetInt("FlashlightInventory", 0);
 		}
-		if (!FBPP.HasKey("CameraInventory"))
+		if (!FileBasedPrefs.HasKey("CameraInventory"))
 		{
-			FBPP.SetInt("CameraInventory", 0);
+			FileBasedPrefs.SetInt("CameraInventory", 0);
 		}
-		if (!FBPP.HasKey("LighterInventory"))
+		if (!FileBasedPrefs.HasKey("LighterInventory"))
 		{
-			FBPP.SetInt("LighterInventory", 0);
+			FileBasedPrefs.SetInt("LighterInventory", 0);
 		}
-		if (!FBPP.HasKey("CandleInventory"))
+		if (!FileBasedPrefs.HasKey("CandleInventory"))
 		{
-			FBPP.SetInt("CandleInventory", 0);
+			FileBasedPrefs.SetInt("CandleInventory", 0);
 		}
-		if (!FBPP.HasKey("UVFlashlightInventory"))
+		if (!FileBasedPrefs.HasKey("UVFlashlightInventory"))
 		{
-			FBPP.SetInt("UVFlashlightInventory", 0);
+			FileBasedPrefs.SetInt("UVFlashlightInventory", 0);
 		}
-		if (!FBPP.HasKey("CrucifixInventory"))
+		if (!FileBasedPrefs.HasKey("CrucifixInventory"))
 		{
-			FBPP.SetInt("CrucifixInventory", 0);
+			FileBasedPrefs.SetInt("CrucifixInventory", 0);
 		}
-		if (!FBPP.HasKey("DSLRCameraInventory"))
+		if (!FileBasedPrefs.HasKey("DSLRCameraInventory"))
 		{
-			FBPP.SetInt("DSLRCameraInventory", 0);
+			FileBasedPrefs.SetInt("DSLRCameraInventory", 0);
 		}
-		if (!FBPP.HasKey("EVPRecorderInventory"))
+		if (!FileBasedPrefs.HasKey("EVPRecorderInventory"))
 		{
-			FBPP.SetInt("EVPRecorderInventory", 0);
+			FileBasedPrefs.SetInt("EVPRecorderInventory", 0);
 		}
-		if (!FBPP.HasKey("SaltInventory"))
+		if (!FileBasedPrefs.HasKey("SaltInventory"))
 		{
-			FBPP.SetInt("SaltInventory", 0);
+			FileBasedPrefs.SetInt("SaltInventory", 0);
 		}
-		if (!FBPP.HasKey("SageInventory"))
+		if (!FileBasedPrefs.HasKey("SageInventory"))
 		{
-			FBPP.SetInt("SageInventory", 0);
+			FileBasedPrefs.SetInt("SageInventory", 0);
 		}
-		if (!FBPP.HasKey("TripodInventory"))
+		if (!FileBasedPrefs.HasKey("TripodInventory"))
 		{
-			FBPP.SetInt("TripodInventory", 0);
+			FileBasedPrefs.SetInt("TripodInventory", 0);
 		}
-		if (!FBPP.HasKey("StrongFlashlightInventory"))
+		if (!FileBasedPrefs.HasKey("StrongFlashlightInventory"))
 		{
-			FBPP.SetInt("StrongFlashlightInventory", 0);
+			FileBasedPrefs.SetInt("StrongFlashlightInventory", 0);
 		}
-		if (!FBPP.HasKey("MotionSensorInventory"))
+		if (!FileBasedPrefs.HasKey("MotionSensorInventory"))
 		{
-			FBPP.SetInt("MotionSensorInventory", 0);
+			FileBasedPrefs.SetInt("MotionSensorInventory", 0);
 		}
-		if (!FBPP.HasKey("SoundSensorInventory"))
+		if (!FileBasedPrefs.HasKey("SoundSensorInventory"))
 		{
-			FBPP.SetInt("SoundSensorInventory", 0);
+			FileBasedPrefs.SetInt("SoundSensorInventory", 0);
 		}
-		if (!FBPP.HasKey("SanityPillsInventory"))
+		if (!FileBasedPrefs.HasKey("SanityPillsInventory"))
 		{
-			FBPP.SetInt("SanityPillsInventory", 0);
+			FileBasedPrefs.SetInt("SanityPillsInventory", 0);
 		}
-		if (!FBPP.HasKey("ThermometerInventory"))
+		if (!FileBasedPrefs.HasKey("ThermometerInventory"))
 		{
-			FBPP.SetInt("ThermometerInventory", 0);
+			FileBasedPrefs.SetInt("ThermometerInventory", 0);
 		}
-		if (!FBPP.HasKey("GhostWritingBookInventory"))
+		if (!FileBasedPrefs.HasKey("GhostWritingBookInventory"))
 		{
-			FBPP.SetInt("GhostWritingBookInventory", 0);
+			FileBasedPrefs.SetInt("GhostWritingBookInventory", 0);
 		}
-		if (!FBPP.HasKey("IRLightSensorInventory"))
+		if (!FileBasedPrefs.HasKey("IRLightSensorInventory"))
 		{
-			FBPP.SetInt("IRLightSensorInventory", 0);
+			FileBasedPrefs.SetInt("IRLightSensorInventory", 0);
 		}
-		if (!FBPP.HasKey("ParabolicMicrophoneInventory"))
+		if (!FileBasedPrefs.HasKey("ParabolicMicrophoneInventory"))
 		{
-			FBPP.SetInt("ParabolicMicrophoneInventory", 0);
+			FileBasedPrefs.SetInt("ParabolicMicrophoneInventory", 0);
 		}
-		if (!FBPP.HasKey("GlowstickInventory"))
+		if (!FileBasedPrefs.HasKey("GlowstickInventory"))
 		{
-			FBPP.SetInt("GlowstickInventory", 0);
+			FileBasedPrefs.SetInt("GlowstickInventory", 0);
 		}
-		if (!FBPP.HasKey("HeadMountedCameraInventory"))
+		if (!FileBasedPrefs.HasKey("HeadMountedCameraInventory"))
 		{
-			FBPP.SetInt("HeadMountedCameraInventory", 0);
+			FileBasedPrefs.SetInt("HeadMountedCameraInventory", 0);
 		}
 	}
 
-	// Token: 0x040007A6 RID: 1958
 	[SerializeField]
 	private StoreSDKManager storeSDKManager;
 
-	// Token: 0x040007A7 RID: 1959
 	[SerializeField]
 	private PlayerStatsManager playerStatsManager;
 
-	// Token: 0x040007A8 RID: 1960
 	[SerializeField]
 	private StoreManager storeManager;
 }
+

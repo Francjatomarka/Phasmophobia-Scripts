@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
-// Token: 0x020000D1 RID: 209
 [RequireComponent(typeof(PhotonView))]
 public class GhostController : MonoBehaviourPunCallbacks
 {
-	// Token: 0x060005E3 RID: 1507 RVA: 0x00022190 File Offset: 0x00020390
 	private void Awake()
 	{
 		GhostController.instance = this;
@@ -19,7 +17,6 @@ public class GhostController : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060005E4 RID: 1508 RVA: 0x000221D4 File Offset: 0x000203D4
 	public override void OnJoinedRoom()
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -28,7 +25,6 @@ public class GhostController : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060005E5 RID: 1509 RVA: 0x000221D4 File Offset: 0x000203D4
 	private void Start()
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -37,7 +33,6 @@ public class GhostController : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060005E6 RID: 1510 RVA: 0x000221D4 File Offset: 0x000203D4
 	private void OnDisconnectedFromPhoton()
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -46,7 +41,6 @@ public class GhostController : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060005E7 RID: 1511 RVA: 0x000221E3 File Offset: 0x000203E3
 	private void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient)
 	{
 		if (newMasterClient == PhotonNetwork.LocalPlayer)
@@ -55,7 +49,6 @@ public class GhostController : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060005E8 RID: 1512 RVA: 0x000221F4 File Offset: 0x000203F4
 	private void CreateGhost()
 	{
 		if (this.createdGhost)
@@ -92,14 +85,12 @@ public class GhostController : MonoBehaviourPunCallbacks
 		component.agent.Warp(this.GetPositionOnNavMesh(pos));
 	}
 
-	// Token: 0x060005E9 RID: 1513 RVA: 0x000224EC File Offset: 0x000206EC
 	[PunRPC]
 	private void GhostHasBeenCreated()
 	{
 		this.createdGhost = true;
 	}
 
-	// Token: 0x060005EA RID: 1514 RVA: 0x000224F8 File Offset: 0x000206F8
 	public void UpdatePlayerSanity()
 	{
 		this.view.RPC("NetworkedUpdatePlayerSanity", RpcTarget.Others, new object[]
@@ -109,7 +100,6 @@ public class GhostController : MonoBehaviourPunCallbacks
 		});
 	}
 
-	// Token: 0x060005EB RID: 1515 RVA: 0x00022550 File Offset: 0x00020750
 	[PunRPC]
 	public void NetworkedUpdatePlayerSanity(float insanity, int actorID)
 	{
@@ -122,7 +112,6 @@ public class GhostController : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060005EC RID: 1516 RVA: 0x000225AC File Offset: 0x000207AC
 	private Vector3 GetPositionOnNavMesh(Vector3 pos)
 	{
 		NavMeshHit navMeshHit;
@@ -130,23 +119,18 @@ public class GhostController : MonoBehaviourPunCallbacks
 		return navMeshHit.position;
 	}
 
-	// Token: 0x0400058D RID: 1421
 	private PhotonView view;
 
-	// Token: 0x0400058E RID: 1422
 	public static GhostController instance;
 
-	// Token: 0x0400058F RID: 1423
 	[SerializeField]
 	private Transform spawn;
 
-	// Token: 0x04000590 RID: 1424
 	private GhostTraits ghostTraits;
 
-	// Token: 0x04000591 RID: 1425
 	private bool createdGhost;
 
-	// Token: 0x04000592 RID: 1426
 	[SerializeField]
 	public GhostEventPlayer ghostEventPlayer;
 }
+

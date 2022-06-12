@@ -2,17 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-// Token: 0x020000B5 RID: 181
 public class GhostEvent_2 : IState
 {
-	// Token: 0x0600054A RID: 1354 RVA: 0x0001D883 File Offset: 0x0001BA83
 	public GhostEvent_2(GhostAI ghost, GhostInteraction ghostInteraction)
 	{
 		this.ghost = ghost;
 		this.ghostInteraction = ghostInteraction;
 	}
 
-	// Token: 0x0600054B RID: 1355 RVA: 0x0001D8B0 File Offset: 0x0001BAB0
 	public void Enter()
 	{
 		this.player = GameController.instance.playersData[UnityEngine.Random.Range(0, GameController.instance.playersData.Count)].player;
@@ -92,7 +89,6 @@ public class GhostEvent_2 : IState
 		this.ghost.ghostInteraction.CreateAppearedEMF(this.ghost.raycastPoint.position);
 	}
 
-	// Token: 0x0600054C RID: 1356 RVA: 0x0001DDB8 File Offset: 0x0001BFB8
 	public void Execute()
 	{
 		this.timer -= Time.deltaTime;
@@ -123,7 +119,6 @@ public class GhostEvent_2 : IState
 		}
 	}
 
-	// Token: 0x0600054D RID: 1357 RVA: 0x0001DEF9 File Offset: 0x0001C0F9
 	public void Exit()
 	{
 		this.ghost.ghostAudio.StopSound();
@@ -132,7 +127,6 @@ public class GhostEvent_2 : IState
 		this.ghost.ghostAudio.PlayOrStopAppearSource(false);
 	}
 
-	// Token: 0x0600054E RID: 1358 RVA: 0x0001DF38 File Offset: 0x0001C138
 	private Vector3 GetPositionOnNavMesh(Vector3 pos)
 	{
 		NavMeshHit navMeshHit;
@@ -140,21 +134,16 @@ public class GhostEvent_2 : IState
 		return navMeshHit.position;
 	}
 
-	// Token: 0x04000500 RID: 1280
 	private GhostAI ghost;
 
-	// Token: 0x04000501 RID: 1281
 	private GhostInteraction ghostInteraction;
 
-	// Token: 0x04000502 RID: 1282
 	private Player player;
 
-	// Token: 0x04000503 RID: 1283
 	private LevelRoom room;
 
-	// Token: 0x04000504 RID: 1284
 	private float playerDistance;
 
-	// Token: 0x04000505 RID: 1285
 	private float timer = UnityEngine.Random.Range(5f, 15f);
 }
+

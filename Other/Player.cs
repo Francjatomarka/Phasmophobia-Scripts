@@ -9,10 +9,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 using Photon.Pun;
 using Photon.Voice;
 
-// Token: 0x0200016F RID: 367
 public class Player : MonoBehaviour
 {
-	// Token: 0x06000A71 RID: 2673 RVA: 0x000405E1 File Offset: 0x0003E7E1
 	private void Awake()
 	{
 		this.firstPersonController = GetComponent<FirstPersonController>();
@@ -20,7 +18,6 @@ public class Player : MonoBehaviour
 		this.keys.Clear();
 	}
 
-	// Token: 0x06000A72 RID: 2674 RVA: 0x000405FC File Offset: 0x0003E7FC
 	private void Start()
 	{
 		if (this.hasRun)
@@ -125,7 +122,6 @@ public class Player : MonoBehaviour
 		this.currentPlayerSnapshot = this.truckSnapshot;
 	}
 
-	// Token: 0x06000A73 RID: 2675 RVA: 0x00040954 File Offset: 0x0003EB54
 	private void Update()
 	{
 		/*if (!this.view.IsMine)
@@ -174,7 +170,6 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A74 RID: 2676 RVA: 0x00040B08 File Offset: 0x0003ED08
 	[PunRPC]
 	private void SetPlayerData(int photonPlayerID)
 	{
@@ -194,7 +189,6 @@ public class Player : MonoBehaviour
 		GameController.instance.OnPlayerSpawned.Invoke();
 	}
 
-	// Token: 0x06000A75 RID: 2677 RVA: 0x00040BA3 File Offset: 0x0003EDA3
 	public void ActivateOrDeactivateRecordingCam(bool isActive)
 	{
 		if (this.view.IsMine || !PhotonNetwork.InRoom)
@@ -203,7 +197,6 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A76 RID: 2678 RVA: 0x00040BC5 File Offset: 0x0003EDC5
 	public void ChangeSanity(int value)
 	{
 		this.view.RPC("ChangeSanitySync", this.view.Owner, new object[]
@@ -212,32 +205,27 @@ public class Player : MonoBehaviour
 		});
 	}
 
-	// Token: 0x06000A77 RID: 2679 RVA: 0x00040BF1 File Offset: 0x0003EDF1
 	[PunRPC]
 	private void ChangeSanitySync(int value)
 	{
 		this.insanity += (float)value;
 	}
 
-	// Token: 0x06000A78 RID: 2680 RVA: 0x00040C02 File Offset: 0x0003EE02
 	public void KillPlayer()
 	{
 		this.view.RPC("Dead", RpcTarget.All, Array.Empty<object>());
 	}
 
-	// Token: 0x06000A79 RID: 2681 RVA: 0x00040C1A File Offset: 0x0003EE1A
 	public void StartKillingPlayer()
 	{
 		this.view.RPC("StartKillingPlayerNetworked", this.view.Owner, Array.Empty<object>());
 	}
 
-	// Token: 0x06000A7A RID: 2682 RVA: 0x00040C3C File Offset: 0x0003EE3C
 	public void SpawnDeadBody(Vector3 spawnPos)
 	{
 		PhotonNetwork.InstantiateSceneObject("DeadPlayerRagdoll", spawnPos, LevelController.instance.currentGhost.transform.rotation, 0, null).GetComponent<DeadPlayer>().Spawn(this.modelID, int.Parse(this.view.Owner.UserId));
 	}
 
-	// Token: 0x06000A7B RID: 2683 RVA: 0x00040C7C File Offset: 0x0003EE7C
 	[PunRPC]
 	private void StartKillingPlayerNetworked()
 	{
@@ -260,7 +248,6 @@ public class Player : MonoBehaviour
 		this.DropAllVRObjects();
 	}
 
-	// Token: 0x06000A7C RID: 2684 RVA: 0x00040D3A File Offset: 0x0003EF3A
 	public void StopAllMovement()
 	{
 		if (!XRDevice.isPresent)
@@ -270,7 +257,6 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A7D RID: 2685 RVA: 0x00040D64 File Offset: 0x0003EF64
 	[PunRPC]
 	private void Dead()
 	{
@@ -315,7 +301,6 @@ public class Player : MonoBehaviour
 		base.transform.SetParent(DeadZoneController.instance.zoneObjects.transform);
 	}
 
-	// Token: 0x06000A7E RID: 2686 RVA: 0x00040FE4 File Offset: 0x0003F1E4
 	private void CheckCurrentLight()
 	{
 		Texture2D texture2D = new Texture2D(32, 32, TextureFormat.RGB24, false);
@@ -338,7 +323,6 @@ public class Player : MonoBehaviour
 		this.playerIsInLight = (num <= 900);
 	}
 
-	// Token: 0x06000A7F RID: 2687 RVA: 0x00041088 File Offset: 0x0003F288
 	private void ApplyBrightnessSetting()
 	{
 		ColorGrading colorGrading = null;
@@ -346,7 +330,6 @@ public class Player : MonoBehaviour
 		colorGrading.postExposure.value = PlayerPrefs.GetFloat("brightnessValue");
 	}
 
-	// Token: 0x06000A80 RID: 2688 RVA: 0x000410BF File Offset: 0x0003F2BF
 	public void ApplyAntiAliasing()
 	{
 		if (!XRDevice.isPresent)
@@ -360,13 +343,11 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A81 RID: 2689 RVA: 0x000410ED File Offset: 0x0003F2ED
 	public void ApplyAudioSetting()
 	{
 		this.masterAudio.SetFloat("MasterVolume", Mathf.Log10(PlayerPrefs.GetFloat("MasterVolume")) * 20f + 15f);
 	}
 
-	// Token: 0x06000A82 RID: 2690 RVA: 0x0004111C File Offset: 0x0003F31C
 	public void ApplyScreenSpaceReflectionSetting()
 	{
 		if (!XRDevice.isPresent)
@@ -376,7 +357,6 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A83 RID: 2691 RVA: 0x00041160 File Offset: 0x0003F360
 	public void ApplyAmbientOcclusionSetting()
 	{
 		if (!XRDevice.isPresent)
@@ -387,7 +367,6 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A84 RID: 2692 RVA: 0x000411A4 File Offset: 0x0003F3A4
 	public void ForceDropAllProps()
 	{
 		foreach (PhotonObjectInteract photonObjectInteract in base.GetComponentsInChildren<PhotonObjectInteract>(true))
@@ -412,13 +391,11 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000A85 RID: 2693 RVA: 0x00041258 File Offset: 0x0003F458
 	public void DropAllVRObjects()
 	{
 		
 	}
 
-	// Token: 0x06000A86 RID: 2694 RVA: 0x00041417 File Offset: 0x0003F617
 	private void OnDisable()
 	{
 		this.DropAllVRObjects();
@@ -428,215 +405,155 @@ public class Player : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000AA2 RID: 2722
 	[HideInInspector]
 	public PhotonView view;
 
-	// Token: 0x04000AA3 RID: 2723
 	[HideInInspector]
 	public bool beingHunted;
 
-	// Token: 0x04000AA4 RID: 2724
 	public bool isDead;
 
 	private bool cameraBoard = false;
 
-	// Token: 0x04000AA5 RID: 2725
 	[HideInInspector]
 	public int modelID;
 
 	public Camera cameraBoardObj;
 
-	// Token: 0x04000AA6 RID: 2726
 	private bool sanityChallengeHasBeenSet;
 
-	// Token: 0x04000AA7 RID: 2727
 	[Header("Post Processing")]
 	public PostProcessVolume postProcessingVolume;
 
-	// Token: 0x04000AA8 RID: 2728
 	public PostProcessLayer postProcessingLayer;
 
-	// Token: 0x04000AA9 RID: 2729
 	[SerializeField]
 	private PostProcessProfile mainProfile;
 
-	// Token: 0x04000AAA RID: 2730
 	[SerializeField]
 	private PostProcessProfile deadProfile;
 
-	// Token: 0x04000AAB RID: 2731
 	[Header("Main")]
 	public GameObject headObject;
 
-	// Token: 0x04000AAC RID: 2732
 	[SerializeField]
 	private Breath breath;
 
-	// Token: 0x04000AAD RID: 2733
 	public List<global::Key.KeyType> keys = new List<global::Key.KeyType>();
 
-	// Token: 0x04000AAE RID: 2734
 	public Camera cam;
 
-	// Token: 0x04000AAF RID: 2735
 	[HideInInspector]
 	public LevelRoom currentRoom;
 
-	// Token: 0x04000AB0 RID: 2736
 	[HideInInspector]
 	public Transform mapIcon;
 
-	// Token: 0x04000AB1 RID: 2737
 	public PhotonObjectInteract currentHeldObject;
 
-	// Token: 0x04000AB2 RID: 2738
 	public GameObject[] characterModels;
 
-	// Token: 0x04000AB3 RID: 2739
 	public GameObject ghostDeathHands;
 
-	// Token: 0x04000AB4 RID: 2740
 	public LayerMask ghostRaycastMask;
 
-	// Token: 0x04000AB5 RID: 2741
 	public LayerMask mainLayerMask;
 
-	// Token: 0x04000AB6 RID: 2742
 	public PlayerHeadCamera playerHeadCamera;
 
-	// Token: 0x04000AB7 RID: 2743
 	public Transform aiTargetPoint;
 
-	// Token: 0x04000AB8 RID: 2744
 	[Header("Audio")]
 	[SerializeField]
 	private AudioMixerSnapshot interiorSnapshot;
 
-	// Token: 0x04000AB9 RID: 2745
 	[SerializeField]
 	private AudioMixerSnapshot deathSnapshot;
 
-	// Token: 0x04000ABA RID: 2746
 	[SerializeField]
 	private AudioMixerSnapshot truckSnapshot;
 
-	// Token: 0x04000ABB RID: 2747
 	[HideInInspector]
 	public AudioMixerSnapshot currentPlayerSnapshot;
 
-	// Token: 0x04000ABC RID: 2748
 	public VoiceVolume voiceVolume;
 
 
-	// Token: 0x04000ABE RID: 2750
 	public FootstepController footstepController;
 
-	// Token: 0x04000ABF RID: 2751
 	public AudioSource evidenceAudioSource;
 
-	// Token: 0x04000AC0 RID: 2752
 	public AudioSource keysAudioSource;
 
-	// Token: 0x04000AC1 RID: 2753
 	[SerializeField]
 	private AudioSource deathAudioSource;
 
-	// Token: 0x04000AC2 RID: 2754
 	public AudioSource chokingAudioSource;
 
-	// Token: 0x04000AC3 RID: 2755
 	public AudioSource heartBeatAudioSource;
 
-	// Token: 0x04000AC4 RID: 2756
 	public VoiceOcclusion voiceOcclusion;
 
-	// Token: 0x04000AC5 RID: 2757
 	[SerializeField]
 	private AudioMixer masterAudio;
 
-	// Token: 0x04000AC6 RID: 2758
 	[Header("Sanity")]
 	[HideInInspector]
 	public float insanity;
 
-	// Token: 0x04000AC7 RID: 2759
 	private float sanityUpdateTimer = 15f;
 
-	// Token: 0x04000AC8 RID: 2760
 	private float sanityCheckTimer = 2f;
 
-	// Token: 0x04000AC9 RID: 2761
 	[SerializeField]
 	private RenderTexture shadowRenderTexture;
 
-	// Token: 0x04000ACA RID: 2762
 	[SerializeField]
 	private bool playerIsInLight;
 
-	// Token: 0x04000ACB RID: 2763
 	private float difficultyRate = 1f;
 
-	// Token: 0x04000ACC RID: 2764
 	private float normalSanityRate = 0.12f;
 
-	// Token: 0x04000ACD RID: 2765
 	private float setupSanityRate = 0.09f;
 
-	// Token: 0x04000ACE RID: 2766
 	[Header("PC")]
 	public CharacterController charController;
 
-	// Token: 0x04000ACF RID: 2767
 	public AudioListener listener;
 
-	// Token: 0x04000AD0 RID: 2768
 	public FirstPersonController firstPersonController;
 
-	// Token: 0x04000AD1 RID: 2769
 	public PCPropGrab pcPropGrab;
 
-	// Token: 0x04000AD2 RID: 2770
 	public DragRigidbodyUse dragRigidBodyUse;
 
-	// Token: 0x04000AD3 RID: 2771
 	public PCCanvas pcCanvas;
 
-	// Token: 0x04000AD4 RID: 2772
 	public PCCrouch pcCrouch;
 
-	// Token: 0x04000AD5 RID: 2773
 	public PCMenu pcMenu;
 
-	// Token: 0x04000AD6 RID: 2774
 	public PCControls pcControls;
 
-	// Token: 0x04000AD7 RID: 2775
 	public PCFlashlight pcFlashlight;
 
-	// Token: 0x04000AD8 RID: 2776
 	[HideInInspector]
 	public Animator charAnim;
 
-	// Token: 0x04000AD9 RID: 2777
 	public PlayerInput playerInput;
 
-	// Token: 0x04000ADA RID: 2778
 	public PCItemSway itemSway;
 
-	// Token: 0x04000ADF RID: 2783
 	public Transform steamVRObj;
 
-	// Token: 0x04000AE0 RID: 2784
 	public VRMovementSettings movementSettings;
 
-	// Token: 0x04000AE3 RID: 2787
 	[SerializeField]
 	private GameObject smoothVRCamera;
 
-	// Token: 0x04000AE5 RID: 2789
 	public Transform VRIKObj;
 
-	// Token: 0x04000AE7 RID: 2791
 	private bool hasRun;
 }
+

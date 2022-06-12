@@ -7,11 +7,9 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 using Photon.Pun;
 
-// Token: 0x020000D5 RID: 213
 [RequireComponent(typeof(PhotonView))]
 public class JournalController : MonoBehaviour
 {
-	// Token: 0x060005F3 RID: 1523 RVA: 0x000227CF File Offset: 0x000209CF
 	private void Awake()
 	{
 		this.view = base.GetComponent<PhotonView>();
@@ -20,7 +18,6 @@ public class JournalController : MonoBehaviour
 		this.CreateEvidence();
 	}
 
-	// Token: 0x060005F4 RID: 1524 RVA: 0x000227F0 File Offset: 0x000209F0
 	private void Start()
 	{
 		if (LevelController.instance)
@@ -46,7 +43,6 @@ public class JournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005F5 RID: 1525 RVA: 0x000228AC File Offset: 0x00020AAC
 	private void CreateEvidence()
 	{
 		this.evidenceNames.Add(LocalisationSystem.GetLocalisedValue("Journal_NoEvidence"));
@@ -61,7 +57,6 @@ public class JournalController : MonoBehaviour
 		this.evidence3Text.text = this.evidenceNames[0];
 	}
 
-	// Token: 0x060005F6 RID: 1526 RVA: 0x00022994 File Offset: 0x00020B94
 	private void CreateGhosts()
 	{
 		JournalController.Ghost item = new JournalController.Ghost
@@ -180,7 +175,6 @@ public class JournalController : MonoBehaviour
 		this.ghosts.Add(item13);
 	}
 
-	// Token: 0x060005F7 RID: 1527 RVA: 0x00022D48 File Offset: 0x00020F48
 	private void OnEnable()
 	{
 		if (GameController.instance)
@@ -197,7 +191,6 @@ public class JournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005F8 RID: 1528 RVA: 0x00022DC0 File Offset: 0x00020FC0
 	private void OpenCloseJournal()
 	{
 		if (GameController.instance == null)
@@ -250,7 +243,6 @@ public class JournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005F9 RID: 1529 RVA: 0x00022F50 File Offset: 0x00021150
 	public void CloseJournal()
 	{
 		if (GameController.instance == null)
@@ -284,7 +276,6 @@ public class JournalController : MonoBehaviour
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 
-	// Token: 0x060005FA RID: 1530 RVA: 0x00023010 File Offset: 0x00021210
 	public void NextPage()
 	{
 		if (!this.isVRJournal)
@@ -303,7 +294,6 @@ public class JournalController : MonoBehaviour
 		this.PageSync(2);
 	}
 
-	// Token: 0x060005FB RID: 1531 RVA: 0x0002305C File Offset: 0x0002125C
 	public void PreviousPage()
 	{
 		if (!this.isVRJournal)
@@ -322,7 +312,6 @@ public class JournalController : MonoBehaviour
 		this.PageSync(-2);
 	}
 
-	// Token: 0x060005FC RID: 1532 RVA: 0x000230AB File Offset: 0x000212AB
 	public void EndPage()
 	{
 		if (!this.isVRJournal)
@@ -338,7 +327,6 @@ public class JournalController : MonoBehaviour
 		this.EndPageSync();
 	}
 
-	// Token: 0x060005FD RID: 1533 RVA: 0x000230E0 File Offset: 0x000212E0
 	[PunRPC]
 	private void EndPageSync()
 	{
@@ -351,7 +339,6 @@ public class JournalController : MonoBehaviour
 		this.pages[this.index + 1].SetActive(true);
 	}
 
-	// Token: 0x060005FE RID: 1534 RVA: 0x00023148 File Offset: 0x00021348
 	[PunRPC]
 	private void PageSync(int value)
 	{
@@ -364,7 +351,6 @@ public class JournalController : MonoBehaviour
 		this.pages[this.index + 1].SetActive(true);
 	}
 
-	// Token: 0x060005FF RID: 1535 RVA: 0x000231AC File Offset: 0x000213AC
 	public void AddPhoto(byte[] sprBytes, string evidenceName, int evidenceAmount)
 	{
 		if (this.photosAmount < 10)
@@ -380,7 +366,6 @@ public class JournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000600 RID: 1536 RVA: 0x00023278 File Offset: 0x00021478
 	public GhostTraits.Type GetGhostType()
 	{
 		GhostTraits.Type result = GhostTraits.Type.none;
@@ -391,7 +376,6 @@ public class JournalController : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06000601 RID: 1537 RVA: 0x000232A8 File Offset: 0x000214A8
 	public void AddKey(string name)
 	{
 		this.keyAmount++;
@@ -419,7 +403,6 @@ public class JournalController : MonoBehaviour
 		GameController.instance.myPlayer.player.evidenceAudioSource.Play();
 	}
 
-	// Token: 0x06000602 RID: 1538 RVA: 0x00023358 File Offset: 0x00021558
 	public void SetGhostTypes()
 	{
 		this.values.Clear();
@@ -485,7 +468,6 @@ public class JournalController : MonoBehaviour
 		this.ghostTypeText.text = this.values[0].localisedName;
 	}
 
-	// Token: 0x06000603 RID: 1539 RVA: 0x000235E0 File Offset: 0x000217E0
 	public void ChangeGhostTypeButton(int value)
 	{
 		this.ghostTypeIndex += value;
@@ -500,7 +482,6 @@ public class JournalController : MonoBehaviour
 		this.ghostTypeText.text = this.values[this.ghostTypeIndex].localisedName;
 	}
 
-	// Token: 0x06000604 RID: 1540 RVA: 0x00023654 File Offset: 0x00021854
 	public void ChangeEvidence1Button(int value)
 	{
 		this.evidence1Index += value;
@@ -516,7 +497,6 @@ public class JournalController : MonoBehaviour
 		this.SetGhostTypes();
 	}
 
-	// Token: 0x06000605 RID: 1541 RVA: 0x000236C8 File Offset: 0x000218C8
 	public void ChangeEvidence2Button(int value)
 	{
 		this.evidence2Index += value;
@@ -532,7 +512,6 @@ public class JournalController : MonoBehaviour
 		this.SetGhostTypes();
 	}
 
-	// Token: 0x06000606 RID: 1542 RVA: 0x0002373C File Offset: 0x0002193C
 	public void ChangeEvidence3Button(int value)
 	{
 		this.evidence3Index += value;
@@ -548,7 +527,6 @@ public class JournalController : MonoBehaviour
 		this.SetGhostTypes();
 	}
 
-	// Token: 0x06000607 RID: 1543 RVA: 0x000237B0 File Offset: 0x000219B0
 	private void OnPlayerSpawned()
 	{
 		if (!XRDevice.isPresent && !this.isVRJournal && GameController.instance && GameController.instance.myPlayer != null && GameController.instance.myPlayer.player.playerInput)
@@ -560,7 +538,6 @@ public class JournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000608 RID: 1544 RVA: 0x00023834 File Offset: 0x00021A34
 	private void OnDisable()
 	{
 		if (!XRDevice.isPresent && !this.isVRJournal && GameController.instance && GameController.instance.myPlayer != null && GameController.instance.myPlayer.player.playerInput)
@@ -572,159 +549,114 @@ public class JournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040005A2 RID: 1442
 	[SerializeField]
 	private GameObject content;
 
-	// Token: 0x040005A3 RID: 1443
 	[SerializeField]
 	private AudioSource openSource;
 
-	// Token: 0x040005A4 RID: 1444
 	[SerializeField]
 	private AudioClip openClip;
 
-	// Token: 0x040005A5 RID: 1445
 	[SerializeField]
 	private AudioClip closeClip;
 
-	// Token: 0x040005A6 RID: 1446
 	[HideInInspector]
 	public bool isOpen;
 
-	// Token: 0x040005A7 RID: 1447
 	[SerializeField]
 	private bool isVRJournal;
 
-	// Token: 0x040005A8 RID: 1448
 	[SerializeField]
 	private GameObject[] pages;
 
-	// Token: 0x040005A9 RID: 1449
 	private int index;
 
-	// Token: 0x040005AA RID: 1450
 	[SerializeField]
 	private Image[] photos;
 
-	// Token: 0x040005AB RID: 1451
 	[SerializeField]
 	private Text[] photosNames;
 
-	// Token: 0x040005AC RID: 1452
 	private int photosAmount;
 
-	// Token: 0x040005AD RID: 1453
 	private int resWidth = 384;
 
-	// Token: 0x040005AE RID: 1454
 	private int resHeight = 216;
 
-	// Token: 0x040005AF RID: 1455
 	[HideInInspector]
 	public PhotonView view;
 
-	// Token: 0x040005B0 RID: 1456
 	[Header("Keys Page")]
 	private int keyAmount;
 
-	// Token: 0x040005B1 RID: 1457
 	[SerializeField]
 	private Text Key1Text;
 
-	// Token: 0x040005B2 RID: 1458
 	[SerializeField]
 	private Text Key2Text;
 
-	// Token: 0x040005B3 RID: 1459
 	[SerializeField]
 	private Text Key3Text;
 
-	// Token: 0x040005B4 RID: 1460
 	[SerializeField]
 	private Text Key4Text;
 
-	// Token: 0x040005B5 RID: 1461
 	[SerializeField]
 	private Text Key5Text;
 
-	// Token: 0x040005B6 RID: 1462
 	[SerializeField]
 	private Text Key6Text;
 
-	// Token: 0x040005B7 RID: 1463
 	[Header("Evidence Page")]
 	private List<JournalController.Ghost> values = new List<JournalController.Ghost>();
 
-	// Token: 0x040005B8 RID: 1464
 	private List<JournalController.Ghost> ghosts = new List<JournalController.Ghost>();
 
-	// Token: 0x040005B9 RID: 1465
 	private List<string> evidenceNames = new List<string>();
 
-	// Token: 0x040005BA RID: 1466
 	[SerializeField]
 	private Text evidence1Text;
 
-	// Token: 0x040005BB RID: 1467
 	private int evidence1Index;
 
-	// Token: 0x040005BC RID: 1468
 	[SerializeField]
 	private Text evidence2Text;
 
-	// Token: 0x040005BD RID: 1469
 	private int evidence2Index;
 
-	// Token: 0x040005BE RID: 1470
 	[SerializeField]
 	private Text evidence3Text;
 
-	// Token: 0x040005BF RID: 1471
 	private int evidence3Index;
 
-	// Token: 0x040005C0 RID: 1472
 	[SerializeField]
 	private Text ghostTypeText;
 
-	// Token: 0x040005C1 RID: 1473
 	private int ghostTypeIndex;
 
-	// Token: 0x020004AF RID: 1199
 	public enum evidenceType
 	{
-		// Token: 0x0400223A RID: 8762
 		None,
-		// Token: 0x0400223B RID: 8763
 		EMF,
-		// Token: 0x0400223C RID: 8764
 		SpiritBox,
-		// Token: 0x0400223D RID: 8765
 		Fingerprints,
-		// Token: 0x0400223E RID: 8766
 		GhostOrb,
-		// Token: 0x0400223F RID: 8767
 		GhostWritingBook,
-		// Token: 0x04002240 RID: 8768
 		Temperature
 	}
 
-	// Token: 0x020004B0 RID: 1200
 	private struct Ghost
 	{
-		// Token: 0x04002241 RID: 8769
 		public GhostTraits.Type type;
 
-		// Token: 0x04002242 RID: 8770
 		public string localisedName;
 
-		// Token: 0x04002243 RID: 8771
 		public JournalController.evidenceType evidence1;
 
-		// Token: 0x04002244 RID: 8772
 		public JournalController.evidenceType evidence2;
 
-		// Token: 0x04002245 RID: 8773
 		public JournalController.evidenceType evidence3;
 	}
 }
+

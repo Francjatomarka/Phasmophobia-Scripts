@@ -4,23 +4,19 @@ using UnityEngine;
 using UnityEngine.Events;
 using Photon.Pun;
 
-// Token: 0x020000DD RID: 221
 [RequireComponent(typeof(PhotonView))]
 public class PhraseListenerController : MonoBehaviour
 {
-	// Token: 0x06000644 RID: 1604 RVA: 0x00025087 File Offset: 0x00023287
 	private void Awake()
 	{
 		this.view = base.GetComponent<PhotonView>();
 	}
 
-	// Token: 0x06000645 RID: 1605 RVA: 0x00025095 File Offset: 0x00023295
 	private void Start()
 	{
 		GameController.instance.OnGhostSpawned.AddListener(new UnityAction(this.SetupKeywords));
 	}
 
-	// Token: 0x06000646 RID: 1606 RVA: 0x000250B4 File Offset: 0x000232B4
 	public void SetupKeywords()
 	{
 		Question question = new Question
@@ -101,7 +97,6 @@ public class PhraseListenerController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000647 RID: 1607 RVA: 0x0002550C File Offset: 0x0002370C
 	public void OnPhraseRecognized(string args)
 	{
 		if (LevelController.instance.currentPlayerRoom != LevelController.instance.currentGhostRoom)
@@ -142,7 +137,6 @@ public class PhraseListenerController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000648 RID: 1608 RVA: 0x00025668 File Offset: 0x00023868
 	private void Update()
 	{
 		if (SpeechRecognitionController.instance.hasSaidGhostsName)
@@ -156,13 +150,11 @@ public class PhraseListenerController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000649 RID: 1609 RVA: 0x000256B6 File Offset: 0x000238B6
 	private void Answer()
 	{
 		this.view.RPC("NetworkedReaction", PhotonNetwork.MasterClient, Array.Empty<object>());
 	}
 
-	// Token: 0x0600064A RID: 1610 RVA: 0x000256D4 File Offset: 0x000238D4
 	[PunRPC]
 	private void NetworkedReaction()
 	{
@@ -183,13 +175,11 @@ public class PhraseListenerController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000612 RID: 1554
 	[SerializeField]
 	private List<Question> questions = new List<Question>();
 
-	// Token: 0x04000613 RID: 1555
 	private PhotonView view;
 
-	// Token: 0x04000614 RID: 1556
 	private float ghostsNameReactionTimer = 20f;
 }
+

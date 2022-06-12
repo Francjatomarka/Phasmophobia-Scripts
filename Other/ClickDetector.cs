@@ -2,10 +2,8 @@
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x02000071 RID: 113
 public class ClickDetector : MonoBehaviour
 {
-	// Token: 0x06000292 RID: 658 RVA: 0x00011554 File Offset: 0x0000F754
 	public void Update()
 	{
 		if (int.Parse(PhotonNetwork.LocalPlayer.UserId) != GameLogic.playerWhoIsIt)
@@ -22,7 +20,6 @@ public class ClickDetector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000293 RID: 659 RVA: 0x000115DC File Offset: 0x0000F7DC
 	private GameObject RaycastObject(Vector2 screenPos)
 	{
 		RaycastHit raycastHit;
@@ -33,3 +30,4 @@ public class ClickDetector : MonoBehaviour
 		return null;
 	}
 }
+

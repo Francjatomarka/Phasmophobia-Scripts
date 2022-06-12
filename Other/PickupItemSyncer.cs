@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000092 RID: 146
 [RequireComponent(typeof(PhotonView))]
 public class PickupItemSyncer : MonoBehaviourPunCallbacks
 {
@@ -15,7 +14,6 @@ public class PickupItemSyncer : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x0600046E RID: 1134 RVA: 0x000190A8 File Offset: 0x000172A8
 	public void OnJoinedRoom()
 	{
 		Debug.Log(string.Concat(new object[]
@@ -32,7 +30,6 @@ public class PickupItemSyncer : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x0600046F RID: 1135 RVA: 0x00019120 File Offset: 0x00017320
 	public void AskForPickupItemSpawnTimes()
 	{
 		if (this.IsWaitingForPickupInit)
@@ -58,7 +55,6 @@ public class PickupItemSyncer : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000470 RID: 1136 RVA: 0x000191AF File Offset: 0x000173AF
 	[PunRPC]
 	[Obsolete("Use RequestForPickupItems(PhotonMessageInfo msgInfo) with corrected typing instead.")]
 	public void RequestForPickupTimes(PhotonMessageInfo msgInfo)
@@ -66,7 +62,6 @@ public class PickupItemSyncer : MonoBehaviourPunCallbacks
 		this.RequestForPickupItems(msgInfo);
 	}
 
-	// Token: 0x06000471 RID: 1137 RVA: 0x000191B8 File Offset: 0x000173B8
 	[PunRPC]
 	public void RequestForPickupItems(PhotonMessageInfo msgInfo)
 	{
@@ -78,7 +73,6 @@ public class PickupItemSyncer : MonoBehaviourPunCallbacks
 		this.SendPickedUpItems(msgInfo.Sender);
 	}
 
-	// Token: 0x06000472 RID: 1138 RVA: 0x000191DC File Offset: 0x000173DC
 	private void SendPickedUpItems(Photon.Realtime.Player targetPlayer)
 	{
 		if (targetPlayer == null)
@@ -133,7 +127,6 @@ public class PickupItemSyncer : MonoBehaviourPunCallbacks
 		});
 	}
 
-	// Token: 0x06000473 RID: 1139 RVA: 0x00019374 File Offset: 0x00017574
 	[PunRPC]
 	public void PickupItemInit(double timeBase, float[] inactivePickupsAndTimes)
 	{
@@ -172,9 +165,8 @@ public class PickupItemSyncer : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x0400047C RID: 1148
 	public bool IsWaitingForPickupInit;
 
-	// Token: 0x0400047D RID: 1149
 	private const float TimeDeltaToIgnore = 0.2f;
 }
+

@@ -2,11 +2,9 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200003D RID: 61
 [RequireComponent(typeof(PhotonView))]
 public class OnAwakePhysicsSettings : MonoBehaviourPunCallbacks
 {
-	// Token: 0x06000165 RID: 357 RVA: 0x0000A34C File Offset: 0x0000854C
 	public void Awake()
 	{
 		if (!base.photonView.IsMine)
@@ -25,3 +23,4 @@ public class OnAwakePhysicsSettings : MonoBehaviourPunCallbacks
 		}
 	}
 }
+

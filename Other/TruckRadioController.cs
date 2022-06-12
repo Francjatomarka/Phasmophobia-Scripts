@@ -4,11 +4,9 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.Events;
 
-// Token: 0x02000183 RID: 387
 [RequireComponent(typeof(PhotonView))]
 public class TruckRadioController : MonoBehaviourPunCallbacks
 {
-	// Token: 0x06000B03 RID: 2819 RVA: 0x00045B20 File Offset: 0x00043D20
 	private void Awake()
 	{
 		TruckRadioController.instance = this;
@@ -16,7 +14,6 @@ public class TruckRadioController : MonoBehaviourPunCallbacks
 		this.source = base.GetComponent<AudioSource>();
 	}
 
-	// Token: 0x06000B04 RID: 2820 RVA: 0x00045B40 File Offset: 0x00043D40
 	private void Start()
 	{
 		if (GameController.instance)
@@ -25,7 +22,6 @@ public class TruckRadioController : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000B05 RID: 2821 RVA: 0x00045B6C File Offset: 0x00043D6C
 	public void PlayIntroductionAudio()
 	{
 		if (this.source == null)
@@ -44,7 +40,6 @@ public class TruckRadioController : MonoBehaviourPunCallbacks
 		});
 	}
 
-	// Token: 0x06000B06 RID: 2822 RVA: 0x00045BD0 File Offset: 0x00043DD0
 	public void PlayKeyWarningAudio()
 	{
 		if (!this.view.IsMine)
@@ -63,7 +58,6 @@ public class TruckRadioController : MonoBehaviourPunCallbacks
 		});
 	}
 
-	// Token: 0x06000B07 RID: 2823 RVA: 0x00045C34 File Offset: 0x00043E34
 	public void PlayHintAudio()
 	{
 		if (!PhotonNetwork.IsMasterClient)
@@ -105,7 +99,6 @@ public class TruckRadioController : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x06000B08 RID: 2824 RVA: 0x00045D43 File Offset: 0x00043F43
 	[PunRPC]
 	private IEnumerator PlayAudioClip(int id, int rand)
 	{
@@ -149,40 +142,31 @@ public class TruckRadioController : MonoBehaviourPunCallbacks
 		yield break;
 	}
 
-	// Token: 0x04000B88 RID: 2952
 	public static TruckRadioController instance;
 
-	// Token: 0x04000B89 RID: 2953
 	private PhotonView view;
 
-	// Token: 0x04000B8A RID: 2954
 	private AudioSource source;
 
-	// Token: 0x04000B8B RID: 2955
 	[HideInInspector]
 	public bool playedKeyAudio;
 
-	// Token: 0x04000B8C RID: 2956
 	[SerializeField]
 	private AudioClip[] introductionClips;
 
-	// Token: 0x04000B8D RID: 2957
 	[SerializeField]
 	private AudioClip[] keyWarningClips;
 
-	// Token: 0x04000B8E RID: 2958
 	[SerializeField]
 	private AudioClip[] noHintClips;
 
-	// Token: 0x04000B8F RID: 2959
 	[SerializeField]
 	private AudioClip[] aggressiveHintClips;
 
-	// Token: 0x04000B90 RID: 2960
 	[SerializeField]
 	private AudioClip[] friendlyHintClips;
 
-	// Token: 0x04000B91 RID: 2961
 	[SerializeField]
 	private AudioClip[] nonFriendlyHintClips;
 }
+

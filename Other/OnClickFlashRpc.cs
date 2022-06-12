@@ -3,16 +3,13 @@ using System.Collections;
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x0200003E RID: 62
 public class OnClickFlashRpc : MonoBehaviourPunCallbacks
 {
-	// Token: 0x06000167 RID: 359 RVA: 0x0000A395 File Offset: 0x00008595
 	private void OnClick()
 	{
 		base.photonView.RPC("Flash", RpcTarget.All, Array.Empty<object>());
 	}
 
-	// Token: 0x06000168 RID: 360 RVA: 0x0000A3AD File Offset: 0x000085AD
 	[PunRPC]
 	private IEnumerator Flash()
 	{
@@ -40,12 +37,10 @@ public class OnClickFlashRpc : MonoBehaviourPunCallbacks
 		yield break;
 	}
 
-	// Token: 0x040001A8 RID: 424
 	private Material originalMaterial;
 
-	// Token: 0x040001A9 RID: 425
 	private Color originalColor;
 
-	// Token: 0x040001AA RID: 426
 	private bool isFlashing;
 }
+

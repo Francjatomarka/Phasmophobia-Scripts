@@ -2,10 +2,8 @@
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x0200012F RID: 303
 public class Footstep : MonoBehaviour
 {
-	// Token: 0x06000814 RID: 2068 RVA: 0x00030754 File Offset: 0x0002E954
 	private void OnEnable()
 	{
 		if (LevelController.instance == null)
@@ -60,7 +58,6 @@ public class Footstep : MonoBehaviour
 		this.src.Play();
 	}
 
-	// Token: 0x06000815 RID: 2069 RVA: 0x00030A20 File Offset: 0x0002EC20
 	[PunRPC]
 	public void Spawn(bool isRight)
 	{
@@ -71,7 +68,6 @@ public class Footstep : MonoBehaviour
 		base.transform.localPosition = localPosition;
 	}
 
-	// Token: 0x06000816 RID: 2070 RVA: 0x00030A95 File Offset: 0x0002EC95
 	private void Update()
 	{
 		this.timer -= Time.deltaTime;
@@ -81,34 +77,27 @@ public class Footstep : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000830 RID: 2096
 	[SerializeField]
 	private Texture leftTexture;
 
-	// Token: 0x04000831 RID: 2097
 	[SerializeField]
 	private Texture RightTexture;
 
-	// Token: 0x04000832 RID: 2098
 	[SerializeField]
 	private AudioSource src;
 
-	// Token: 0x04000833 RID: 2099
 	private float timer = 10f;
 
-	// Token: 0x04000834 RID: 2100
 	[SerializeField]
 	private PhotonView view;
 
-	// Token: 0x04000835 RID: 2101
 	[SerializeField]
 	private AudioClip[] footstepNoises = new AudioClip[0];
 
-	// Token: 0x04000836 RID: 2102
 	[SerializeField]
 	private AudioClip[] huntingNoises = new AudioClip[0];
 
-	// Token: 0x04000837 RID: 2103
 	[SerializeField]
 	private Renderer rend;
 }
+

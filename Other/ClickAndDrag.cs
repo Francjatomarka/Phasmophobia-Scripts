@@ -2,10 +2,8 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000040 RID: 64
 public class ClickAndDrag : MonoBehaviourPunCallbacks
 {
-	// Token: 0x0600016C RID: 364 RVA: 0x0000A3F8 File Offset: 0x000085F8
 	private void Update()
 	{
 		if (!base.photonView.IsMine)
@@ -41,12 +39,10 @@ public class ClickAndDrag : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x040001AD RID: 429
 	private Vector3 camOnPress;
 
-	// Token: 0x040001AE RID: 430
 	private bool following;
 
-	// Token: 0x040001AF RID: 431
 	private float factor = -0.1f;
 }
+

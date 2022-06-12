@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200017A RID: 378
 public class EMFData : MonoBehaviour
 {
-	// Token: 0x06000AC4 RID: 2756 RVA: 0x000429B0 File Offset: 0x00040BB0
 	private void Awake()
 	{
 		EMFData.instance = this;
@@ -16,7 +14,6 @@ public class EMFData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AC5 RID: 2757 RVA: 0x00042A17 File Offset: 0x00040C17
 	private void Update()
 	{
 		this.updateTimer -= Time.deltaTime;
@@ -27,7 +24,6 @@ public class EMFData : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000AC6 RID: 2758 RVA: 0x00042A4C File Offset: 0x00040C4C
 	private void UpdateGraph()
 	{
 		this.rend.SetPosition(60, new Vector3(this.startingPos.localPosition.x + 720f, this.rend.GetPosition(59).y, 0f));
@@ -93,7 +89,6 @@ public class EMFData : MonoBehaviour
 		this.rend.SetPosition(0, new Vector3(this.startingPos.localPosition.x + 0f, (float)(this.GetEMFValue() * 50), 0f));
 	}
 
-	// Token: 0x06000AC7 RID: 2759 RVA: 0x00043944 File Offset: 0x00041B44
 	private int GetEMFValue()
 	{
 		int num = 0;
@@ -108,20 +103,16 @@ public class EMFData : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x04000B28 RID: 2856
 	public static EMFData instance;
 
-	// Token: 0x04000B29 RID: 2857
 	[SerializeField]
 	private LineRenderer rend;
 
-	// Token: 0x04000B2A RID: 2858
 	public List<EMF> emfSpots = new List<EMF>();
 
-	// Token: 0x04000B2B RID: 2859
 	[SerializeField]
 	private Transform startingPos;
 
-	// Token: 0x04000B2C RID: 2860
 	private float updateTimer = 0.5f;
 }
+

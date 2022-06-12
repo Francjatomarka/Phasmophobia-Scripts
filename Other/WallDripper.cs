@@ -1,17 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000006 RID: 6
 public class WallDripper : MonoBehaviour
 {
-	// Token: 0x06000019 RID: 25 RVA: 0x000025B7 File Offset: 0x000007B7
 	private void Start()
 	{
 		this.rend = base.GetComponent<Renderer>();
 		this.dripSpeed = UnityEngine.Random.Range(this.dripSpeed - 0.01f, this.dripSpeed + 0.01f);
 	}
 
-	// Token: 0x0600001A RID: 26 RVA: 0x000025E8 File Offset: 0x000007E8
 	private void Update()
 	{
 		if (this.speedArc < 90f)
@@ -54,30 +51,22 @@ public class WallDripper : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400001D RID: 29
 	public Renderer rend;
 
-	// Token: 0x0400001E RID: 30
 	public float bloodDryAmount;
 
-	// Token: 0x0400001F RID: 31
 	public float autoDrySpeed = 0.1f;
 
-	// Token: 0x04000020 RID: 32
 	public float dripSpeed = 1f;
 
-	// Token: 0x04000021 RID: 33
 	public float yOffsetStartValue = -1f;
 
-	// Token: 0x04000022 RID: 34
 	public float yOffsetEndValue = -0.05f;
 
-	// Token: 0x04000023 RID: 35
 	private bool makeBloodDry;
 
-	// Token: 0x04000024 RID: 36
 	private float speedArc;
 
-	// Token: 0x04000025 RID: 37
 	private float fadeAmount;
 }
+

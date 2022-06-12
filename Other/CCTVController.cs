@@ -5,11 +5,9 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Photon.Pun;
 
-// Token: 0x020000CC RID: 204
 [RequireComponent(typeof(PhotonView))]
 public class CCTVController : MonoBehaviour
 {
-	// Token: 0x060005AE RID: 1454 RVA: 0x00020EC4 File Offset: 0x0001F0C4
 	private void Awake()
 	{
 		CCTVController.instance = this;
@@ -20,7 +18,6 @@ public class CCTVController : MonoBehaviour
 		this.truckMousePhotonInteract.AddUseEvent(new UnityAction(this.NextCamera));
 	}
 
-	// Token: 0x060005AF RID: 1455 RVA: 0x00020F38 File Offset: 0x0001F138
 	private void Start()
 	{
 		GameController.instance.OnAllPlayersConnected.AddListener(new UnityAction(this.OnAllPlayersConnected));
@@ -30,7 +27,6 @@ public class CCTVController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005B0 RID: 1456 RVA: 0x00020F8D File Offset: 0x0001F18D
 	private void OnAllPlayersConnected()
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -39,7 +35,6 @@ public class CCTVController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005B1 RID: 1457 RVA: 0x00020FA8 File Offset: 0x0001F1A8
 	public void AddCamera(CCTV c)
 	{
 		if (!this.cctvCameras.Contains(c))
@@ -54,7 +49,6 @@ public class CCTVController : MonoBehaviour
 		this.NextCamera();
 	}
 
-	// Token: 0x060005B2 RID: 1458 RVA: 0x00021000 File Offset: 0x0001F200
 	public void RemoveCamera(CCTV c)
 	{
 		if (this.cctvCameras.Contains(c))
@@ -77,7 +71,6 @@ public class CCTVController : MonoBehaviour
 		this.NextCamera();
 	}
 
-	// Token: 0x060005B3 RID: 1459 RVA: 0x0002109C File Offset: 0x0001F29C
 	private void RemoveDeactivatedCameras()
 	{
 		bool flag = false;
@@ -102,7 +95,6 @@ public class CCTVController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005B4 RID: 1460 RVA: 0x00021138 File Offset: 0x0001F338
 	public void StartRendering()
 	{
 		this.isRendering = true;
@@ -114,7 +106,6 @@ public class CCTVController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005B5 RID: 1461 RVA: 0x000211B4 File Offset: 0x0001F3B4
 	public void StopRendering()
 	{
 		this.isRendering = false;
@@ -129,7 +120,6 @@ public class CCTVController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005B6 RID: 1462 RVA: 0x00021228 File Offset: 0x0001F428
 	private void ActivateCamerasAfterTimeLimit()
 	{
 		for (int i = 0; i < this.allFixedCCTVCameras.Count; i++)
@@ -139,14 +129,12 @@ public class CCTVController : MonoBehaviour
 		this.view.RPC("ActivatedCameras", RpcTarget.AllBuffered, Array.Empty<object>());
 	}
 
-	// Token: 0x060005B7 RID: 1463 RVA: 0x00021272 File Offset: 0x0001F472
 	[PunRPC]
 	private void ActivatedCameras()
 	{
 		this.activatedCCTVCameras = true;
 	}
 
-	// Token: 0x060005B8 RID: 1464 RVA: 0x0002127C File Offset: 0x0001F47C
 	private void ChangeNightVision()
 	{
 		if (GameController.instance.allPlayersAreConnected && !GameController.instance.myPlayer.player.isDead)
@@ -158,7 +146,6 @@ public class CCTVController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005B9 RID: 1465 RVA: 0x000212D4 File Offset: 0x0001F4D4
 	[PunRPC]
 	private void NetworkedChangeNightVision(bool on)
 	{
@@ -172,7 +159,6 @@ public class CCTVController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005BA RID: 1466 RVA: 0x00021364 File Offset: 0x0001F564
 	public void NextCamera()
 	{
 		if (GameController.instance && GameController.instance.myPlayer != null && !GameController.instance.myPlayer.player.isDead)
@@ -181,7 +167,6 @@ public class CCTVController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060005BB RID: 1467 RVA: 0x000213B8 File Offset: 0x0001F5B8
 	[PunRPC]
 	private void ChangeCameraNetworked()
 	{
@@ -200,7 +185,6 @@ public class CCTVController : MonoBehaviour
 		});
 	}
 
-	// Token: 0x060005BC RID: 1468 RVA: 0x00021420 File Offset: 0x0001F620
 	[PunRPC]
 	private void SyncCameraNetworked(int newIndex)
 	{
@@ -241,7 +225,6 @@ public class CCTVController : MonoBehaviour
 		this.screenText.text = (this.index + 1).ToString("00") + "/" + this.cctvCameras.Count.ToString("00");
 	}
 
-	// Token: 0x060005BD RID: 1469 RVA: 0x00021640 File Offset: 0x0001F840
 	private void PreviousCamera()
 	{
 		if (this.cctvCameras.Count == 0)
@@ -267,52 +250,39 @@ public class CCTVController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000550 RID: 1360
 	public static CCTVController instance;
 
-	// Token: 0x04000551 RID: 1361
 	public PhotonView view;
 
-	// Token: 0x04000552 RID: 1362
 	public Renderer screen;
 
-	// Token: 0x04000553 RID: 1363
 	public List<CCTV> cctvCameras = new List<CCTV>();
 
-	// Token: 0x04000554 RID: 1364
 	public int index;
 
-	// Token: 0x04000555 RID: 1365
 	private float renderTimer = 0.25f;
 
-	// Token: 0x04000556 RID: 1366
 	private Texture texture;
 
-	// Token: 0x04000557 RID: 1367
 	[SerializeField]
 	private PhotonObjectInteract truckKeyboardPhotonInteract;
 
-	// Token: 0x04000558 RID: 1368
 	[SerializeField]
 	private PhotonObjectInteract truckMousePhotonInteract;
 
-	// Token: 0x04000559 RID: 1369
 	[SerializeField]
 	private Text screenText;
 
-	// Token: 0x0400055A RID: 1370
 	public List<CCTV> allFixedCCTVCameras = new List<CCTV>();
 
-	// Token: 0x0400055B RID: 1371
 	public bool activatedCCTVCameras;
 
-	// Token: 0x0400055C RID: 1372
 	[SerializeField]
 	private static bool showNightVisionEffect = true;
 
 	public List<CCTV> allcctvCameras = new List<CCTV>();
 
-	// Token: 0x0400055E RID: 1374
 	[SerializeField]
 	private bool isRendering = true;
 }
+

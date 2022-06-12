@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using Photon.Pun;
 
-// Token: 0x02000100 RID: 256
 public class KeySpawner : MonoBehaviour
 {
-	// Token: 0x060006FD RID: 1789 RVA: 0x000294B7 File Offset: 0x000276B7
 	private void Start()
 	{
 		if (this.type != Key.KeyType.main)
@@ -16,7 +14,6 @@ public class KeySpawner : MonoBehaviour
 		GameController.instance.OnExitLevel.AddListener(new UnityAction(this.DestroyKey));
 	}
 
-	// Token: 0x060006FE RID: 1790 RVA: 0x000294E8 File Offset: 0x000276E8
 	public void Spawn()
 	{
 		if (PhotonNetwork.IsMasterClient)
@@ -25,7 +22,6 @@ public class KeySpawner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060006FF RID: 1791 RVA: 0x00029500 File Offset: 0x00027700
 	private void DestroyKey()
 	{
 		if (!PhotonNetwork.IsMasterClient)
@@ -42,7 +38,6 @@ public class KeySpawner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000700 RID: 1792 RVA: 0x00029550 File Offset: 0x00027750
 	private void SpawnKey(Key.KeyType keyType)
 	{
 		if (PhotonNetwork.InRoom)
@@ -95,9 +90,8 @@ public class KeySpawner : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000723 RID: 1827
 	public Key.KeyType type;
 
-	// Token: 0x04000724 RID: 1828
 	private GameObject key;
 }
+

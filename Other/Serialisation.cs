@@ -5,10 +5,8 @@ using System.Xml;
 using System.Xml.Serialization;
 using UnityEngine;
 
-// Token: 0x02000037 RID: 55
 public class Serialisation
 {
-	// Token: 0x06000139 RID: 313 RVA: 0x00009854 File Offset: 0x00007A54
 	public static byte[] SerialiseStruct<T>(T structToSerialise)
 	{
 		MemoryStream memoryStream = new MemoryStream();
@@ -30,13 +28,11 @@ public class Serialisation
 		return memoryStream.ToArray();
 	}
 
-	// Token: 0x0600013A RID: 314 RVA: 0x000098EC File Offset: 0x00007AEC
 	public static string SerialiseStructToString<T>(T structToSerialise)
 	{
 		return new UTF8Encoding().GetString(Serialisation.SerialiseStruct<T>(structToSerialise));
 	}
 
-	// Token: 0x0600013B RID: 315 RVA: 0x00009900 File Offset: 0x00007B00
 	public static T DeserialiseStruct<T>(byte[] xmlString)
 	{
 		XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
@@ -65,7 +61,6 @@ public class Serialisation
 		return result;
 	}
 
-	// Token: 0x0600013C RID: 316 RVA: 0x000099A0 File Offset: 0x00007BA0
 	public static T DeserialiseStruct<T>(string xmlString)
 	{
 		if (Serialisation.isVerbose)
@@ -75,6 +70,6 @@ public class Serialisation
 		return Serialisation.DeserialiseStruct<T>(new UTF8Encoding().GetBytes(xmlString));
 	}
 
-	// Token: 0x0400018C RID: 396
 	public static bool isVerbose;
 }
+

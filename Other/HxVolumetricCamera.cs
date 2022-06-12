@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.XR;
 
-// Token: 0x0200000A RID: 10
 [ExecuteInEditMode]
 public class HxVolumetricCamera : MonoBehaviour
 {
-	// Token: 0x06000066 RID: 102 RVA: 0x0000456C File Offset: 0x0000276C
 	private void SetUpRenderOrder()
 	{
 		if (this.callBackImageEffect != null)
@@ -53,7 +51,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000067 RID: 103 RVA: 0x000046A4 File Offset: 0x000028A4
 	public static Material GetDirectionalMaterial(int mid)
 	{
 		Material material;
@@ -69,7 +66,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return material;
 	}
 
-	// Token: 0x06000068 RID: 104 RVA: 0x000046F8 File Offset: 0x000028F8
 	public static Material GetProjectorMaterial(int mid)
 	{
 		Material material;
@@ -85,7 +81,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return material;
 	}
 
-	// Token: 0x06000069 RID: 105 RVA: 0x0000474C File Offset: 0x0000294C
 	public static Material GetSpotMaterial(int mid)
 	{
 		Material material;
@@ -101,7 +96,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return material;
 	}
 
-	// Token: 0x0600006A RID: 106 RVA: 0x000047A0 File Offset: 0x000029A0
 	public static Material GetPointMaterial(int mid)
 	{
 		Material material;
@@ -117,7 +111,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return material;
 	}
 
-	// Token: 0x0600006B RID: 107 RVA: 0x000047F3 File Offset: 0x000029F3
 	public HxVolumetricCamera.TransparencyQualities compatibleTBuffer()
 	{
 		if (HxVolumetricCamera.TransparencyBufferDepth > HxVolumetricCamera.TransparencyQualities.Medium && SystemInfo.graphicsDeviceType != GraphicsDeviceType.Direct3D11 && SystemInfo.graphicsDeviceType != GraphicsDeviceType.Direct3D12 && SystemInfo.graphicsDeviceType != GraphicsDeviceType.PlayStation4)
@@ -127,19 +120,16 @@ public class HxVolumetricCamera : MonoBehaviour
 		return HxVolumetricCamera.TransparencyBufferDepth;
 	}
 
-	// Token: 0x0600006C RID: 108 RVA: 0x0000481E File Offset: 0x00002A1E
 	private bool IsRenderBoth()
 	{
 		return this.Mycamera.stereoTargetEye == StereoTargetEyeMask.Both && Application.isPlaying && XRSettings.enabled && XRDevice.isPresent;
 	}
 
-	// Token: 0x0600006D RID: 109 RVA: 0x00004846 File Offset: 0x00002A46
 	private HxVolumetricCamera.DensityParticleQualities compatibleDBuffer()
 	{
 		return HxVolumetricCamera.DensityBufferDepth;
 	}
 
-	// Token: 0x0600006E RID: 110 RVA: 0x0000484D File Offset: 0x00002A4D
 	private void MyPreCull(Camera cam)
 	{
 		if (cam != HxVolumetricCamera.ActiveCamera)
@@ -149,13 +139,11 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600006F RID: 111 RVA: 0x00004868 File Offset: 0x00002A68
 	public bool renderDensityParticleCheck()
 	{
 		return this.ParticleDensityRenderCount > 0;
 	}
 
-	// Token: 0x06000070 RID: 112 RVA: 0x00004874 File Offset: 0x00002A74
 	private void WarmUp()
 	{
 		if (HxVolumetricCamera.CollectionAll == null)
@@ -185,7 +173,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000071 RID: 113 RVA: 0x0000492C File Offset: 0x00002B2C
 	private void CreateShaderVariant(Shader source, int i, ref Material[] material, ref ShaderVariantCollection.ShaderVariant[] Variant, bool point = true)
 	{
 		HxVolumetricCamera.ShaderVariantList.Clear();
@@ -255,7 +242,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		Variant[i] = new ShaderVariantCollection.ShaderVariant(source, PassType.Normal, array);
 	}
 
-	// Token: 0x06000072 RID: 114 RVA: 0x00004AAC File Offset: 0x00002CAC
 	private static void CreateShader(Shader source, int i, out Material outMaterial, bool point = true)
 	{
 		outMaterial = new Material(source);
@@ -318,7 +304,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000073 RID: 115 RVA: 0x00004B9C File Offset: 0x00002D9C
 	private void CreatePIDs()
 	{
 		if (this.NoiseTexture3D == null)
@@ -434,24 +419,20 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000074 RID: 116 RVA: 0x00004F48 File Offset: 0x00003148
 	public static bool ActiveFull()
 	{
 		return HxVolumetricCamera.Active.resolution == HxVolumetricCamera.Resolution.full;
 	}
 
-	// Token: 0x06000075 RID: 117 RVA: 0x00002E1A File Offset: 0x0000101A
 	private void DefineFull()
 	{
 	}
 
-	// Token: 0x06000076 RID: 118 RVA: 0x00004F57 File Offset: 0x00003157
 	private static void UpdateLight(HxOctreeNode<HxVolumetricLight>.NodeObject node, Vector3 boundsMin, Vector3 boundsMax)
 	{
 		HxVolumetricCamera.LightOctree.Move(node, boundsMin, boundsMax);
 	}
 
-	// Token: 0x06000077 RID: 119 RVA: 0x00004F66 File Offset: 0x00003166
 	public static HxOctreeNode<HxVolumetricLight>.NodeObject AddLightOctree(HxVolumetricLight light, Vector3 boundsMin, Vector3 boundsMax)
 	{
 		if (HxVolumetricCamera.LightOctree == null)
@@ -461,7 +442,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return HxVolumetricCamera.LightOctree.Add(light, boundsMin, boundsMax);
 	}
 
-	// Token: 0x06000078 RID: 120 RVA: 0x00004F9A File Offset: 0x0000319A
 	public static HxOctreeNode<HxVolumetricParticleSystem>.NodeObject AddParticleOctree(HxVolumetricParticleSystem particle, Vector3 boundsMin, Vector3 boundsMax)
 	{
 		if (HxVolumetricCamera.ParticleOctree == null)
@@ -471,7 +451,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return HxVolumetricCamera.ParticleOctree.Add(particle, boundsMin, boundsMax);
 	}
 
-	// Token: 0x06000079 RID: 121 RVA: 0x00004FCE File Offset: 0x000031CE
 	public static void RemoveLightOctree(HxVolumetricLight light)
 	{
 		if (HxVolumetricCamera.LightOctree != null)
@@ -480,7 +459,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600007A RID: 122 RVA: 0x00004FE3 File Offset: 0x000031E3
 	public static void RemoveParticletOctree(HxVolumetricParticleSystem Particle)
 	{
 		if (HxVolumetricCamera.ParticleOctree != null)
@@ -489,13 +467,11 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600007B RID: 123 RVA: 0x00004FF8 File Offset: 0x000031F8
 	private void OnApplicationQuit()
 	{
 		HxVolumetricCamera.PIDCreated = false;
 	}
 
-	// Token: 0x0600007C RID: 124 RVA: 0x00005000 File Offset: 0x00003200
 	public Camera GetCamera()
 	{
 		if (this.Mycamera == null)
@@ -505,7 +481,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return this.Mycamera;
 	}
 
-	// Token: 0x17000004 RID: 4
 	// (get) Token: 0x0600007D RID: 125 RVA: 0x00005022 File Offset: 0x00003222
 	// (set) Token: 0x0600007E RID: 126 RVA: 0x00005061 File Offset: 0x00003261
 	[HideInInspector]
@@ -529,7 +504,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000005 RID: 5
 	// (get) Token: 0x0600007F RID: 127 RVA: 0x00005069 File Offset: 0x00003269
 	// (set) Token: 0x06000080 RID: 128 RVA: 0x000050A8 File Offset: 0x000032A8
 	[HideInInspector]
@@ -554,7 +528,6 @@ public class HxVolumetricCamera : MonoBehaviour
 	}
 
 	
-	// Token: 0x06000083 RID: 131 RVA: 0x00005278 File Offset: 0x00003478
 	private void RenderParticles()
 	{
 		this.ParticleDensityRenderCount = 0;
@@ -594,13 +567,11 @@ public class HxVolumetricCamera : MonoBehaviour
 		Shader.DisableKeyword("VTRANSPARENCY_ON");
 	}
 
-	// Token: 0x06000084 RID: 132 RVA: 0x0000545B File Offset: 0x0000365B
 	private void OnPostRender()
 	{
 		Shader.DisableKeyword("VTRANSPARENCY_ON");
 	}
 
-	// Token: 0x06000085 RID: 133 RVA: 0x00005468 File Offset: 0x00003668
 	private int RenderSlices()
 	{
 		this.BufferRender.SetRenderTarget(HxVolumetricCamera.VolumetricDensity[(int)this.compatibleDBuffer()], HxVolumetricCamera.VolumetricDensity[(int)this.compatibleDBuffer()][0]);
@@ -650,7 +621,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06000086 RID: 134 RVA: 0x0000578E File Offset: 0x0000398E
 	private int GetCamPixelHeight()
 	{
 		if (this.Mycamera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && XRSettings.enabled && XRDevice.isPresent)
@@ -660,7 +630,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return this.Mycamera.pixelHeight;
 	}
 
-	// Token: 0x06000087 RID: 135 RVA: 0x000057C4 File Offset: 0x000039C4
 	private int GetCamPixelWidth()
 	{
 		if (this.Mycamera.stereoTargetEye != StereoTargetEyeMask.None && Application.isPlaying && XRSettings.enabled && XRDevice.isPresent)
@@ -670,7 +639,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return this.Mycamera.pixelWidth;
 	}
 
-	// Token: 0x06000088 RID: 136 RVA: 0x0000582C File Offset: 0x00003A2C
 	private void CreateTempTextures()
 	{
 		int width = Mathf.CeilToInt((float)this.GetCamPixelWidth() * HxVolumetricCamera.ResolutionScale[(int)this.resolution]);
@@ -758,7 +726,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000089 RID: 137 RVA: 0x00005C68 File Offset: 0x00003E68
 	public static void ConstructPlanes(Camera cam, float near, float far)
 	{
 		Vector3 position = cam.transform.position;
@@ -788,7 +755,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		HxVolumetricCamera.MaxBounds = new Vector3(Mathf.Max(vector.x, Mathf.Max(vector2.x, Mathf.Max(vector3.x, Mathf.Max(vector4.x, position.x)))), Mathf.Max(vector.y, Mathf.Max(vector2.y, Mathf.Max(vector3.y, Mathf.Max(vector4.y, position.y)))), Mathf.Max(vector.z, Mathf.Max(vector2.z, Mathf.Max(vector3.z, Mathf.Max(vector4.z, position.z)))));
 	}
 
-	// Token: 0x0600008A RID: 138 RVA: 0x00005FB4 File Offset: 0x000041B4
 	private void FindActiveLights()
 	{
 		HxVolumetricCamera.ActiveLights.Clear();
@@ -812,7 +778,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600008B RID: 139 RVA: 0x00006072 File Offset: 0x00004272
 	private void FindActiveParticleSystems()
 	{
 		HxVolumetricCamera.ActiveParticleSystems.Clear();
@@ -822,7 +787,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600008C RID: 140 RVA: 0x000060A4 File Offset: 0x000042A4
 	public void Update()
 	{
 		this.OffsetUpdated = false;
@@ -853,7 +817,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600008D RID: 141 RVA: 0x0000619E File Offset: 0x0000439E
 	private void Start()
 	{
 		this.FinalizeBufferDirty = true;
@@ -865,7 +828,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600008E RID: 142 RVA: 0x0000619E File Offset: 0x0000439E
 	private void OnEnable()
 	{
 		this.FinalizeBufferDirty = true;
@@ -877,12 +839,10 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600008F RID: 143 RVA: 0x00002E1A File Offset: 0x0000101A
 	private void CreateApplyBuffer()
 	{
 	}
 
-	// Token: 0x06000090 RID: 144 RVA: 0x000061E0 File Offset: 0x000043E0
 	private void CreateSetupBuffer()
 	{
 		if (this.SetupBufferDirty && this.SetupBufferAdded)
@@ -916,7 +876,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000091 RID: 145 RVA: 0x00006334 File Offset: 0x00004534
 	private bool CheckBufferDirty()
 	{
 		bool flag = true;
@@ -1019,7 +978,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06000092 RID: 146 RVA: 0x00006560 File Offset: 0x00004760
 	private void CreateFinalizeBuffer()
 	{
 		if (!this.FinalizeBufferAdded)
@@ -1256,7 +1214,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000093 RID: 147 RVA: 0x000070F4 File Offset: 0x000052F4
 	private void BuildBuffer()
 	{
 		if (this.BuffersBuilt)
@@ -1436,7 +1393,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000094 RID: 148 RVA: 0x000079CC File Offset: 0x00005BCC
 	private void OnDestroy()
 	{
 		if (this.TemporalTexture != null)
@@ -1488,12 +1444,10 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000095 RID: 149 RVA: 0x00002E1A File Offset: 0x0000101A
 	private void SaveUsedShaderVarience()
 	{
 	}
 
-	// Token: 0x06000096 RID: 150 RVA: 0x00007B3C File Offset: 0x00005D3C
 	private void OnDisable()
 	{
 		if (this.TemporalTexture != null)
@@ -1545,7 +1499,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000097 RID: 151 RVA: 0x00007CAC File Offset: 0x00005EAC
 	private void CalculateEvent()
 	{
 		switch (this.Mycamera.actualRenderingPath)
@@ -1585,13 +1538,11 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000098 RID: 152 RVA: 0x00007D77 File Offset: 0x00005F77
 	public void EventOnRenderImage(RenderTexture src, RenderTexture dest)
 	{
 		Graphics.Blit(src, dest, HxVolumetricCamera.ApplyMaterial, ((QualitySettings.activeColorSpace == ColorSpace.Linear) ? 1 : 2) + (this.RemoveColorBanding ? 0 : 2));
 	}
 
-	// Token: 0x06000099 RID: 153 RVA: 0x00007D9E File Offset: 0x00005F9E
 	private int ScalePass()
 	{
 		if (this.resolution == HxVolumetricCamera.Resolution.half)
@@ -1605,7 +1556,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return 2;
 	}
 
-	// Token: 0x0600009A RID: 154 RVA: 0x00007DB8 File Offset: 0x00005FB8
 	private void DownSampledFullBlur(RenderTexture mainColor, RenderBuffer NewColor, RenderBuffer depth, int pass)
 	{
 		Graphics.SetRenderTarget(NewColor, depth);
@@ -1623,7 +1573,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		GL.PopMatrix();
 	}
 
-	// Token: 0x0600009B RID: 155 RVA: 0x00007E60 File Offset: 0x00006060
 	private void CheckTemporalTextures()
 	{
 		if (this.TemporalSampling)
@@ -1650,7 +1599,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600009C RID: 156 RVA: 0x00007F34 File Offset: 0x00006134
 	public static void ReleaseTempTextures()
 	{
 		if (HxVolumetricCamera.VolumetricTexture != null)
@@ -1711,7 +1659,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600009D RID: 157 RVA: 0x000080AC File Offset: 0x000062AC
 	private void OnPreCull()
 	{
 		this.SetUpRenderOrder();
@@ -1724,7 +1671,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		this.BuildBuffer();
 	}
 
-	// Token: 0x0600009E RID: 158 RVA: 0x00008100 File Offset: 0x00006300
 	private void UpdateLightPoistions()
 	{
 		this.MaxLightDistanceUsed = this.MaxLightDistance;
@@ -1751,7 +1697,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600009F RID: 159 RVA: 0x000081AC File Offset: 0x000063AC
 	private void UpdateParticlePoistions()
 	{
 		if (this.ParticleDensitySupport)
@@ -1767,7 +1712,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000A0 RID: 160 RVA: 0x000081F4 File Offset: 0x000063F4
 	private void Awake()
 	{
 		if (HxVolumetricCamera._SpotLightCookie == null)
@@ -1778,13 +1722,11 @@ public class HxVolumetricCamera : MonoBehaviour
 		this.Mycamera = base.GetComponent<Camera>();
 	}
 
-	// Token: 0x060000A1 RID: 161 RVA: 0x00008229 File Offset: 0x00006429
 	private void start()
 	{
 		this.Mycamera = base.GetComponent<Camera>();
 	}
 
-	// Token: 0x060000A2 RID: 162 RVA: 0x00008238 File Offset: 0x00006438
 	public void ReleaseLightBuffers()
 	{
 		for (int i = 0; i < HxVolumetricCamera.ActiveLights.Count; i++)
@@ -1794,7 +1736,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		HxVolumetricCamera.ActiveLights.Clear();
 	}
 
-	// Token: 0x060000A3 RID: 163 RVA: 0x00008274 File Offset: 0x00006474
 	private void CreateLightbuffers()
 	{
 		if (this.BufferRenderLights == null)
@@ -1827,7 +1768,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		this.LightBufferAdded = true;
 	}
 
-	// Token: 0x060000A4 RID: 164 RVA: 0x00008370 File Offset: 0x00006570
 	private static void CreateTileTexture()
 	{
 		HxVolumetricCamera.Tile5x5 = (Resources.Load("HxOffsetTile") as Texture2D);
@@ -1852,7 +1792,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		Shader.SetGlobalFloat("HxTileSize", (float)HxVolumetricCamera.Tile5x5.width);
 	}
 
-	// Token: 0x060000A5 RID: 165 RVA: 0x0000846C File Offset: 0x0000666C
 	public static Mesh CreateOrtho(int sides, bool inner = true)
 	{
 		Vector3[] vertices = new Vector3[]
@@ -1912,7 +1851,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return mesh;
 	}
 
-	// Token: 0x060000A6 RID: 166 RVA: 0x00008584 File Offset: 0x00006784
 	public static Mesh CreateCone(int sides, bool inner = true)
 	{
 		Mesh mesh = new Mesh();
@@ -1961,7 +1899,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return mesh;
 	}
 
-	// Token: 0x060000A7 RID: 167 RVA: 0x00008790 File Offset: 0x00006990
 	public static Mesh CreateQuad()
 	{
 		Mesh mesh = new Mesh();
@@ -1985,7 +1922,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return mesh;
 	}
 
-	// Token: 0x060000A8 RID: 168 RVA: 0x00008848 File Offset: 0x00006A48
 	public static Mesh CreateBox()
 	{
 		GameObject gameObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -1999,7 +1935,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return sharedMesh;
 	}
 
-	// Token: 0x060000A9 RID: 169 RVA: 0x0000887C File Offset: 0x00006A7C
 	public static Mesh CreateIcoSphere(int recursionLevel, float radius)
 	{
 		Mesh mesh = new Mesh();
@@ -2075,7 +2010,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		return mesh;
 	}
 
-	// Token: 0x060000AA RID: 170 RVA: 0x00008DA4 File Offset: 0x00006FA4
 	private static int getMiddlePoint(int p1, int p2, ref List<Vector3> vertices, ref Dictionary<long, int> cache, float radius)
 	{
 		bool flag = p1 < p2;
@@ -2096,14 +2030,12 @@ public class HxVolumetricCamera : MonoBehaviour
 		return count;
 	}
 
-	// Token: 0x060000AB RID: 171 RVA: 0x00008E5F File Offset: 0x0000705F
 	public void Create3DNoiseTexture()
 	{
 		this.NoiseTexture3D = (Resources.Load("NoiseTexture") as Texture3D);
 		Shader.SetGlobalTexture("NoiseTexture3D", this.NoiseTexture3D);
 	}
 
-	// Token: 0x060000AC RID: 172 RVA: 0x00008E88 File Offset: 0x00007088
 	private int PostoIndex(Vector3 pos)
 	{
 		if (pos.x >= 32f)
@@ -2133,178 +2065,126 @@ public class HxVolumetricCamera : MonoBehaviour
 		return (int)(pos.z * 32f * 32f + pos.y * 32f + pos.x);
 	}
 
-	// Token: 0x04000039 RID: 57
 	public HxVolumetricCamera.hxRenderOrder RenderOrder;
 
-	// Token: 0x0400003A RID: 58
 	public HxVolumetricRenderCallback callBackImageEffect;
 
-	// Token: 0x0400003B RID: 59
 	public HxVolumetricRenderCallback callBackImageEffectOpaque;
 
-	// Token: 0x0400003C RID: 60
 	public bool ShadowFix = true;
 
-	// Token: 0x0400003D RID: 61
 	private bool TemporalFirst = true;
 
-	// Token: 0x0400003E RID: 62
 	public bool TemporalSampling = true;
 
-	// Token: 0x0400003F RID: 63
 	[Range(0f, 1f)]
 	public float DitherSpeed = 0.6256256f;
 
-	// Token: 0x04000040 RID: 64
 	[Range(0f, 1f)]
 	public float LuminanceFeedback = 0.8f;
 
-	// Token: 0x04000041 RID: 65
 	[Range(0f, 1f)]
 	public float MaxFeedback = 0.9f;
 
-	// Token: 0x04000042 RID: 66
 	[Range(0f, 4f)]
 	public float NoiseContrast = 1f;
 
-	// Token: 0x04000043 RID: 67
 	private static Shader directionalShader;
 
-	// Token: 0x04000044 RID: 68
 	private static Shader pointShader;
 
-	// Token: 0x04000045 RID: 69
 	private static Shader spotShader;
 
-	// Token: 0x04000046 RID: 70
 	private static Shader ProjectorShader;
 
-	// Token: 0x04000047 RID: 71
 	[NonSerialized]
 	public bool FullUsed;
 
-	// Token: 0x04000048 RID: 72
 	[NonSerialized]
 	public bool LowResUsed;
 
-	// Token: 0x04000049 RID: 73
 	[NonSerialized]
 	public bool HeightFogUsed;
 
-	// Token: 0x0400004A RID: 74
 	[NonSerialized]
 	public bool HeightFogOffUsed;
 
-	// Token: 0x0400004B RID: 75
 	[NonSerialized]
 	public bool NoiseUsed;
 
-	// Token: 0x0400004C RID: 76
 	[NonSerialized]
 	public bool NoiseOffUsed;
 
-	// Token: 0x0400004D RID: 77
 	[NonSerialized]
 	public bool TransparencyUsed;
 
-	// Token: 0x0400004E RID: 78
 	[NonSerialized]
 	public bool TransparencyOffUsed;
 
-	// Token: 0x0400004F RID: 79
 	[NonSerialized]
 	public bool DensityParticlesUsed;
 
-	// Token: 0x04000050 RID: 80
 	[NonSerialized]
 	public bool PointUsed;
 
-	// Token: 0x04000051 RID: 81
 	[NonSerialized]
 	public bool SpotUsed;
 
-	// Token: 0x04000052 RID: 82
 	[NonSerialized]
 	public bool ProjectorUsed;
 
-	// Token: 0x04000053 RID: 83
 	[NonSerialized]
 	public bool DirectionalUsed;
 
-	// Token: 0x04000054 RID: 84
 	[NonSerialized]
 	public bool SinglePassStereoUsed;
 
-	// Token: 0x04000055 RID: 85
 	public static HxVolumetricCamera.TransparencyQualities TransparencyBufferDepth = HxVolumetricCamera.TransparencyQualities.Medium;
 
-	// Token: 0x04000056 RID: 86
 	public static HxVolumetricCamera.DensityParticleQualities DensityBufferDepth = HxVolumetricCamera.DensityParticleQualities.High;
 
-	// Token: 0x04000057 RID: 87
 	private int EnumBufferDepthLength = 4;
 
-	// Token: 0x04000058 RID: 88
 	private Matrix4x4 CurrentView;
 
-	// Token: 0x04000059 RID: 89
 	private Matrix4x4 CurrentProj;
 
-	// Token: 0x0400005A RID: 90
 	private Matrix4x4 CurrentInvers;
 
-	// Token: 0x0400005B RID: 91
 	private Matrix4x4 CurrentView2;
 
-	// Token: 0x0400005C RID: 92
 	private Matrix4x4 CurrentProj2;
 
-	// Token: 0x0400005D RID: 93
 	private Matrix4x4 CurrentInvers2;
 
-	// Token: 0x0400005E RID: 94
 	private RenderTexture TemporalTexture;
 
-	// Token: 0x0400005F RID: 95
 	private RenderTargetIdentifier TemporalTextureRTID;
 
-	// Token: 0x04000060 RID: 96
 	private static RenderTexture VolumetricTexture;
 
-	// Token: 0x04000061 RID: 97
 	private static RenderTexture FullBlurRT;
 
-	// Token: 0x04000062 RID: 98
 	private static RenderTargetIdentifier FullBlurRTID;
 
-	// Token: 0x04000063 RID: 99
 	private static RenderTexture downScaledBlurRT;
 
-	// Token: 0x04000064 RID: 100
 	private static RenderTargetIdentifier downScaledBlurRTID;
 
-	// Token: 0x04000065 RID: 101
 	private static RenderTexture FullBlurRT2;
 
-	// Token: 0x04000066 RID: 102
 	private static RenderTargetIdentifier FullBlurRT2ID;
 
-	// Token: 0x04000067 RID: 103
 	private static RenderTargetIdentifier[] VolumetricUpsampledBlurTextures = new RenderTargetIdentifier[2];
 
-	// Token: 0x04000068 RID: 104
 	private static RenderTexture[] VolumetricDensityTextures = new RenderTexture[8];
 
-	// Token: 0x04000069 RID: 105
 	private static int[] VolumetricDensityPID = new int[4];
 
-	// Token: 0x0400006A RID: 106
 	private static int[] VolumetricTransparencyPID = new int[4];
 
-	// Token: 0x0400006B RID: 107
 	private static RenderTexture[] VolumetricTransparencyTextures = new RenderTexture[8];
 
-	// Token: 0x0400006C RID: 108
 	public static RenderTargetIdentifier[][] VolumetricDensity = new RenderTargetIdentifier[][]
 	{
 		new RenderTargetIdentifier[1],
@@ -2317,7 +2197,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		new RenderTargetIdentifier[8]
 	};
 
-	// Token: 0x0400006D RID: 109
 	public static RenderTargetIdentifier[][] VolumetricTransparency = new RenderTargetIdentifier[][]
 	{
 		new RenderTargetIdentifier[2],
@@ -2330,7 +2209,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		new RenderTargetIdentifier[9]
 	};
 
-	// Token: 0x0400006E RID: 110
 	public static RenderTargetIdentifier[][] VolumetricTransparencyI = new RenderTargetIdentifier[][]
 	{
 		new RenderTargetIdentifier[1],
@@ -2343,335 +2221,242 @@ public class HxVolumetricCamera : MonoBehaviour
 		new RenderTargetIdentifier[8]
 	};
 
-	// Token: 0x0400006F RID: 111
 	private static RenderTexture[] ScaledDepthTexture = new RenderTexture[4];
 
-	// Token: 0x04000070 RID: 112
 	private static ShaderVariantCollection CollectionAll;
 
-	// Token: 0x04000071 RID: 113
 	public static Texture2D Tile5x5;
 
-	// Token: 0x04000072 RID: 114
 	private static int VolumetricTexturePID;
 
-	// Token: 0x04000073 RID: 115
 	private static int ScaledDepthTexturePID;
 
-	// Token: 0x04000074 RID: 116
 	public static int ShadowMapTexturePID;
 
-	// Token: 0x04000075 RID: 117
 	public static RenderTargetIdentifier VolumetricTextureRTID;
 
-	// Token: 0x04000076 RID: 118
 	public static RenderTargetIdentifier[] ScaledDepthTextureRTID = new RenderTargetIdentifier[4];
 
-	// Token: 0x04000077 RID: 119
 	[NonSerialized]
 	public static Material DownSampleMaterial;
 
-	// Token: 0x04000078 RID: 120
 	[NonSerialized]
 	public static Material VolumeBlurMaterial;
 
-	// Token: 0x04000079 RID: 121
 	[NonSerialized]
 	public static Material TransparencyBlurMaterial;
 
-	// Token: 0x0400007A RID: 122
 	[NonSerialized]
 	public static Material ApplyMaterial;
 
-	// Token: 0x0400007B RID: 123
 	[NonSerialized]
 	public static Material ApplyDirectMaterial;
 
-	// Token: 0x0400007C RID: 124
 	[NonSerialized]
 	public static Material ApplyQueueMaterial;
 
-	// Token: 0x0400007D RID: 125
 	public Texture3D NoiseTexture3D;
 
-	// Token: 0x0400007E RID: 126
 	public static Matrix4x4 BlitMatrix;
 
-	// Token: 0x0400007F RID: 127
 	public static Matrix4x4 BlitMatrixMV;
 
-	// Token: 0x04000080 RID: 128
 	public static Matrix4x4 BlitMatrixMVP;
 
-	// Token: 0x04000081 RID: 129
 	public static Vector3 BlitScale;
 
-	// Token: 0x04000082 RID: 130
 	[Tooltip("Rending resolution, Lower for more speed, higher for better quality")]
 	public HxVolumetricCamera.Resolution resolution = HxVolumetricCamera.Resolution.half;
 
-	// Token: 0x04000083 RID: 131
 	[Tooltip("How many samples per pixel, Recommended 4-8 for point, 6 - 16 for Directional")]
 	[Range(2f, 64f)]
 	public int SampleCount = 4;
 
-	// Token: 0x04000084 RID: 132
 	[Tooltip("How many samples per pixel, Recommended 4-8 for point, 6 - 16 for Directional")]
 	[Range(2f, 64f)]
 	public int DirectionalSampleCount = 8;
 
-	// Token: 0x04000085 RID: 133
 	[Tooltip("Max distance the directional light gets raymarched.")]
 	public float MaxDirectionalRayDistance = 128f;
 
-	// Token: 0x04000086 RID: 134
 	[Tooltip("Any point of spot lights passed this point will not render.")]
 	public float MaxLightDistance = 128f;
 
-	// Token: 0x04000087 RID: 135
 	[Range(0f, 1f)]
 	[Tooltip("Density of air")]
 	public float Density = 0.05f;
 
-	// Token: 0x04000088 RID: 136
 	[Range(0f, 2f)]
 	public float AmbientLightingStrength = 0.5f;
 
-	// Token: 0x04000089 RID: 137
 	[Tooltip("0 for even scattering, 1 for forward scattering")]
 	[Range(0f, 0.995f)]
 	public float MieScattering = 0.4f;
 
-	// Token: 0x0400008A RID: 138
 	[Range(0f, 1f)]
 	[Tooltip("Create a sun using mie Scattering")]
 	public float SunSize;
 
-	// Token: 0x0400008B RID: 139
 	[Tooltip("Allows the sun to bleed over the edge of objects (recommend using bloom)")]
 	public bool SunBleed = true;
 
-	// Token: 0x0400008C RID: 140
 	[Range(0f, 0.5f)]
 	[Tooltip("dimms results over distance")]
 	public float Extinction = 0.05f;
 
-	// Token: 0x0400008D RID: 141
 	[Tooltip("Tone down Extinction effect on FinalColor")]
 	[Range(0f, 1f)]
 	public float ExtinctionEffect;
 
-	// Token: 0x0400008E RID: 142
 	public bool FogHeightEnabled;
 
-	// Token: 0x0400008F RID: 143
 	public float FogHeight = 5f;
 
-	// Token: 0x04000090 RID: 144
 	public float FogTransitionSize = 5f;
 
-	// Token: 0x04000091 RID: 145
 	public float AboveFogPercent = 0.1f;
 
-	// Token: 0x04000092 RID: 146
 	[Tooltip("Ambient Mode - Use unitys or overide your own")]
 	public HxVolumetricCamera.HxAmbientMode Ambient;
 
-	// Token: 0x04000093 RID: 147
 	public Color AmbientSky = Color.white;
 
-	// Token: 0x04000094 RID: 148
 	public Color AmbientEquator = Color.white;
 
-	// Token: 0x04000095 RID: 149
 	public Color AmbientGround = Color.white;
 
-	// Token: 0x04000096 RID: 150
 	[Range(0f, 1f)]
 	public float AmbientIntensity = 1f;
 
-	// Token: 0x04000097 RID: 151
 	public HxVolumetricCamera.HxTintMode TintMode;
 
-	// Token: 0x04000098 RID: 152
 	public Color TintColor = Color.red;
 
-	// Token: 0x04000099 RID: 153
 	public Color TintColor2 = Color.blue;
 
-	// Token: 0x0400009A RID: 154
 	public float TintIntensity = 0.2f;
 
-	// Token: 0x0400009B RID: 155
 	[Range(0f, 1f)]
 	public float TintGradient = 0.2f;
 
-	// Token: 0x0400009C RID: 156
 	public Vector3 CurrentTint;
 
-	// Token: 0x0400009D RID: 157
 	public Vector3 CurrentTintEdge;
 
-	// Token: 0x0400009E RID: 158
 	[Tooltip("Use 3D noise")]
 	public bool NoiseEnabled;
 
-	// Token: 0x0400009F RID: 159
 	[Tooltip("The scale of the noise texture")]
 	public Vector3 NoiseScale = new Vector3(0.1f, 0.1f, 0.1f);
 
-	// Token: 0x040000A0 RID: 160
 	[Tooltip("Used to simulate some wind")]
 	public Vector3 NoiseVelocity = new Vector3(1f, 0f, 1f);
 
-	// Token: 0x040000A1 RID: 161
 	[Tooltip("Allows particles to modulate the air density")]
 	public bool ParticleDensitySupport;
 
-	// Token: 0x040000A2 RID: 162
 	[Tooltip("Rending resolution of density, Lower for more speed, higher for more detailed dust")]
 	public HxVolumetricCamera.DensityResolution densityResolution = HxVolumetricCamera.DensityResolution.eighth;
 
-	// Token: 0x040000A3 RID: 163
 	[Tooltip("Max Distance of density particles")]
 	public float densityDistance = 64f;
 
-	// Token: 0x040000A4 RID: 164
 	private float densityBias = 1.7f;
 
-	// Token: 0x040000A5 RID: 165
 	[Tooltip("Enabling Transparency support has a cost - disable if you dont need it")]
 	public bool TransparencySupport;
 
-	// Token: 0x040000A6 RID: 166
 	[Tooltip("Max Distance for transparency Support - lower distance will give greater resilts")]
 	public float transparencyDistance = 64f;
 
-	// Token: 0x040000A7 RID: 167
 	[Tooltip("Cost a little extra but can remove the grainy look on Transparent objects when sample count is low")]
 	[Range(0f, 4f)]
 	public int BlurTransparency = 1;
 
-	// Token: 0x040000A8 RID: 168
 	private float transparencyBias = 1.5f;
 
-	// Token: 0x040000A9 RID: 169
 	[Range(0f, 4f)]
 	[Tooltip("Blur results of volumetric pass")]
 	public int blurCount = 1;
 
-	// Token: 0x040000AA RID: 170
 	[Tooltip("Used in final blur pass, Higher number will retain silhouette")]
 	public float BlurDepthFalloff = 5f;
 
-	// Token: 0x040000AB RID: 171
 	[Tooltip("Used in Downsample blur pass, Higher number will retain silhouette")]
 	public float DownsampledBlurDepthFalloff = 5f;
 
-	// Token: 0x040000AC RID: 172
 	[Range(0f, 4f)]
 	[Tooltip("Blur bad results after upscaling")]
 	public int UpSampledblurCount;
 
-	// Token: 0x040000AD RID: 173
 	[Tooltip("If depth is with-in this threshold, bilinearly sample result")]
 	public float DepthThreshold = 0.06f;
 
-	// Token: 0x040000AE RID: 174
 	[Tooltip("Use gaussian weights - makes blur less blurry but can make it more splotchy")]
 	public bool GaussianWeights;
 
-	// Token: 0x040000AF RID: 175
 	[HideInInspector]
 	[Tooltip("Only enable if you arnt using tonemapping and HDR mode")]
 	public bool MapToLDR;
 
-	// Token: 0x040000B0 RID: 176
 	[Tooltip("A small amount of noise can be added to remove and color banding from the volumetric effect")]
 	public bool RemoveColorBanding = true;
 
-	// Token: 0x040000B1 RID: 177
 	[NonSerialized]
 	public Vector3 Offset = Vector3.zero;
 
-	// Token: 0x040000B2 RID: 178
 	private static int DepthThresholdPID;
 
-	// Token: 0x040000B3 RID: 179
 	private static int BlurDepthFalloffPID;
 
-	// Token: 0x040000B4 RID: 180
 	private static int VolumeScalePID;
 
-	// Token: 0x040000B5 RID: 181
 	private static int InverseViewMatrixPID;
 
-	// Token: 0x040000B6 RID: 182
 	private static int InverseProjectionMatrixPID;
 
-	// Token: 0x040000B7 RID: 183
 	private static int InverseProjectionMatrix2PID;
 
-	// Token: 0x040000B8 RID: 184
 	private static int NoiseOffsetPID;
 
-	// Token: 0x040000B9 RID: 185
 	private static int ShadowDistancePID;
 
-	// Token: 0x040000BA RID: 186
 	private static HxVolumetricShadersUsed UsedShaderSettings;
 
-	// Token: 0x040000BB RID: 187
 	private static List<string> ShaderVariantList = new List<string>(10);
 
-	// Token: 0x040000BC RID: 188
 	[HideInInspector]
 	public static List<HxDensityVolume> ActiveVolumes = new List<HxDensityVolume>();
 
-	// Token: 0x040000BD RID: 189
 	public static List<HxVolumetricLight> ActiveLights = new List<HxVolumetricLight>();
 
-	// Token: 0x040000BE RID: 190
 	public static List<HxVolumetricParticleSystem> ActiveParticleSystems = new List<HxVolumetricParticleSystem>();
 
-	// Token: 0x040000BF RID: 191
 	public static HxOctree<HxVolumetricLight> LightOctree;
 
-	// Token: 0x040000C0 RID: 192
 	public static HxOctree<HxVolumetricParticleSystem> ParticleOctree;
 
-	// Token: 0x040000C1 RID: 193
 	public static HashSet<HxDensityVolume> AllDensityVolumes = new HashSet<HxDensityVolume>();
 
-	// Token: 0x040000C2 RID: 194
 	public static HashSet<HxVolumetricLight> AllVolumetricLight = new HashSet<HxVolumetricLight>();
 
-	// Token: 0x040000C3 RID: 195
 	public static HashSet<HxVolumetricParticleSystem> AllParticleSystems = new HashSet<HxVolumetricParticleSystem>();
 
-	// Token: 0x040000C4 RID: 196
 	private bool test;
 
-	// Token: 0x040000C5 RID: 197
 	public static Mesh QuadMesh;
 
-	// Token: 0x040000C6 RID: 198
 	public static Mesh BoxMesh;
 
-	// Token: 0x040000C7 RID: 199
 	public static Mesh SphereMesh;
 
-	// Token: 0x040000C8 RID: 200
 	public static Mesh SpotLightMesh;
 
-	// Token: 0x040000C9 RID: 201
 	public static Mesh OrthoProjectorMesh;
 
-	// Token: 0x040000CA RID: 202
 	[HideInInspector]
 	private Camera Mycamera;
 
-	// Token: 0x040000CB RID: 203
 	private static float[] ResolutionScale = new float[]
 	{
 		1f,
@@ -2680,7 +2465,6 @@ public class HxVolumetricCamera : MonoBehaviour
 		0.125f
 	};
 
-	// Token: 0x040000CC RID: 204
 	public static float[] SampleScale = new float[]
 	{
 		1f,
@@ -2689,228 +2473,161 @@ public class HxVolumetricCamera : MonoBehaviour
 		32f
 	};
 
-	// Token: 0x040000CD RID: 205
 	private CommandBuffer BufferSetup;
 
-	// Token: 0x040000CE RID: 206
 	private CommandBuffer BufferRender;
 
-	// Token: 0x040000CF RID: 207
 	private CommandBuffer BufferRenderLights;
 
-	// Token: 0x040000D0 RID: 208
 	private CommandBuffer BufferFinalize;
 
-	// Token: 0x040000D1 RID: 209
 	private bool dirty = true;
 
-	// Token: 0x040000D2 RID: 210
 	[NonSerialized]
 	public static bool PIDCreated = false;
 
-	// Token: 0x040000D3 RID: 211
 	[NonSerialized]
 	private static Dictionary<int, Material> DirectionalMaterial = new Dictionary<int, Material>();
 
-	// Token: 0x040000D4 RID: 212
 	[NonSerialized]
 	private static Dictionary<int, Material> PointMaterial = new Dictionary<int, Material>();
 
-	// Token: 0x040000D5 RID: 213
 	[NonSerialized]
 	private static Dictionary<int, Material> SpotMaterial = new Dictionary<int, Material>();
 
-	// Token: 0x040000D6 RID: 214
 	[NonSerialized]
 	private static Dictionary<int, Material> ProjectorMaterial = new Dictionary<int, Material>();
 
-	// Token: 0x040000D7 RID: 215
 	public static ShaderVariantCollection.ShaderVariant[] DirectionalVariant = new ShaderVariantCollection.ShaderVariant[128];
 
-	// Token: 0x040000D8 RID: 216
 	public static ShaderVariantCollection.ShaderVariant[] PointVariant = new ShaderVariantCollection.ShaderVariant[128];
 
-	// Token: 0x040000D9 RID: 217
 	public static ShaderVariantCollection.ShaderVariant[] SpotVariant = new ShaderVariantCollection.ShaderVariant[128];
 
-	// Token: 0x040000DA RID: 218
 	public static Material ShadowMaterial;
 
-	// Token: 0x040000DB RID: 219
 	public static Material DensityMaterial;
 
-	// Token: 0x040000DC RID: 220
 	[HideInInspector]
 	public Matrix4x4 MatrixVP;
 
-	// Token: 0x040000DD RID: 221
 	public Matrix4x4 LastMatrixVP;
 
-	// Token: 0x040000DE RID: 222
 	public Matrix4x4 LastMatrixVPInv;
 
-	// Token: 0x040000DF RID: 223
 	public Matrix4x4 LastMatrixVP2;
 
-	// Token: 0x040000E0 RID: 224
 	public Matrix4x4 LastMatrixVPInv2;
 
-	// Token: 0x040000E1 RID: 225
 	[HideInInspector]
 	public Matrix4x4 MatrixV;
 
-	// Token: 0x040000E2 RID: 226
 	private bool OffsetUpdated;
 
-	// Token: 0x040000E3 RID: 227
 	[HideInInspector]
 	private static Texture2D _SpotLightCookie;
 
-	// Token: 0x040000E4 RID: 228
 	[HideInInspector]
 	private static Texture2D _LightFalloff;
 
-	// Token: 0x040000E5 RID: 229
 	private int ParticleDensityRenderCount;
 
-	// Token: 0x040000E6 RID: 230
 	private static Matrix4x4 particleMatrix;
 
-	// Token: 0x040000E7 RID: 231
 	public static HxVolumetricCamera Active;
 
-	// Token: 0x040000E8 RID: 232
 	public static Camera ActiveCamera;
 
-	// Token: 0x040000E9 RID: 233
 	private CameraEvent LightRenderEvent = CameraEvent.AfterLighting;
 
-	// Token: 0x040000EA RID: 234
 	private CameraEvent SetupEvent = CameraEvent.AfterDepthNormalsTexture;
 
-	// Token: 0x040000EB RID: 235
 	private CameraEvent RenderEvent = CameraEvent.BeforeLighting;
 
-	// Token: 0x040000EC RID: 236
 	private CameraEvent FinalizeEvent = CameraEvent.AfterLighting;
 
-	// Token: 0x040000ED RID: 237
 	public static List<HxVolumetricLight> ActiveDirectionalLights = new List<HxVolumetricLight>();
 
-	// Token: 0x040000EE RID: 238
 	private static Vector3 MinBounds;
 
-	// Token: 0x040000EF RID: 239
 	private static Vector3 MaxBounds;
 
-	// Token: 0x040000F0 RID: 240
 	private static Plane[] CameraPlanes = new Plane[6];
 
-	// Token: 0x040000F1 RID: 241
 	private bool preCullEventAdded;
 
-	// Token: 0x040000F2 RID: 242
 	private bool BuffersBuilt;
 
-	// Token: 0x040000F3 RID: 243
 	private bool LightBufferAdded;
 
-	// Token: 0x040000F4 RID: 244
 	private bool SetupBufferAdded;
 
-	// Token: 0x040000F5 RID: 245
 	private bool SetupBufferDirty;
 
-	// Token: 0x040000F6 RID: 246
 	private bool FinalizeBufferAdded;
 
-	// Token: 0x040000F7 RID: 247
 	private bool FinalizeBufferDirty;
 
-	// Token: 0x040000F8 RID: 248
 	private CameraEvent lastApply;
 
-	// Token: 0x040000F9 RID: 249
 	private CameraEvent lastRender;
 
-	// Token: 0x040000FA RID: 250
 	private CameraEvent lastSetup;
 
-	// Token: 0x040000FB RID: 251
 	private CameraEvent lastFinalize;
 
-	// Token: 0x040000FC RID: 252
 	private CameraEvent lastLightRender;
 
-	// Token: 0x040000FD RID: 253
 	private bool LastPlaying;
 
-	// Token: 0x040000FE RID: 254
 	[NonSerialized]
 	private static int lastRes = -1;
 
-	// Token: 0x040000FF RID: 255
 	[NonSerialized]
 	private int lastBlurCount = -1;
 
-	// Token: 0x04000100 RID: 256
 	[NonSerialized]
 	private int lastupSampleBlurCount;
 
-	// Token: 0x04000101 RID: 257
 	[NonSerialized]
 	private int lastLDR = -1;
 
-	// Token: 0x04000102 RID: 258
 	[NonSerialized]
 	private int lastBanding = -1;
 
-	// Token: 0x04000103 RID: 259
 	[NonSerialized]
 	private int lastH = -1;
 
-	// Token: 0x04000104 RID: 260
 	[NonSerialized]
 	private int lastW = -1;
 
-	// Token: 0x04000105 RID: 261
 	[NonSerialized]
 	private int lastPath = -1;
 
-	// Token: 0x04000106 RID: 262
 	[NonSerialized]
 	private int lastGaussian = -1;
 
-	// Token: 0x04000107 RID: 263
 	[NonSerialized]
 	private int lastTransparency = -1;
 
-	// Token: 0x04000108 RID: 264
 	[NonSerialized]
 	private int lastDensity = -1;
 
-	// Token: 0x04000109 RID: 265
 	[NonSerialized]
 	private int lastDensityRes = -1;
 
-	// Token: 0x0400010A RID: 266
 	[NonSerialized]
 	private float lastDepthFalloff = -1f;
 
-	// Token: 0x0400010B RID: 267
 	[NonSerialized]
 	private float lastDownDepthFalloff = -1f;
 
-	// Token: 0x0400010C RID: 268
 	private float currentDitherOffset;
 
-	// Token: 0x0400010D RID: 269
 	private float MaxLightDistanceUsed;
 
-	// Token: 0x0400010E RID: 270
 	public static bool FirstDirectional = true;
 
-	// Token: 0x0400010F RID: 271
 	private static int[] Tile5x5int = new int[]
 	{
 		8,
@@ -2940,93 +2657,60 @@ public class HxVolumetricCamera : MonoBehaviour
 		17
 	};
 
-	// Token: 0x02000311 RID: 785
 	public enum hxRenderOrder
 	{
-		// Token: 0x040014E5 RID: 5349
 		ImageEffect,
-		// Token: 0x040014E6 RID: 5350
 		ImageEffectOpaque
 	}
 
-	// Token: 0x02000312 RID: 786
 	public enum TransparencyQualities
 	{
-		// Token: 0x040014E8 RID: 5352
 		Low,
-		// Token: 0x040014E9 RID: 5353
 		Medium,
-		// Token: 0x040014EA RID: 5354
 		High,
-		// Token: 0x040014EB RID: 5355
 		VeryHigh
 	}
 
-	// Token: 0x02000313 RID: 787
 	public enum DensityParticleQualities
 	{
-		// Token: 0x040014ED RID: 5357
 		Low,
-		// Token: 0x040014EE RID: 5358
 		Medium,
-		// Token: 0x040014EF RID: 5359
 		High,
-		// Token: 0x040014F0 RID: 5360
 		VeryHigh
 	}
 
-	// Token: 0x02000314 RID: 788
 	public enum HxAmbientMode
 	{
-		// Token: 0x040014F2 RID: 5362
 		UseRenderSettings,
-		// Token: 0x040014F3 RID: 5363
 		Color,
-		// Token: 0x040014F4 RID: 5364
 		Gradient
 	}
 
-	// Token: 0x02000315 RID: 789
 	public enum HxTintMode
 	{
-		// Token: 0x040014F6 RID: 5366
 		Off,
-		// Token: 0x040014F7 RID: 5367
 		Color,
-		// Token: 0x040014F8 RID: 5368
 		Edge,
-		// Token: 0x040014F9 RID: 5369
 		Gradient
 	}
 
-	// Token: 0x02000316 RID: 790
 	public enum Resolution
 	{
-		// Token: 0x040014FB RID: 5371
 		full,
-		// Token: 0x040014FC RID: 5372
 		half,
-		// Token: 0x040014FD RID: 5373
 		quarter
 	}
 
-	// Token: 0x02000317 RID: 791
 	public enum DensityResolution
 	{
-		// Token: 0x040014FF RID: 5375
 		full,
-		// Token: 0x04001500 RID: 5376
 		half,
-		// Token: 0x04001501 RID: 5377
 		quarter,
-		// Token: 0x04001502 RID: 5378
 		eighth
 	}
 
-	// Token: 0x02000318 RID: 792
 	private struct TriangleIndices
 	{
-		// Token: 0x060014A2 RID: 5282 RVA: 0x00057E9F File Offset: 0x0005609F
 		public TriangleIndices(int v1, int v2, int v3)
 		{
 			this.v1 = v1;
@@ -3034,13 +2718,11 @@ public class HxVolumetricCamera : MonoBehaviour
 			this.v3 = v3;
 		}
 
-		// Token: 0x04001503 RID: 5379
 		public int v1;
 
-		// Token: 0x04001504 RID: 5380
 		public int v2;
 
-		// Token: 0x04001505 RID: 5381
 		public int v3;
 	}
 }
+

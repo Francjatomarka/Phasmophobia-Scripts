@@ -2,10 +2,8 @@ using System;
 using TLGFPowerBooks;
 using UnityEngine;
 
-// Token: 0x02000017 RID: 23
 public class ExampleDragController : MonoBehaviour
 {
-	// Token: 0x060000AB RID: 171 RVA: 0x00005116 File Offset: 0x00003316
 	private void Start()
 	{
 		if (this.useThisCamera != null)
@@ -19,21 +17,18 @@ public class ExampleDragController : MonoBehaviour
 		this.ResetMaxDragStartDistance();
 	}
 
-	// Token: 0x060000AC RID: 172 RVA: 0x00005145 File Offset: 0x00003345
 	public void SetPBook(PBook book)
 	{
 		this.pBook = book;
 		this.ResetMaxDragStartDistance();
 	}
 
-	// Token: 0x060000AD RID: 173 RVA: 0x00005154 File Offset: 0x00003354
 	public void ResetMaxDragStartDistance()
 	{
 		this.bookCollider = this.pBook.transform.Find("Book").GetComponent<Collider>();
 		this.minDragDistance = this.bookCollider.bounds.size.x;
 	}
 
-	// Token: 0x060000AE RID: 174 RVA: 0x000051A0 File Offset: 0x000033A0
 	private void Update()
 	{
 		if (this.pBook != null)
@@ -132,7 +127,6 @@ public class ExampleDragController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000AF RID: 175 RVA: 0x0000587C File Offset: 0x00003A7C
 	private void CancelDrag()
 	{
 		if (this.pBook.GetBookState() != PBook.BookState.OPEN && this.pBook.GetBookState() != PBook.BookState.CLOSED)
@@ -151,54 +145,37 @@ public class ExampleDragController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400007B RID: 123
 	public PBook pBook;
 
-	// Token: 0x0400007C RID: 124
 	public LayerMask bookLayer;
 
-	// Token: 0x0400007D RID: 125
 	public float raycastDistance = 3f;
 
-	// Token: 0x0400007E RID: 126
 	public Camera useThisCamera;
 
-	// Token: 0x0400007F RID: 127
 	private ExampleDragController.DragState dragstate;
 
-	// Token: 0x04000080 RID: 128
 	private Vector3 dragStartPosition;
 
-	// Token: 0x04000081 RID: 129
 	private Vector3 dragTargetPosition;
 
-	// Token: 0x04000082 RID: 130
 	private float maxDragDistance;
 
-	// Token: 0x04000083 RID: 131
 	private float dragValue;
 
-	// Token: 0x04000084 RID: 132
 	private Collider bookCollider;
 
-	// Token: 0x04000085 RID: 133
 	private float minDragDistance;
 
-	// Token: 0x04000086 RID: 134
 	private Camera cam;
 
-	// Token: 0x02000479 RID: 1145
 	private enum DragState
 	{
-		// Token: 0x04002165 RID: 8549
 		NODRAG,
-		// Token: 0x04002166 RID: 8550
 		OPENDRAG,
-		// Token: 0x04002167 RID: 8551
 		CLOSEDRAG,
-		// Token: 0x04002168 RID: 8552
 		NEXTDRAG,
-		// Token: 0x04002169 RID: 8553
 		PREVDRAG
 	}
 }
+

@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000035 RID: 53
 public class StitchedRollingScene : MonoBehaviour
 {
-	// Token: 0x06000133 RID: 307 RVA: 0x00009674 File Offset: 0x00007874
 	private void Awake()
 	{
 		for (int i = 0; i < this.NumberOfSegments; i++)
@@ -19,7 +17,6 @@ public class StitchedRollingScene : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000134 RID: 308 RVA: 0x000096E8 File Offset: 0x000078E8
 	private void FixedUpdate()
 	{
 		for (int i = 0; i < this.Segments.Count; i++)
@@ -37,15 +34,12 @@ public class StitchedRollingScene : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000185 RID: 389
 	public GameObject SegmentPrefab;
 
-	// Token: 0x04000186 RID: 390
 	public int NumberOfSegments = 4;
 
-	// Token: 0x04000187 RID: 391
 	public List<Stitchable> Segments;
 
-	// Token: 0x04000188 RID: 392
 	public float speed = 2f;
 }
+

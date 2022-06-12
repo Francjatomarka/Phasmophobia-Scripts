@@ -2,10 +2,8 @@
 using Photon.Pun;
 using UnityEngine;
 
-// Token: 0x02000074 RID: 116
 public class NetworkCharacter : MonoBehaviourPunCallbacks
 {
-	// Token: 0x0600029F RID: 671 RVA: 0x00011718 File Offset: 0x0000F918
 	private void Update()
 	{
 		if (!base.photonView.IsMine)
@@ -15,7 +13,6 @@ public class NetworkCharacter : MonoBehaviourPunCallbacks
 		}
 	}
 
-	// Token: 0x060002A0 RID: 672 RVA: 0x0001178C File Offset: 0x0000F98C
 	private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
 	{
 		if (stream.IsWriting)
@@ -31,9 +28,8 @@ public class NetworkCharacter : MonoBehaviourPunCallbacks
 		base.GetComponent<myThirdPersonController>()._characterState = (CharacterState)stream.ReceiveNext();
 	}
 
-	// Token: 0x040002E8 RID: 744
 	private Vector3 correctPlayerPos = Vector3.zero;
 
-	// Token: 0x040002E9 RID: 745
 	private Quaternion correctPlayerRot = Quaternion.identity;
 }
+

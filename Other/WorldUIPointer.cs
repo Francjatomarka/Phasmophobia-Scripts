@@ -2,17 +2,14 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-// Token: 0x020000F9 RID: 249
 public class WorldUIPointer : StandaloneInputModule
 {
-	// Token: 0x060006BC RID: 1724 RVA: 0x00027B23 File Offset: 0x00025D23
 	public void UpdateCursorPosition()
 	{
 		this.ActivateModule();
 		this.Process();
 	}
 
-	// Token: 0x060006BD RID: 1725 RVA: 0x00027B34 File Offset: 0x00025D34
 	protected override PointerInputModule.MouseState GetMousePointerEventData(int id = 0)
 	{
 		PointerEventData pointerEventData;
@@ -46,6 +43,6 @@ public class WorldUIPointer : StandaloneInputModule
 		return this.m_MouseState;
 	}
 
-	// Token: 0x040006D3 RID: 1747
 	private readonly PointerInputModule.MouseState m_MouseState = new PointerInputModule.MouseState();
 }
+

@@ -3,10 +3,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using Photon.Pun;
 
-// Token: 0x020000FC RID: 252
 public class HuntingState : IState
 {
-	// Token: 0x060006E3 RID: 1763 RVA: 0x00027C68 File Offset: 0x00025E68
 	public HuntingState(GhostAI ghostAI, NavMeshAgent agent, PhotonView view)
 	{
 		this.ghostAI = ghostAI;
@@ -14,7 +12,6 @@ public class HuntingState : IState
 		this.view = view;
 	}
 
-	// Token: 0x060006E4 RID: 1764 RVA: 0x00027CA8 File Offset: 0x00025EA8
 	public void Enter()
 	{
 		this.agent.speed = this.ghostAI.defaultSpeed;
@@ -167,7 +164,6 @@ public class HuntingState : IState
 		this.ghostAI.ChangeState(GhostAI.States.favouriteRoom, null, null);
 	}
 
-	// Token: 0x060006E5 RID: 1765 RVA: 0x00028410 File Offset: 0x00026610
 	public void Execute()
 	{
 		this.lockDoorDelay -= Time.deltaTime;
@@ -347,7 +343,6 @@ public class HuntingState : IState
 		}
 	}
 
-	// Token: 0x060006E6 RID: 1766 RVA: 0x00028DDC File Offset: 0x00026FDC
 	public void Exit()
 	{
 		this.ghostAI.anim.SetInteger("WalkType", 0);
@@ -363,7 +358,6 @@ public class HuntingState : IState
 		}
 	}
 
-	// Token: 0x060006E7 RID: 1767 RVA: 0x00028E70 File Offset: 0x00027070
 	private bool RandomNavSphere(out Vector3 hitPos)
 	{
 		float num = UnityEngine.Random.Range(2f, 15f);
@@ -377,7 +371,6 @@ public class HuntingState : IState
 		return false;
 	}
 
-	// Token: 0x060006E8 RID: 1768 RVA: 0x00028ED4 File Offset: 0x000270D4
 	private Vector3 GetPositionOnNavMesh(Vector3 pos)
 	{
 		NavMeshHit navMeshHit;
@@ -385,30 +378,22 @@ public class HuntingState : IState
 		return navMeshHit.position;
 	}
 
-	// Token: 0x040006A2 RID: 1698
 	private GhostAI ghostAI;
 
-	// Token: 0x040006A3 RID: 1699
 	private NavMeshAgent agent;
 
-	// Token: 0x040006A4 RID: 1700
 	private PhotonView view;
 
-	// Token: 0x040006A5 RID: 1701
 	private float timer = 25f;
 
-	// Token: 0x040006A6 RID: 1702
 	private Player player;
 
-	// Token: 0x040006A7 RID: 1703
 	private Player targetPlayer;
 
-	// Token: 0x040006A8 RID: 1704
 	private bool canHunt;
 
-	// Token: 0x040006A9 RID: 1705
 	private float delayTimer = 8f;
 
-	// Token: 0x040006AA RID: 1706
 	private float lockDoorDelay = 1f;
 }
+

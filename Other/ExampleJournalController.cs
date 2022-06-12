@@ -3,10 +3,8 @@ using System.Collections;
 using TLGFPowerBooks;
 using UnityEngine;
 
-// Token: 0x0200001A RID: 26
 public class ExampleJournalController : MonoBehaviour
 {
-	// Token: 0x060000BF RID: 191 RVA: 0x000060F6 File Offset: 0x000042F6
 	private void Start()
 	{
 		this.cam = Camera.main;
@@ -17,7 +15,6 @@ public class ExampleJournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000C0 RID: 192 RVA: 0x00006124 File Offset: 0x00004324
 	private void Update()
 	{
 		if (!this.bookIsOpen)
@@ -72,7 +69,6 @@ public class ExampleJournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000C1 RID: 193 RVA: 0x0000638F File Offset: 0x0000458F
 	public void CloseOverlay()
 	{
 		if (this.activePowerBook != null && this.bookIsOpen)
@@ -81,7 +77,6 @@ public class ExampleJournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000C2 RID: 194 RVA: 0x000063B4 File Offset: 0x000045B4
 	private IEnumerator CloseOverlayAnim()
 	{
 		this.activePowerBook.CloseBook();
@@ -100,7 +95,6 @@ public class ExampleJournalController : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060000C3 RID: 195 RVA: 0x000063C4 File Offset: 0x000045C4
 	public void SetLayer(GameObject parent, int layer)
 	{
 		parent.layer = layer;
@@ -111,52 +105,37 @@ public class ExampleJournalController : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000099 RID: 153
 	public string overlayLayer;
 
-	// Token: 0x0400009A RID: 154
 	public Camera overlayCam;
 
-	// Token: 0x0400009B RID: 155
 	public float raycastDistance = 3f;
 
-	// Token: 0x0400009C RID: 156
 	[Range(0f, 15f)]
 	public float perspectiveAngle;
 
-	// Token: 0x0400009D RID: 157
 	public bool autoOpenBook;
 
-	// Token: 0x0400009E RID: 158
 	public KeyCode openCloseKey;
 
-	// Token: 0x0400009F RID: 159
 	public KeyCode nextPageKey;
 
-	// Token: 0x040000A0 RID: 160
 	public KeyCode prevPageKey;
 
-	// Token: 0x040000A1 RID: 161
 	public GameObject[] disabledGameObjectsWhileReading;
 
-	// Token: 0x040000A2 RID: 162
 	public Camera useThisCameraInsteadOfMain;
 
-	// Token: 0x040000A3 RID: 163
 	private Camera cam;
 
-	// Token: 0x040000A4 RID: 164
 	private PBook activePowerBook;
 
-	// Token: 0x040000A5 RID: 165
 	private Vector3 activePowerBookOriginalPos;
 
-	// Token: 0x040000A6 RID: 166
 	private Quaternion activePowerBookOriginalRot;
 
-	// Token: 0x040000A7 RID: 167
 	private LayerMask activePowerBookOriginalLayer;
 
-	// Token: 0x040000A8 RID: 168
 	private bool bookIsOpen;
 }
+

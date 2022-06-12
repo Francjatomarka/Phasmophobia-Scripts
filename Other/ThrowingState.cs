@@ -2,10 +2,8 @@ using System;
 using UnityEngine;
 using Photon.Pun;
 
-// Token: 0x020000C5 RID: 197
 public class ThrowingState : IState
 {
-	// Token: 0x06000591 RID: 1425 RVA: 0x00020934 File Offset: 0x0001EB34
 	public ThrowingState(GhostAI ghostAI, GhostInteraction ghostInteraction, PhotonObjectInteract prop)
 	{
 		this.ghostAI = ghostAI;
@@ -13,7 +11,6 @@ public class ThrowingState : IState
 		this.prop = prop;
 	}
 
-	// Token: 0x06000592 RID: 1426 RVA: 0x00020954 File Offset: 0x0001EB54
 	public void Enter()
 	{
 		this.ghostAI.ChangeState(GhostAI.States.idle, null, null);
@@ -54,22 +51,18 @@ public class ThrowingState : IState
 		this.ghostInteraction.CreateThrowingEMF(this.prop.transform.position);
 	}
 
-	// Token: 0x06000593 RID: 1427 RVA: 0x00003D4C File Offset: 0x00001F4C
 	public void Execute()
 	{
 	}
 
-	// Token: 0x06000594 RID: 1428 RVA: 0x00003D4C File Offset: 0x00001F4C
 	public void Exit()
 	{
 	}
 
-	// Token: 0x0400053E RID: 1342
 	private GhostAI ghostAI;
 
-	// Token: 0x0400053F RID: 1343
 	private GhostInteraction ghostInteraction;
 
-	// Token: 0x04000540 RID: 1344
 	private PhotonObjectInteract prop;
 }
+

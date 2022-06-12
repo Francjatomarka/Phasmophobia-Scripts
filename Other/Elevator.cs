@@ -5,10 +5,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
 
-// Token: 0x02000023 RID: 35
 public class Elevator : MonoBehaviour
 {
-	// Token: 0x060000E3 RID: 227 RVA: 0x000071D0 File Offset: 0x000053D0
 	private void Awake()
 	{
 		if (base.GetComponentInChildren<ReflectionProbe>())
@@ -94,7 +92,6 @@ public class Elevator : MonoBehaviour
 		Debug.LogWarning("Elevator: To use more than one elevator shaft, please create an empty gameobject in your scene, add the ElevatorManager.cs script on it and make elevators of one elevator shaft as child to this object. Repeate this for every different elevators shafts.");
 	}
 
-	// Token: 0x060000E4 RID: 228 RVA: 0x0000755C File Offset: 0x0000575C
 	private void RandomInit()
 	{
 		if (this._elevatorManager)
@@ -109,7 +106,6 @@ public class Elevator : MonoBehaviour
 		this.TextInside.text = this.ElevatorFloor.ToString();
 	}
 
-	// Token: 0x060000E5 RID: 229 RVA: 0x000075BC File Offset: 0x000057BC
 	private void Update()
 	{
 		if (this.inTrigger)
@@ -258,7 +254,6 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000E6 RID: 230 RVA: 0x00007B58 File Offset: 0x00005D58
 	private void ElevatorGO()
 	{
 		this.ElvFound = false;
@@ -271,13 +266,11 @@ public class Elevator : MonoBehaviour
 		this.SoundFX.Play();
 	}
 
-	// Token: 0x060000E7 RID: 231 RVA: 0x00007BC7 File Offset: 0x00005DC7
 	private void SlowDownStart()
 	{
 		this.SlowDown = true;
 	}
 
-	// Token: 0x060000E8 RID: 232 RVA: 0x00007BD0 File Offset: 0x00005DD0
 	private IEnumerator FloorsCounterInside()
 	{
 		for (;;)
@@ -330,7 +323,6 @@ public class Elevator : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060000E9 RID: 233 RVA: 0x00007BDF File Offset: 0x00005DDF
 	private IEnumerator FloorsCounter()
 	{
 		for (;;)
@@ -356,7 +348,6 @@ public class Elevator : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060000EA RID: 234 RVA: 0x00007BF0 File Offset: 0x00005DF0
 	private void DoorsClosingSoundPlay()
 	{
 		if (this.DoorsAnim[this.AnimName].speed < 0f)
@@ -369,7 +360,6 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000EB RID: 235 RVA: 0x00007C64 File Offset: 0x00005E64
 	private void DoorsOpeningSoundPlay()
 	{
 		if (this.DoorsAnim[this.AnimName].speed > 0f)
@@ -381,7 +371,6 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000EC RID: 236 RVA: 0x00007CCC File Offset: 0x00005ECC
 	private void TargetBellSoundPlay()
 	{
 		foreach (GameObject gameObject in this.Elevators)
@@ -400,7 +389,6 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000ED RID: 237 RVA: 0x00007DA4 File Offset: 0x00005FA4
 	private void BellSoundPlay()
 	{
 		this.SoundFX.clip = this.Bell;
@@ -410,7 +398,6 @@ public class Elevator : MonoBehaviour
 		this.SoundFX.Play();
 	}
 
-	// Token: 0x060000EE RID: 238 RVA: 0x00007DFC File Offset: 0x00005FFC
 	private void TextsUpdate()
 	{
 		foreach (GameObject gameObject in this.Elevators)
@@ -422,7 +409,6 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000EF RID: 239 RVA: 0x00007E98 File Offset: 0x00006098
 	private void ButtonsReset()
 	{
 		foreach (MeshRenderer meshRenderer in this.ElevatorNumericButtons)
@@ -435,7 +421,6 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000F0 RID: 240 RVA: 0x00007F04 File Offset: 0x00006104
 	private void TargetElvOpening()
 	{
 		this.TextsUpdate();
@@ -445,7 +430,6 @@ public class Elevator : MonoBehaviour
 		this.ButtonsReset();
 	}
 
-	// Token: 0x060000F1 RID: 241 RVA: 0x00007F60 File Offset: 0x00006160
 	private void DoorsOpening()
 	{
 		this.TargetFloor = 0;
@@ -456,7 +440,6 @@ public class Elevator : MonoBehaviour
 		this.ButtonsReset();
 	}
 
-	// Token: 0x060000F2 RID: 242 RVA: 0x00007FC3 File Offset: 0x000061C3
 	private void DoorsClosingTimer()
 	{
 		if (this.DoorsAnim[this.AnimName].speed > 0f)
@@ -467,7 +450,6 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000F3 RID: 243 RVA: 0x00008000 File Offset: 0x00006200
 	private void DoorsClosing()
 	{
 		if (this.isOpen)
@@ -483,7 +465,6 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000F4 RID: 244 RVA: 0x0000807C File Offset: 0x0000627C
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject == this.Player.gameObject)
@@ -497,7 +478,6 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060000F5 RID: 245 RVA: 0x000080D0 File Offset: 0x000062D0
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject == this.Player.gameObject)
@@ -511,176 +491,124 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040000D9 RID: 217
 	private bool inTrigger;
 
-	// Token: 0x040000DA RID: 218
 	private Rigidbody Player;
 
-	// Token: 0x040000DB RID: 219
 	private Transform PlayerCam;
 
-	// Token: 0x040000DC RID: 220
 	[Tooltip("Type your Player's tag here.")]
 	public string PlayerTag = "Player";
 
-	// Token: 0x040000DD RID: 221
 	private Animation DoorsAnim;
 
-	// Token: 0x040000DE RID: 222
 	[Tooltip("Speed multiplier of the doors opening and closing. 1 is default speed.")]
 	public float DoorsAnimSpeed = 1f;
 
-	// Token: 0x040000DF RID: 223
 	[Tooltip("How fast the elevator 'passes' one floor. The time in seconds.")]
 	public float OneFloorTime = 1.5f;
 
-	// Token: 0x040000E0 RID: 224
 	private float OpenDelay = 1f;
 
-	// Token: 0x040000E1 RID: 225
 	[Tooltip("How long the doors are open. The time in seconds.")]
 	public float CloseDelay = 4f;
 
-	// Token: 0x040000E2 RID: 226
 	private bool isOpen;
 
-	// Token: 0x040000E3 RID: 227
 	private string AnimName = "ElevatorDoorsAnim_open";
 
-	// Token: 0x040000E4 RID: 228
 	private string InputFloor = "";
 
-	// Token: 0x040000E5 RID: 229
 	private int TargetFloor;
 
-	// Token: 0x040000E6 RID: 230
 	[Tooltip("The floor, where this elevator is placed. Set an unique value for each elevator.")]
 	public int CurrentFloor;
 
-	// Token: 0x040000E7 RID: 231
 	private int FloorCount;
 
-	// Token: 0x040000E8 RID: 232
 	[HideInInspector]
 	public int ElevatorFloor;
 
-	// Token: 0x040000E9 RID: 233
 	private List<GameObject> Elevators = new List<GameObject>();
 
-	// Token: 0x040000EA RID: 234
 	private Elevator[] ElevatorsScripts;
 
-	// Token: 0x040000EB RID: 235
 	private Animation TargetElvAnim;
 
-	// Token: 0x040000EC RID: 236
 	private TextMesh TargetElvTextInside;
 
-	// Token: 0x040000ED RID: 237
 	private TextMesh TargetElvTextOutside;
 
-	// Token: 0x040000EE RID: 238
 	public TextMesh TextOutside;
 
-	// Token: 0x040000EF RID: 239
 	public TextMesh TextInside;
 
-	// Token: 0x040000F0 RID: 240
 	[Tooltip("If set to true, the Reflection Probe inside the elevator will be updated every frame, when the player near or inside the elevator. Can impact performance.")]
 	public bool UpdateReflectionEveryFrame;
 
-	// Token: 0x040000F1 RID: 241
 	private bool isReflectionProbe = true;
 
-	// Token: 0x040000F2 RID: 242
 	private MeshRenderer ElevatorOpenButton;
 
-	// Token: 0x040000F3 RID: 243
 	private MeshRenderer ElevatorGoBtn;
 
-	// Token: 0x040000F4 RID: 244
 	private List<MeshRenderer> ElevatorNumericButtons = new List<MeshRenderer>();
 
-	// Token: 0x040000F5 RID: 245
 	private AudioSource SoundFX;
 
-	// Token: 0x040000F6 RID: 246
 	private AudioSource TargetSoundFX;
 
-	// Token: 0x040000F7 RID: 247
 	private bool SpeedUp;
 
-	// Token: 0x040000F8 RID: 248
 	private bool SlowDown;
 
-	// Token: 0x040000F9 RID: 249
 	private static bool Moving;
 
-	// Token: 0x040000FA RID: 250
 	private bool isPlayer;
 
-	// Token: 0x040000FB RID: 251
 	private float PlayerHeight;
 
-	// Token: 0x040000FC RID: 252
 	private bool isRigidbodyCharacter;
 
-	// Token: 0x040000FD RID: 253
 	private ReflectionProbe probe;
 
-	// Token: 0x040000FE RID: 254
 	[Header("Sound Effects settings")]
 	public AudioClip Bell;
 
-	// Token: 0x040000FF RID: 255
 	[Range(0f, 1f)]
 	public float BellVolume = 1f;
 
-	// Token: 0x04000100 RID: 256
 	public AudioClip DoorsOpen;
 
-	// Token: 0x04000101 RID: 257
 	[Range(0f, 1f)]
 	public float DoorsOpenVolume = 1f;
 
-	// Token: 0x04000102 RID: 258
 	public AudioClip DoorsClose;
 
-	// Token: 0x04000103 RID: 259
 	[Range(0f, 1f)]
 	public float DoorsCloseVolume = 1f;
 
-	// Token: 0x04000104 RID: 260
 	public AudioClip ElevatorMove;
 
-	// Token: 0x04000105 RID: 261
 	[Range(0f, 1f)]
 	public float ElevatorMoveVolume = 1f;
 
-	// Token: 0x04000106 RID: 262
 	public AudioClip ElevatorBtn;
 
-	// Token: 0x04000107 RID: 263
 	[Range(0f, 1f)]
 	public float ElevatorBtnVolume = 1f;
 
-	// Token: 0x04000108 RID: 264
 	public AudioClip ElevatorError;
 
-	// Token: 0x04000109 RID: 265
 	[Range(0f, 1f)]
 	public float ElevatorErrorVolume = 1f;
 
-	// Token: 0x0400010A RID: 266
 	private AudioSource BtnSoundFX;
 
-	// Token: 0x0400010B RID: 267
 	private bool ElvFound;
 
-	// Token: 0x0400010C RID: 268
 	private ElevatorManager _elevatorManager;
 
-	// Token: 0x0400010D RID: 269
 	private GameObject ElevatorsParent;
 }
+

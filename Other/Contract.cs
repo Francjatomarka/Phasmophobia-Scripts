@@ -2,29 +2,24 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-// Token: 0x02000133 RID: 307
 public class Contract : MonoBehaviour
 {
-	// Token: 0x06000879 RID: 2169 RVA: 0x00033AEC File Offset: 0x00031CEC
 	private void Awake()
 	{
 		this.CreateDescriptions();
 	}
 
-	// Token: 0x0600087A RID: 2170 RVA: 0x00033AF4 File Offset: 0x00031CF4
 	public void SelectContractButton()
 	{
 		this.levelSelectionManager.SelectContractButton(this);
 	}
 
-	// Token: 0x0600087B RID: 2171 RVA: 0x00033B04 File Offset: 0x00031D04
 	private void CreateDescriptions()
 	{
 		this.secondDescription = LocalisationSystem.GetLocalisedValue("Map_SecondDescription" + UnityEngine.Random.Range(1, 6));
 		this.thirdDescription = LocalisationSystem.GetLocalisedValue("Map_ThirdDescription" + UnityEngine.Random.Range(1, 6));
 	}
 
-	// Token: 0x0600087C RID: 2172 RVA: 0x00033B54 File Offset: 0x00031D54
 	public void GenerateContract()
 	{
 		int num = Mathf.FloorToInt((float)(PlayerPrefs.GetInt("myTotalExp") / 100));
@@ -109,7 +104,6 @@ public class Contract : MonoBehaviour
 		this.levelNameText.text = this.levelName;
 	}
 
-	// Token: 0x0600087D RID: 2173 RVA: 0x00033C78 File Offset: 0x00031E78
 	public void GenerateSmallLevel(bool forceLevel, int _levelID)
 	{
 		int num;
@@ -183,7 +177,6 @@ public class Contract : MonoBehaviour
 		this.levelSelectionManager.currentContracts.Add(this);
 	}
 
-	// Token: 0x0600087E RID: 2174 RVA: 0x00033F68 File Offset: 0x00032168
 	public void GenerateMediumLevel()
 	{
 		this.levelName = "Brownstone High School";
@@ -204,7 +197,6 @@ public class Contract : MonoBehaviour
 		this.levelSelectionManager.currentContracts.Add(this);
 	}
 
-	// Token: 0x0600087F RID: 2175 RVA: 0x00034038 File Offset: 0x00032238
 	public void GenerateLargeLevel()
 	{
 		this.levelName = "Asylum";
@@ -225,95 +217,66 @@ public class Contract : MonoBehaviour
 		this.levelSelectionManager.currentContracts.Add(this);
 	}
 
-	// Token: 0x0400088C RID: 2188
 	[HideInInspector]
 	public string levelName;
 
-	// Token: 0x0400088D RID: 2189
 	[HideInInspector]
 	public Contract.LevelType levelType;
 
-	// Token: 0x0400088E RID: 2190
 	[HideInInspector]
 	public Contract.LevelSize levelSize;
 
-	// Token: 0x0400088F RID: 2191
 	[HideInInspector]
 	public Contract.LevelDifficulty levelDiffulty;
 
-	// Token: 0x04000890 RID: 2192
 	[HideInInspector]
 	public string basicDescription;
 
-	// Token: 0x04000891 RID: 2193
 	[HideInInspector]
 	public string secondDescription;
 
-	// Token: 0x04000892 RID: 2194
 	[HideInInspector]
 	public string thirdDescription;
 
-	// Token: 0x04000893 RID: 2195
 	[HideInInspector]
 	public string firstBulletPoint;
 
-	// Token: 0x04000894 RID: 2196
 	[HideInInspector]
 	public string secondBulletPoint;
 
-	// Token: 0x04000895 RID: 2197
 	[HideInInspector]
 	public string thirdBulletPoint;
 
-	// Token: 0x04000896 RID: 2198
 	[SerializeField]
 	private LevelSelectionManager levelSelectionManager;
 
-	// Token: 0x04000897 RID: 2199
 	public Text levelNameText;
 
-	// Token: 0x020004E0 RID: 1248
 	public enum LevelDifficulty
 	{
-		// Token: 0x0400230B RID: 8971
 		Amateur,
-		// Token: 0x0400230C RID: 8972
 		Intermediate,
-		// Token: 0x0400230D RID: 8973
 		Professional
 	}
 
-	// Token: 0x020004E1 RID: 1249
 	public enum LevelSize
 	{
-		// Token: 0x0400230F RID: 8975
 		none,
-		// Token: 0x04002310 RID: 8976
 		small,
-		// Token: 0x04002311 RID: 8977
 		medium,
-		// Token: 0x04002312 RID: 8978
 		large
 	}
 
-	// Token: 0x020004E2 RID: 1250
 	public enum LevelType
 	{
-		// Token: 0x04002314 RID: 8980
 		none,
-		// Token: 0x04002315 RID: 8981
 		Tanglewood_Street_House,
-		// Token: 0x04002316 RID: 8982
 		Asylum,
-		// Token: 0x04002317 RID: 8983
 		Edgefield_Street_House,
-		// Token: 0x04002318 RID: 8984
 		Ridgeview_Road_House,
-		// Token: 0x04002319 RID: 8985
 		Brownstone_High_School,
-		// Token: 0x0400231A RID: 8986
 		Bleasdale_Farmhouse,
-		// Token: 0x0400231B RID: 8987
 		Grafton_Farmhouse
 	}
 }
+

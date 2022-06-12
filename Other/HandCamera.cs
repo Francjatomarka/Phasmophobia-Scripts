@@ -6,25 +6,21 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Photon.Pun;
 
-// Token: 0x02000113 RID: 275
 [RequireComponent(typeof(PhotonView))]
 [RequireComponent(typeof(AudioSource))]
 public class HandCamera : MonoBehaviour
 {
-	// Token: 0x060007A8 RID: 1960 RVA: 0x0002DE2B File Offset: 0x0002C02B
 	private void Start()
 	{
 		this.photonInteract.AddUseEvent(new UnityAction(this.Use));
 	}
 
-	// Token: 0x060007A9 RID: 1961 RVA: 0x0002DE44 File Offset: 0x0002C044
 	private void Awake()
 	{
 		this.noise.gameObject.SetActive(false);
 		this.UpdateUIValue();
 	}
 
-	// Token: 0x060007AA RID: 1962 RVA: 0x0002DE5D File Offset: 0x0002C05D
 	private void Update()
 	{
 		if (!this.canTakePhoto)
@@ -38,7 +34,6 @@ public class HandCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007AB RID: 1963 RVA: 0x0002DE98 File Offset: 0x0002C098
 	private void OnDisable()
 	{
 		this.canTakePhoto = true;
@@ -49,7 +44,6 @@ public class HandCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007AC RID: 1964 RVA: 0x0002DEC5 File Offset: 0x0002C0C5
 	public void Use()
 	{
 		if (this.canTakePhoto)
@@ -65,7 +59,6 @@ public class HandCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007AD RID: 1965 RVA: 0x0002DEE5 File Offset: 0x0002C0E5
 	[PunRPC]
 	private IEnumerator NetworkedUse()
 	{
@@ -148,7 +141,6 @@ public class HandCamera : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060007AE RID: 1966 RVA: 0x0002DEF4 File Offset: 0x0002C0F4
 	private void UpdateUIValue()
 	{
 		if (this.currentAmountOfPhotos >= 0)
@@ -157,7 +149,6 @@ public class HandCamera : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060007AF RID: 1967 RVA: 0x0002DF15 File Offset: 0x0002C115
 	private IEnumerator PlayNoiseObject()
 	{
 		this.noise.gameObject.SetActive(true);
@@ -166,7 +157,6 @@ public class HandCamera : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060007B0 RID: 1968 RVA: 0x0002DF24 File Offset: 0x0002C124
 	private void AddPhotoToJournal(string evidenceName, int evidenceAmount)
 	{
 		RenderTexture renderTexture = new RenderTexture(384, 216, 24);
@@ -192,7 +182,6 @@ public class HandCamera : MonoBehaviour
 		this.AddPhoto(texture2D.GetRawTextureData(), evidenceName, evidenceAmount);
 	}
 
-	// Token: 0x060007B1 RID: 1969 RVA: 0x0002DFF8 File Offset: 0x0002C1F8
 	[PunRPC]
 	private void AddPhoto(byte[] sprBytes, string evidenceName, int evidenceAmount)
 	{
@@ -228,46 +217,35 @@ public class HandCamera : MonoBehaviour
 		PlayerPrefs.SetInt("SavedPhotosIndex", num);
 	}
 
-	// Token: 0x040007AE RID: 1966
 	public Camera cam;
 
-	// Token: 0x040007AF RID: 1967
 	[SerializeField]
 	private AudioSource source;
 
-	// Token: 0x040007B0 RID: 1968
 	[SerializeField]
 	private Light flashLight;
 
-	// Token: 0x040007B1 RID: 1969
 	[SerializeField]
 	private PhotonView view;
 
-	// Token: 0x040007B2 RID: 1970
 	[SerializeField]
 	private PhotonObjectInteract photonInteract;
 
-	// Token: 0x040007B3 RID: 1971
 	public LayerMask mask;
 
-	// Token: 0x040007B4 RID: 1972
 	[SerializeField]
 	private Noise noise;
 
-	// Token: 0x040007B5 RID: 1973
 	private float timer = 2f;
 
-	// Token: 0x040007B6 RID: 1974
 	[SerializeField]private bool canTakePhoto = true;
 
-	// Token: 0x040007B7 RID: 1975
 	private int currentAmountOfPhotos = 5;
 
-	// Token: 0x040007B8 RID: 1976
 	[SerializeField]
 	private Text photosValueText;
 
-	// Token: 0x040007B9 RID: 1977
 	[SerializeField]
 	private Renderer screen;
 }
+

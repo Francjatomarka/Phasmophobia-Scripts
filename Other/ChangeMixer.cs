@@ -2,11 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 
-// Token: 0x0200012B RID: 299
 [RequireComponent(typeof(Rigidbody))]
 public class ChangeMixer : MonoBehaviour
 {
-	// Token: 0x06000853 RID: 2131 RVA: 0x0003278C File Offset: 0x0003098C
 	private void Start()
 	{
 		if (this.isDefaultSnapshot)
@@ -15,7 +13,6 @@ public class ChangeMixer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06000854 RID: 2132 RVA: 0x000327A8 File Offset: 0x000309A8
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.GetComponent<EVPRecorder>())
@@ -83,27 +80,22 @@ public class ChangeMixer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000860 RID: 2144
 	[SerializeField]
 	private AudioMixerSnapshot snapshot;
 
-	// Token: 0x04000861 RID: 2145
 	[SerializeField]
 	private AudioReverbZone reverbZone;
 
-	// Token: 0x04000862 RID: 2146
 	[SerializeField]
 	private bool activateReverbZone;
 
-	// Token: 0x04000863 RID: 2147
 	[SerializeField]
 	private bool isDefaultSnapshot;
 
-	// Token: 0x04000864 RID: 2148
 	[SerializeField]
 	private LevelRoom.Type floorType = LevelRoom.Type.firstFloor;
 
-	// Token: 0x04000865 RID: 2149
 	[SerializeField]
 	private bool isDeadZoneMixer;
 }
+
